@@ -6,6 +6,12 @@
 #include "GameFramework/Character.h"
 #include "CicadaMainCharacter.generated.h"
 
+
+DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE(
+	FOnPlayerDeathSignature,
+	ACicadaMainCharacter, OnPlayerDeathDelegate
+);
+
 UCLASS()
 class CRIMSONCICADA_API ACicadaMainCharacter : public ACharacter
 {
@@ -26,9 +32,34 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UFUNCTION(BlueprintCallable)
-	void Sprint();
+	UPROPERTY(BlueprintAssignable)
+	FOnPlayerDeathSignature OnPlayerDeathDelegate;
 
 	UFUNCTION(BlueprintCallable)
+	void Sprint();
+	UFUNCTION(BlueprintCallable)
 	void StopSprinting();
+
+	UFUNCTION(BlueprintCallable)
+	void Die();
+
+	UFUNCTION(BlueprintCallable)
+	void RestartGame();
+
+	UFUNCTION()
+	void OnPlayerDeath();
+
+	UFUNCTION()
+	void CreateDeathScreenWidget();
+
+private:
+	class UCameraComponent* CameraComp;
+	UCharacterMovementComponent* MovementComp;
+	class USpringArmComponent* SpringArmComp;
+
+	UPROPERTY(EditDefaultsOnly, Category="UI")
+	TSubclassOf<UUserWidget> DeathScreenWidgetClass;
+	UUserWidget* DeathScreenWidget;
+	
+	bool bIsDead{ false };
 };

@@ -2,8 +2,11 @@
 
 
 #include "Characters/MainCharacter/CicadaMainCharacter.h"
-
+#include "Blueprint/UserWidget.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ACicadaMainCharacter::ACicadaMainCharacter()
@@ -17,7 +20,11 @@ ACicadaMainCharacter::ACicadaMainCharacter()
 void ACicadaMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	OnPlayerDeathDelegate.AddDynamic(this, &ACicadaMainCharacter::OnPlayerDeath);
+	CameraComp = GetComponentByClass<UCameraComponent>();
+	SpringArmComp = GetComponentByClass<USpringArmComponent>();
+	MovementComp = GetCharacterMovement();
 }
 
 // Called every frame
@@ -36,11 +43,79 @@ void ACicadaMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 
 void ACicadaMainCharacter::Sprint()
 {
-	GetCharacterMovement()->MaxWalkSpeed = 1200;
+	MovementComp->MaxWalkSpeed = 1200;
 }
 
 void ACicadaMainCharacter::StopSprinting()
 {
-	GetCharacterMovement()->MaxWalkSpeed = 600;
+	MovementComp->MaxWalkSpeed = 600;
+}
+
+void ACicadaMainCharacter::Die()
+{
+	if (!bIsDead)
+	{
+		bIsDead = true;
+		OnPlayerDeathDelegate.Broadcast();
+	}
+}
+
+void ACicadaMainCharacter::OnPlayerDeath()
+{
+	// after a few seconds show widget for restarting and other options
+
+	MovementComp->MaxWalkSpeed = 0;
+
+	AController* PlayerController = GetController();
+	if (PlayerController)
+	{
+		PlayerController->SetIgnoreLookInput(true);
+		PlayerController->SetIgnoreMoveInput(true);
+		PlayerController->SetControlRotation(FRotator::ZeroRotator);
+	}
+	
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationRoll = false;
+
+	SpringArmComp->bUsePawnControlRotation = false;
+	CameraComp->bUsePawnControlRotation = false;
+	SpringArmComp->SetUsingAbsoluteRotation(true);
+	CameraComp->SetRelativeRotation(FRotator::ZeroRotator);
+
+	SpringArmComp->SetRelativeLocation(FVector(0.f, 0.f, 300.f));
+	SpringArmComp->SetRelativeRotation(FRotator(-90.f, 0.f, 0.f));
+	SpringArmComp->TargetArmLength = 600.f;
+
+	SpringArmComp->bEnableCameraLag = true;
+	SpringArmComp->CameraLagSpeed = 2.f;
+
+	FTimerHandle DeathWidgetTimerHandle;
+	GetWorldTimerManager().SetTimer(
+		DeathWidgetTimerHandle, this, &ACicadaMainCharacter::CreateDeathScreenWidget, 3.0f);
+}
+
+void ACicadaMainCharacter::CreateDeathScreenWidget()
+{
+	DeathScreenWidget = CreateWidget<UUserWidget>(GetWorld(), DeathScreenWidgetClass);
+	DeathScreenWidget->AddToViewport();
+	
+	APlayerController* PC = Cast<APlayerController>(GetController());
+	PC->SetInputMode(FInputModeUIOnly());
+	PC->bShowMouseCursor = true;
+}
+
+void ACicadaMainCharacter::RestartGame()
+{
+	UE_LOG(LogTemp, Warning, TEXT("RestartGame"));
+	
+	APlayerController* PC = Cast<APlayerController>(GetController());
+	PC->SetInputMode(FInputModeGameOnly());
+	PC->bShowMouseCursor = false;
+
+	DeathScreenWidget->RemoveFromParent();
+	DeathScreenWidget = nullptr;
+	
+	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 }
 
