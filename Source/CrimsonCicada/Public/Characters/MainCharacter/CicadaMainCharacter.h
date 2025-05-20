@@ -52,6 +52,12 @@ public:
 	UFUNCTION()
 	void CreateDeathScreenWidget();
 
+	UFUNCTION(BlueprintCallable)
+	void SetAlternateMovementMode(bool bSetting);
+	
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsInAlternateMovementMode{ false };
+	
 private:
 	class UCameraComponent* CameraComp;
 	UCharacterMovementComponent* MovementComp;
@@ -60,6 +66,10 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category="UI")
 	TSubclassOf<UUserWidget> DeathScreenWidgetClass;
 	UUserWidget* DeathScreenWidget;
+
+	void SetAlternateMovementModeSettings(bool State);
 	
 	bool bIsDead{ false };
+	
+	
 };

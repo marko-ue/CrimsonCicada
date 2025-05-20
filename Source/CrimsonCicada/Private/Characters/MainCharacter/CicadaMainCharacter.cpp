@@ -31,7 +31,6 @@ void ACicadaMainCharacter::BeginPlay()
 void ACicadaMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -117,5 +116,30 @@ void ACicadaMainCharacter::RestartGame()
 	DeathScreenWidget = nullptr;
 	
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+}
+
+void ACicadaMainCharacter::SetAlternateMovementMode(bool bSetting)
+{
+	if (bIsInAlternateMovementMode == bSetting)
+		return;
+
+	bIsInAlternateMovementMode = bSetting;
+	SetAlternateMovementModeSettings(bSetting);
+}
+
+void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
+{
+	if (State && MovementComp->GravityScale != 0.2f && SpringArmComp->bEnableCameraLag != true)
+	{
+		MovementComp->GravityScale = 0.2f;
+		SpringArmComp->bEnableCameraLag = true;
+		SpringArmComp->bEnableCameraRotationLag = true;
+	}
+	else if (!State && MovementComp->GravityScale != 1 && SpringArmComp->bEnableCameraLag != false)
+	{
+		MovementComp->GravityScale = 1;
+		SpringArmComp->bEnableCameraLag = false;
+		SpringArmComp->bEnableCameraRotationLag = false;
+	}
 }
 
