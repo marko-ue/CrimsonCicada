@@ -114,5 +114,7 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 		EquippedWeapon = nullptr;
 		WeaponActor->bCanBeEquipped = true;
 	}
+
+	
 }
 

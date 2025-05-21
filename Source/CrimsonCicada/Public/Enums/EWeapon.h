@@ -9,5 +9,6 @@ enum class EWeapon : uint8
 {
 	None,
 	Brick,
-	DoubleDeagle
+	DoubleDeagle,
+	SMG
 };

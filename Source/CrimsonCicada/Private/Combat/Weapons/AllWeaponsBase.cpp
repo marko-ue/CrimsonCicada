@@ -54,6 +54,7 @@ void AAllWeaponsBase::PerformPrimaryAction()
 	}
 }
 
+
 void AAllWeaponsBase::AddWeaponToInventory(EWeapon WeaponToAdd)
 {
 	InventoryComp->AddItemToInventory(WeaponToAdd, 1);

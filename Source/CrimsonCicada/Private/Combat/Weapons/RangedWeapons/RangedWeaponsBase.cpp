@@ -18,3 +18,16 @@ void ARangedWeaponsBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
+
+void ARangedWeaponsBase::StartAutomaticFire()
+{
+}
+
+void ARangedWeaponsBase::StopAutomaticFire()
+{
+}
+
+void ARangedWeaponsBase::PerformPrimaryActionAutomatic()
+{
+}
+

@@ -70,6 +70,8 @@ private:
 	void SetAlternateMovementModeSettings(bool State);
 	
 	bool bIsDead{ false };
+
+	
 	
 	
 };

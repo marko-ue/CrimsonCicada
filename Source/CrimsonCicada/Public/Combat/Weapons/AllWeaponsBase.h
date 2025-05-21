@@ -39,6 +39,7 @@ protected:
 
 	virtual EWeapon GetWeaponEnum() const;
 
+
 public:
 	bool bCanBeEquipped{ true };
 
