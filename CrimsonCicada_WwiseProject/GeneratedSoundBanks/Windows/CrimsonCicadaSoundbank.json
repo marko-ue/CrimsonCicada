@@ -1,0 +1,21 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "120541664",
+    "Type": "User",
+    "GUID": "{49134A27-5654-489E-9AFE-B24C256C1364}",
+    "Language": "SFX",
+    "Hash": "{24000388-EBCE-4ACD-11EE-E7277D21CF6C}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\CrimsonCicadaSoundbank",
+    "ShortName": "CrimsonCicadaSoundbank",
+    "Path": "CrimsonCicadaSoundbank.bnk"
+   }
+  ],
+  "FileHash": "{EEDADF32-504C-2A4E-AB19-A4981C89FE1D}"
+ }
+}
