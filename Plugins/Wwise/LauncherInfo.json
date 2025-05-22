@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "originalSdkFolder": "C:\\Audiokinetic\\Wwise2024.1.5.8803\\Wwise2024.1.5.8803\\SDK",
+=======
+    "originalSdkFolder": "C:\\Program Files (x86)\\Audiokinetic\\Wwise2024.1.5.8803\\SDK",
+>>>>>>> 879fc5b9987ebcd8e0bfb8287f1d982867d944e6
     "currentVersion": {
         "nickname": "",
         "build": 3676,

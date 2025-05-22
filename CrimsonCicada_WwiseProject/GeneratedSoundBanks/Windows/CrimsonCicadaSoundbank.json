@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "120541664",
+    "Type": "User",
+    "GUID": "{49134A27-5654-489E-9AFE-B24C256C1364}",
+    "Language": "SFX",
+    "Hash": "{142C8842-A033-2B3F-1B2D-B3D107F804AF}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\CrimsonCicadaSoundbank",
+    "ShortName": "CrimsonCicadaSoundbank",
+    "Path": "CrimsonCicadaSoundbank.bnk",
+    "Media": [
+     {
+      "Id": "295780984",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "test.wav",
+      "CachePath": "92/{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3187507146",
+      "Name": "Play_test",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_test",
+      "GUID": "{5FFB123F-BE9C-4DF4-A648-FDEADF09BA68}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5",
+      "DurationMax": "1.5",
+      "MediaRefs": [
+       {
+        "Id": "295780984"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{0C6AAC60-A9DE-5423-7F35-49AC06D603DB}"
+ }
+}

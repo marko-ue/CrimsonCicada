@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{08138609-20CF-4054-94F6-FEDEE3710B1F}" SchemaVersion="123">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{08138609-20CF-4054-94F6-FEDEE3710B1F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{08138609-20CF-4054-94F6-FEDEE3710B1F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="CrimsonCicadaSoundbank" ID="{49134A27-5654-489E-9AFE-B24C256C1364}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_test" ID="{5FFB123F-BE9C-4DF4-A648-FDEADF09BA68}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

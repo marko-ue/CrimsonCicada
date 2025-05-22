@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3187507146	Play_test			\Default Work Unit\Play_test	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	295780984	test	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\92\{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		288224
+
