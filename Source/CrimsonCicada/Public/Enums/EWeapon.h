@@ -10,5 +10,6 @@ enum class EWeapon : uint8
 	None,
 	Brick,
 	DoubleDeagle,
-	SMG
+	SMG,
+	ShotgunGun
 };

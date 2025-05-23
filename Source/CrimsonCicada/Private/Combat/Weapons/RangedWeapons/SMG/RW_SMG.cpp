@@ -18,10 +18,8 @@ void ARW_SMG::BeginPlay()
 
 void ARW_SMG::PerformPrimaryActionAutomatic()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Perform Primary Action Automatic"));
-	
 	FHitResult HitResultStraight;
-	bool bHit = PerformWeaponTraceComp->PerformStraightTrace(Range, HitResultStraight);
+	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
 
 	if (bHit)
 	{

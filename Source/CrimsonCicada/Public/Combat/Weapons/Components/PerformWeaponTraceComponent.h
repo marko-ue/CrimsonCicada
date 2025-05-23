@@ -31,5 +31,7 @@ protected:
 	bool bDebugMode;
 
 public:
-	bool PerformStraightTrace(float WeaponRange, FHitResult& OutHit);	
+	bool PerformStraightTraceFromCamera(float WeaponRange, FHitResult& OutHit, ECollisionChannel TraceChannel);
+	bool PerformSpreadTraces(FVector TraceStart, float SpreadRange, FHitResult& OutHit, ECollisionChannel TraceChannel);
+	
 };
