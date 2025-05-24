@@ -14,6 +14,58 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Music" ID="{B427CDAF-D5FC-41A1-9226-FDB771DBBA6C}" ShortID="527593056"/>
+				<Folder Name="Sfx" ID="{33A08ED6-8CED-41F0-8FCE-6A315FB893CF}" ShortID="948553250">
+					<ChildrenList>
+						<Folder Name="Sfx" ID="{8866508B-91D0-481B-A3A9-40EB9D069D5D}" ShortID="1032120712"/>
+						<Folder Name="Player" ID="{4619947F-9E5C-46D3-831E-2501A6F4D730}" ShortID="54098912">
+							<ChildrenList>
+								<Event Name="Play_Footstep" ID="{E19F522D-DAEE-4000-813B-3D04734C1DFF}">
+									<ChildrenList>
+										<Action Name="" ID="{0A8F8BFD-B14E-4857-9C9A-3A7321EF80D4}" ShortID="948605006">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Footstep" ID="{45D5955E-7F12-48B0-90C8-DDD1A8DCE467}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Enemies" ID="{ADF1B290-8C17-4434-8B07-F31C33BDA218}" ShortID="1052304911"/>
+						<Folder Name="Env" ID="{19BE7BAF-806D-480D-8E3B-156491012C99}" ShortID="144091195">
+							<ChildrenList>
+								<Event Name="Play_Wind" ID="{A332CF22-BFF4-42C1-8D76-4DB24BF577FE}">
+									<ChildrenList>
+										<Action Name="" ID="{403F1B39-8D8A-4410-AD88-E2AEC3E6EB16}" ShortID="1010959443">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wind" ID="{9DACB6F3-FDC3-45BE-960B-56BBF650787B}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_Wind" ID="{6ECE9BE5-0693-4F03-8B83-DAC8DD69849C}">
+									<ChildrenList>
+										<Action Name="" ID="{7A08C4EB-EB97-4A5F-BED9-F3FB3FDBE56D}" ShortID="811111019">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wind" ID="{9DACB6F3-FDC3-45BE-960B-56BBF650787B}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="UI" ID="{3C0DDB7F-D12F-425E-A14C-63CC74256087}" ShortID="845556212"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
