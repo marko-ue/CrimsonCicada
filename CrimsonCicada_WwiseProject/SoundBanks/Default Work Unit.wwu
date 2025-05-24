@@ -5,7 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="CrimsonCicadaSoundbank" ID="{49134A27-5654-489E-9AFE-B24C256C1364}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_Footstep" ID="{E19F522D-DAEE-4000-813B-3D04734C1DFF}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Wind" ID="{A332CF22-BFF4-42C1-8D76-4DB24BF577FE}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_test" ID="{5FFB123F-BE9C-4DF4-A648-FDEADF09BA68}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Wind" ID="{6ECE9BE5-0693-4F03-8B83-DAC8DD69849C}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

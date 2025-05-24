@@ -1,6 +1,19 @@
 Event	ID	Name			Wwise Object Path	Notes
+	1020223172	Play_Wind			\Default Work Unit\Sfx\Env\Play_Wind	
+	1602358412	Play_Footstep			\Default Work Unit\Sfx\Player\Play_Footstep	
+	3173136834	Stop_Wind			\Default Work Unit\Sfx\Env\Stop_Wind	
 	3187507146	Play_test			\Default Work Unit\Play_test	
 
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	397972852	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\New Silence_01\Silence	
+	977811858	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\New Silence\Silence	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	105437372	AmbWind	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\1B\{1B0C273F-2A36-3014-570A-B7C344934FD3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\AmbWind		2180924
+	157165222	FSPlayerStone4	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\5E\{5E51D405-4DF5-FB78-2B32-A96022EAA19F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone4		50052
+	186863569	FSPlayerStone1	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\49\{49424219-D503-D2CB-4611-FFE6E2AA3B1D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone1		47020
 	295780984	test	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\92\{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		288224
+	378340662	randomwind	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\94\{945737F9-314D-5468-ECDD-7CAFC26B6D7F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\randomwind		1568844
+	631261199	FSPlayerStone3	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\84\{84FF4FCB-E593-996D-CDA9-DF46B438E6FE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone3		42960
+	778070558	FSPlayerStone2	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\E7\{E767C619-4262-1104-1E77-4261C20600A2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone2		46688
 

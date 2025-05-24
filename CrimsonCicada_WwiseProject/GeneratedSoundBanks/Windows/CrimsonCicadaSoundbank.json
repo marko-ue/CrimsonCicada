@@ -10,11 +10,35 @@
     "Type": "User",
     "GUID": "{49134A27-5654-489E-9AFE-B24C256C1364}",
     "Language": "SFX",
-    "Hash": "{142C8842-A033-2B3F-1B2D-B3D107F804AF}",
+    "Hash": "{45A6D031-72FA-C96D-7B75-48F0349B4592}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\CrimsonCicadaSoundbank",
     "ShortName": "CrimsonCicadaSoundbank",
     "Path": "CrimsonCicadaSoundbank.bnk",
     "Media": [
+     {
+      "Id": "105437372",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "AmbWind.wav",
+      "CachePath": "1B/{1B0C273F-2A36-3014-570A-B7C344934FD3}.wem"
+     },
+     {
+      "Id": "157165222",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FSPlayerStone4.wav",
+      "CachePath": "5E/{5E51D405-4DF5-FB78-2B32-A96022EAA19F}.wem"
+     },
+     {
+      "Id": "186863569",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FSPlayerStone1.wav",
+      "CachePath": "49/{49424219-D503-D2CB-4611-FFE6E2AA3B1D}.wem"
+     },
      {
       "Id": "295780984",
       "Language": "SFX",
@@ -22,9 +46,84 @@
       "Location": "Memory",
       "ShortName": "test.wav",
       "CachePath": "92/{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem"
+     },
+     {
+      "Id": "378340662",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "randomwind.wav",
+      "CachePath": "94/{945737F9-314D-5468-ECDD-7CAFC26B6D7F}.wem"
+     },
+     {
+      "Id": "631261199",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FSPlayerStone3.wav",
+      "CachePath": "84/{84FF4FCB-E593-996D-CDA9-DF46B438E6FE}.wem"
+     },
+     {
+      "Id": "778070558",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FSPlayerStone2.wav",
+      "CachePath": "E7/{E767C619-4262-1104-1E77-4261C20600A2}.wem"
      }
     ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "397972852",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Sfx\\Env\\Wind\\Rdmwind\\New Silence_01\\Silence",
+       "GUID": "{BB30011F-0CC7-4C02-90C5-65566CB877AA}",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      },
+      {
+       "Id": "977811858",
+       "Name": "Silence",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Sfx\\Env\\Wind\\Rdmwind\\New Silence\\Silence",
+       "GUID": "{4409335F-99C9-4121-9B6C-52C52E59906B}",
+       "LibName": "Wwise Silence",
+       "LibId": "6619138"
+      }
+     ]
+    },
     "Events": [
+     {
+      "Id": "1602358412",
+      "Name": "Play_Footstep",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Play_Footstep",
+      "GUID": "{E19F522D-DAEE-4000-813B-3D04734C1DFF}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.18441084",
+      "DurationMax": "0.32219702",
+      "MediaRefs": [
+       {
+        "Id": "157165222"
+       },
+       {
+        "Id": "186863569"
+       },
+       {
+        "Id": "631261199"
+       },
+       {
+        "Id": "778070558"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "980603520",
+        "Name": "Rev",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Rev",
+        "GUID": "{EF03F319-EFA3-4FEE-8934-DAE89B16AD99}"
+       }
+      ]
+     },
      {
       "Id": "3187507146",
       "Name": "Play_test",
@@ -38,10 +137,45 @@
         "Id": "295780984"
        }
       ]
+     },
+     {
+      "Id": "1020223172",
+      "Name": "Play_Wind",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Env\\Play_Wind",
+      "GUID": "{A332CF22-BFF4-42C1-8D76-4DB24BF577FE}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "105437372"
+       },
+       {
+        "Id": "378340662"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "397972852"
+        },
+        {
+         "Id": "977811858"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3173136834",
+      "Name": "Stop_Wind",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Env\\Stop_Wind",
+      "GUID": "{6ECE9BE5-0693-4F03-8B83-DAC8DD69849C}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      }
     ]
    }
   ],
-  "FileHash": "{0C6AAC60-A9DE-5423-7F35-49AC06D603DB}"
+  "FileHash": "{D75F87AD-1B6C-3DE3-CF82-E74FAD0F3AC1}"
  }
 }
