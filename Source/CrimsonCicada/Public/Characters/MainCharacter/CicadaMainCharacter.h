@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AkAudioEvent.h"
 #include "GameFramework/Character.h"
 #include "CicadaMainCharacter.generated.h"
 
@@ -57,6 +58,9 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsInAlternateMovementMode{ false };
+
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* FootstepEvent;
 	
 private:
 	class UCameraComponent* CameraComp;
@@ -71,7 +75,10 @@ private:
 	
 	bool bIsDead{ false };
 
+	void HandlePlayFootstepSounds();
 	
+	bool bCanPlayFootstep{ true };
+
 	
 	
 };

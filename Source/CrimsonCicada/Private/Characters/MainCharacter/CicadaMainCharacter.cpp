@@ -7,6 +7,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "AkGameplayStatics.h"
+#include "NavigationSystemTypes.h"
 
 // Sets default values
 ACicadaMainCharacter::ACicadaMainCharacter()
@@ -31,6 +33,8 @@ void ACicadaMainCharacter::BeginPlay()
 void ACicadaMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	HandlePlayFootstepSounds();
 }
 
 // Called to bind functionality to input
@@ -140,6 +144,29 @@ void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
 		MovementComp->GravityScale = 1;
 		SpringArmComp->bEnableCameraLag = false;
 		SpringArmComp->bEnableCameraRotationLag = false;
+	}
+}
+
+void ACicadaMainCharacter::HandlePlayFootstepSounds()
+{
+	if (!bCanPlayFootstep || MovementComp->IsFalling())
+		return;
+	
+	if (MovementComp->Velocity.Size() >= 700)  // running
+	{
+		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
+		bCanPlayFootstep = false;
+		
+		FTimerHandle TimerHandle;
+		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.25f, false);
+	}
+	else if (MovementComp->Velocity.Size() > 0)  // walking
+	{
+		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
+		bCanPlayFootstep = false;
+		
+		FTimerHandle TimerHandle;
+		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.5f, false);
 	}
 }
 

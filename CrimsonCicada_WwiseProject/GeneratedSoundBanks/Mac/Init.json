@@ -10,11 +10,21 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{89C218AE-9E0B-8562-B379-0ABAC724E516}",
+    "Hash": "{45580FF9-49BC-04CF-97CC-A3086FDBC8DE}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "3191103210",
+       "Name": "New_Matrix_Reverb",
+       "ObjectPath": "\\Effects\\Default Work Unit\\New_Matrix_Reverb",
+       "GUID": "{0EDB217C-26D3-4689-A9B9-54EEBBE6A888}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
+      }
+     ],
      "AudioDevices": [
       {
        "Id": "2317455096",
@@ -41,9 +51,24 @@
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
      }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "980603520",
+      "Name": "Rev",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Rev",
+      "GUID": "{EF03F319-EFA3-4FEE-8934-DAE89B16AD99}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "3191103210"
+        }
+       ]
+      }
+     }
     ]
    }
   ],
-  "FileHash": "{D6D4FBE0-11B7-19DC-BD25-AF12EEFCB509}"
+  "FileHash": "{4A2D058C-7AD2-637A-36F0-603C5F17081A}"
  }
 }
