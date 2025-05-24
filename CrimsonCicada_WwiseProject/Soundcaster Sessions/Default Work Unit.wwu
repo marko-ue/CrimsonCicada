@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E106A5A2-08C1-4D55-9BE2-21E6F7372F94}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{E106A5A2-08C1-4D55-9BE2-21E6F7372F94}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E106A5A2-08C1-4D55-9BE2-21E6F7372F94}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{551ABFE3-B314-4AF6-8714-AE3D62EA1183}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_Wind" ID="{A332CF22-BFF4-42C1-8D76-4DB24BF577FE}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_Wind" ID="{6ECE9BE5-0693-4F03-8B83-DAC8DD69849C}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Footstep" ID="{E19F522D-DAEE-4000-813B-3D04734C1DFF}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
