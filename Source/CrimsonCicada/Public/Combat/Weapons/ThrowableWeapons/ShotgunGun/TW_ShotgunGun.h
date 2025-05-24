@@ -18,6 +18,30 @@ protected:
 	virtual void BeginPlay() override;
 	
 	virtual EWeapon GetWeaponEnum() const override { return EWeapon::ShotgunGun; }
-	
+
+public:
 	virtual void PerformPrimaryAction() override;
+
+private:
+	UFUNCTION()
+	void SetShouldCheckForCollisions(bool ShouldCheckForCollisions);
+
+	UFUNCTION(BlueprintCallable)
+	void Fire();
+
+	UFUNCTION(BlueprintCallable)
+	void OnFired();
+	
+	USceneComponent* BulletShootPoint;
+
+	class UPerformWeaponTraceComponent* PerformWeaponTraceComp;
+
+public:
+	UPROPERTY(EditAnywhere, Category="Spread Trace")
+	float SpreadAngleDegrees;
+	UPROPERTY(EditAnywhere, Category="Spread Trace")
+	float NumberOfTraces;
+	UPROPERTY(EditAnywhere, Category="Spread Trace")
+	float SpreadRange;
 };
+

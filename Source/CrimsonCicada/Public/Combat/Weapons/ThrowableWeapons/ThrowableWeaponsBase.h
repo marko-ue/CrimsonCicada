@@ -30,11 +30,15 @@ protected:
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd) override;
 
 	void HandleWeaponThrown();
+	
 
-	UPROPERTY(VisibleAnywhere, Category = "Throw Settings")
+	UPROPERTY(BlueprintReadOnly)
+	bool bShouldCheckForCollisions{ false };
+
+	UPROPERTY(EditAnywhere, Category = "Throw Settings")
 	FVector LaunchDirectionVector;
-	UPROPERTY(VisibleAnywhere, Category = "Throw Settings")
+	UPROPERTY(EditAnywhere, Category = "Throw Settings")
 	FVector LaunchForceVector;
-	UPROPERTY(VisibleAnywhere, Category = "Throw Settings")
+	UPROPERTY(EditAnywhere, Category = "Throw Settings")
 	FVector TorqueStrengthVector;
 };

@@ -28,8 +28,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	class UPerformWeaponTraceComponent* PerformWeaponTraceComp;
 
+	class UPerformWeaponTraceComponent* PerformWeaponTraceComp;
 // Automatic weapons
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsAutomatic;

@@ -10,7 +10,7 @@ ARangedWeaponsBase::ARangedWeaponsBase()
 void ARangedWeaponsBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	PerformWeaponTraceComp = FindComponentByClass<UPerformWeaponTraceComponent>();
 }
 

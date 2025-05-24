@@ -60,27 +60,55 @@ bool UPerformWeaponTraceComponent::PerformStraightTraceFromCamera(float WeaponRa
 	);
 }
 
-bool UPerformWeaponTraceComponent::PerformSpreadTraces(FVector TraceStart, float SpreadRange, FHitResult& OutHit, ECollisionChannel TraceChannel)
+bool UPerformWeaponTraceComponent::PerformSpreadTraces(
+	FVector TraceStart,
+	FVector ForwardDirection,
+	float SpreadAngleDegrees,
+	int32 NumTraces,
+	float TraceRange,
+	TArray<FHitResult>& OutHits,
+	ECollisionChannel TraceChannel)
 {
-	FVector StartLocation{ TraceStart };
-	FVector EndLocation{ StartLocation + StartLocation.Z * SpreadRange };
-
 	FCollisionQueryParams IgnoreParams;
 	IgnoreParams.AddIgnoredActor(GetOwner());
 	IgnoreParams.AddIgnoredActor(GetWorld()->GetFirstPlayerController()->GetPawn());
 
-	if (bDebugMode)
+	bool bHitSomething = false;
+
+	// For each number of traces specified, create a random direction in a cone with the specified spread degrees.
+	// Perform a trace for each, then store the results of each in a hit result out parameter.
+	// The out parameter is used to store the trace results in the hit result of the class that's calling.
+	
+	for (int32 i = 0; i < NumTraces; ++i)
 	{
-		UKismetSystemLibrary::DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Blue, 2, 2);
+		FVector RandomDirection = FMath::VRandCone(
+			ForwardDirection.GetSafeNormal(),
+			FMath::DegreesToRadians(SpreadAngleDegrees)
+		);
+
+		FVector EndLocation = TraceStart + RandomDirection * TraceRange;
+
+		FHitResult Hit;
+		bool bHit = GetWorld()->LineTraceSingleByChannel(
+			Hit,
+			TraceStart,
+			EndLocation,
+			TraceChannel,
+			IgnoreParams
+		);
+
+		if (bHit)
+		{
+			OutHits.Add(Hit);
+			bHitSomething = true;
+		}
+
+		if (bDebugMode)
+		{
+			DrawDebugLine(GetWorld(), TraceStart, EndLocation, FColor::Red, false, 1.0f, 0, 1.0f);
+		}
 	}
 
-	return 
-		GetWorld()->LineTraceSingleByChannel(
-		OutHit,
-		StartLocation,
-		EndLocation,
-		TraceChannel,
-		IgnoreParams
-	);
+	return bHitSomething;
 }
 

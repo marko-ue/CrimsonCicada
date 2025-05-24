@@ -28,6 +28,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 protected:
+	class UPerformWeaponTraceComponent* PerformWeaponTraceComp;
+	
 	UInventoryComponent* InventoryComp;
 
 	virtual void PickUp() override;
