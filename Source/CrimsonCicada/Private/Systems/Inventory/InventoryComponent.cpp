@@ -71,7 +71,7 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 		WeaponActor = WeaponActorMap[WeaponToEquip];
 	}
 	
-	if (WeaponActor && WeaponActor->bCanBeEquipped)
+	if (WeaponActor && WeaponActor->bCanBeEquipped && EquippedWeapon == nullptr)
 	{
 		WeaponActor->SetActorHiddenInGame(false);
 		WeaponActor->SetActorEnableCollision(true);
@@ -93,6 +93,10 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 		{
 			WeaponActor->WeaponSkeletalMesh->AttachToComponent(SkeletalMeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("middle_03_rSocket"));
 		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("A weapon is already equipped or selected weapon is not in inventory"));
 	}
 }
 

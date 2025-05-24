@@ -17,7 +17,7 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 	//* Straight trace *\\
 
 	FHitResult HitResultStraight;
-	bool bHit = PerformWeaponTraceComp->PerformStraightTrace(Range, HitResultStraight);
+	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
 
 	if (bHit)
 	{

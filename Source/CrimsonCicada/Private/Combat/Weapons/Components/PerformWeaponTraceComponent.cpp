@@ -34,7 +34,7 @@ void UPerformWeaponTraceComponent::TickComponent(float DeltaTime, ELevelTick Tic
 	// ...
 }
 
-bool UPerformWeaponTraceComponent::PerformStraightTrace(float WeaponRange, FHitResult& OutHit)
+bool UPerformWeaponTraceComponent::PerformStraightTraceFromCamera(float WeaponRange, FHitResult& OutHit, ECollisionChannel TraceChannel)
 {
 	if (!CameraComp) { UE_LOG(LogTemp, Warning, TEXT("CameraComp is null")); return false; }
 	
@@ -43,6 +43,7 @@ bool UPerformWeaponTraceComponent::PerformStraightTrace(float WeaponRange, FHitR
 	
 	FCollisionQueryParams IgnoreParams;
 	IgnoreParams.AddIgnoredActor(GetOwner());
+	IgnoreParams.AddIgnoredActor(GetWorld()->GetFirstPlayerController()->GetPawn());
 
 	if (bDebugMode)
 	{
@@ -54,7 +55,31 @@ bool UPerformWeaponTraceComponent::PerformStraightTrace(float WeaponRange, FHitR
 		OutHit,
 		StartLocation,
 		EndLocation,
-		ECC_GameTraceChannel2,
+		TraceChannel,
+		IgnoreParams
+	);
+}
+
+bool UPerformWeaponTraceComponent::PerformSpreadTraces(FVector TraceStart, float SpreadRange, FHitResult& OutHit, ECollisionChannel TraceChannel)
+{
+	FVector StartLocation{ TraceStart };
+	FVector EndLocation{ StartLocation + StartLocation.Z * SpreadRange };
+
+	FCollisionQueryParams IgnoreParams;
+	IgnoreParams.AddIgnoredActor(GetOwner());
+	IgnoreParams.AddIgnoredActor(GetWorld()->GetFirstPlayerController()->GetPawn());
+
+	if (bDebugMode)
+	{
+		UKismetSystemLibrary::DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Blue, 2, 2);
+	}
+
+	return 
+		GetWorld()->LineTraceSingleByChannel(
+		OutHit,
+		StartLocation,
+		EndLocation,
+		TraceChannel,
 		IgnoreParams
 	);
 }

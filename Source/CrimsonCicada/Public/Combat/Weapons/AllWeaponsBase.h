@@ -37,7 +37,7 @@ protected:
 	
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
-	virtual EWeapon GetWeaponEnum() const;
+	
 
 
 public:
@@ -46,4 +46,7 @@ public:
 	UStaticMeshComponent* WeaponMesh;
 
 	USkeletalMeshComponent* WeaponSkeletalMesh;
+
+	UFUNCTION(BlueprintCallable)
+	virtual EWeapon GetWeaponEnum() const;
 };
