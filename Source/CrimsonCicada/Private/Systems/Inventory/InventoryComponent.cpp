@@ -87,11 +87,11 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 		USkeletalMeshComponent* SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetOwner()->GetDefaultSubobjectByName(TEXT("FirstPersonMesh")));
 		if (SkeletalMeshComp && WeaponActor->WeaponMesh)
 		{
-			WeaponActor->WeaponMesh->AttachToComponent(SkeletalMeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("middle_03_rSocket"));
+			WeaponActor->WeaponMesh->AttachToComponent(SkeletalMeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("GripPoint"));
 		}
 		else if (SkeletalMeshComp && WeaponActor->WeaponSkeletalMesh)
 		{
-			WeaponActor->WeaponSkeletalMesh->AttachToComponent(SkeletalMeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("middle_03_rSocket"));
+			WeaponActor->WeaponSkeletalMesh->AttachToComponent(SkeletalMeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("GripPoint"));
 		}
 	}
 	else
