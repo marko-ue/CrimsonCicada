@@ -54,6 +54,14 @@ void AAllWeaponsBase::PerformPrimaryAction()
 	}
 }
 
+void AAllWeaponsBase::CastSpell()
+{
+	if (InventoryComp->EquippedWeapon != nullptr)
+	{
+		CastSpell();
+	}
+}
+
 
 void AAllWeaponsBase::AddWeaponToInventory(EWeapon WeaponToAdd)
 {

@@ -36,6 +36,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void PerformPrimaryAction() override;
+
+	UFUNCTION(BlueprintCallable)
+	virtual void CastSpell() override;
 	
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
