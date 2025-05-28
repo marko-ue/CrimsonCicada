@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Enums/EWeapon.h"
 #include "InventoryComponent.generated.h"
 
 
@@ -27,19 +28,30 @@ public:
 protected:
 	TMap<EWeapon, int32> WeaponMap;
 	TMap<EWeapon, class AAllWeaponsBase*> WeaponActorMap;
+	TMap<EWeapon, class ASpellsBase*> SpellActorMap;
 
 public:
 	void AddItemToInventory(EWeapon ItemID, int32 Amount);
 	void RemoveItemFromInventory(EWeapon ItemID, int32 Amount);
 	void StoreWeaponActor(EWeapon ItemID, class AAllWeaponsBase* WeaponActor);
+	
 	UFUNCTION(BlueprintCallable)
 	void EquipWeapon(EWeapon WeaponToEquip);
 	UFUNCTION(BlueprintCallable)
+	void EquipSpell (EWeapon SpellToEquip);
+	
+	UFUNCTION(BlueprintCallable)
 	void UnequipWeapon(EWeapon WeaponToUnequip);
+	UFUNCTION(BlueprintCallable)
+	void UnequipSpell(EWeapon SpellToUnequip);
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mesh")
 	USkeletalMeshComponent* FirstPersonMesh;
 
 	UPROPERTY(BlueprintReadOnly)
 	AAllWeaponsBase* EquippedWeapon;
+
+	UPROPERTY(BlueprintReadOnly)
+	class ASpellsBase* EquippedSpell;
 };
+
