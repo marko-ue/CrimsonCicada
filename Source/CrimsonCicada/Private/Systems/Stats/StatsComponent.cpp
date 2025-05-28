@@ -2,6 +2,7 @@
 
 
 #include "Systems/Stats/StatsComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values for this component's properties
 UStatsComponent::UStatsComponent()
@@ -30,5 +31,24 @@ void UStatsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+}
+
+void UStatsComponent::ReduceHealth(float Amount)
+{
+	Stats[EStat::Health] -= Amount;
+	Stats[EStat::Health] = UKismetMathLibrary::FClamp(
+		Stats[EStat::Health], 0, Stats[EStat::MaxHealth]);
+
+	UE_LOG(LogTemp, Warning, TEXT("Health: %f"), Stats[EStat::Health]);
+}
+
+float UStatsComponent::GetStat(EStat Stat) const
+{
+	if (const float* Value = Stats.Find(Stat))
+	{
+		return *Value;
+	}
+	
+	return 0.f; // Or -1.f, or something meaningful if the stat doesn't exist
 }
 
