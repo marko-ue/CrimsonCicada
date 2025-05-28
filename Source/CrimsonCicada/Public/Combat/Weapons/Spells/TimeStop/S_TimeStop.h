@@ -23,5 +23,5 @@ public:
 	virtual void CastSpell() override;
 
 private:
-	
+	APawn* PlayerPawn;
 };

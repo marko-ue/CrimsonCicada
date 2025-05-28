@@ -8,6 +8,7 @@ void ARW_Shotgun::BeginPlay()
 	Super::BeginPlay();
 
 	BulletShootPoint = Cast<USceneComponent>(GetDefaultSubobjectByName(TEXT("BulletShootPoint")));
+	HandsRequired = 2;
 }
 
 void ARW_Shotgun::PerformPrimaryAction()

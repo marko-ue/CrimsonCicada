@@ -28,7 +28,7 @@ void ATW_ShotgunGun::PerformPrimaryAction()
 	// Timer that will allow collisions to be checked by making a bool true, bool checked in blueprint
 	FTimerHandle SetCollisionsHandle;
 	FTimerDelegate SetCollisionsDelegate = FTimerDelegate::CreateUObject(this, &ATW_ShotgunGun::SetShouldCheckForCollisions, true);
-	GetWorldTimerManager().SetTimer(SetCollisionsHandle, SetCollisionsDelegate, 0.1, false);
+	GetWorldTimerManager().SetTimer(SetCollisionsHandle, SetCollisionsDelegate, 0.4, false);
 }
 
 void ATW_ShotgunGun::SetShouldCheckForCollisions(bool ShouldCheckForCollisions)

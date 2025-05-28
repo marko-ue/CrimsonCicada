@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Enums/EStat.h"
 #include "StatsComponent.generated.h"
 
 
@@ -24,5 +25,13 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+public:
+	UPROPERTY(EditAnywhere)
+	TMap<EStat, float> Stats;
+
+	UFUNCTION(BlueprintCallable)
+	void ReduceHealth(float Amount);
+
+	UFUNCTION(BlueprintCallable)
+	float GetStat(EStat Stat) const;
 };

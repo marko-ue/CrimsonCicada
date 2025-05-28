@@ -10,6 +10,7 @@ void ARW_DoubleDeagle::BeginPlay()
 	Super::BeginPlay();
 	
 	CameraComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UCameraComponent>();
+	HandsRequired = 1;
 }
 
 void ARW_DoubleDeagle::PerformPrimaryAction()
