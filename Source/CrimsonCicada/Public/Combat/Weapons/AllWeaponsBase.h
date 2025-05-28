@@ -42,9 +42,6 @@ protected:
 	
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
-	
-
-
 public:
 	bool bCanBeEquipped{ true };
 
@@ -54,4 +51,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual EWeapon GetWeaponEnum() const;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int32 HandsRequired;
 };

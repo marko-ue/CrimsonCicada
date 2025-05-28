@@ -8,6 +8,7 @@ void AS_TimeStop::BeginPlay()
 	Super::BeginPlay();
 	
 	SpellCooldown = 5.0f;
+	HandsRequired = 1;
 }
 
 void AS_TimeStop::CastSpell()

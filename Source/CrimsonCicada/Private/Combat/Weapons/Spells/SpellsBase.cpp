@@ -10,6 +10,7 @@ ASpellsBase::ASpellsBase()
 void ASpellsBase::BeginPlay()
 {
 	Super::BeginPlay();
+	
 }
 
 void ASpellsBase::Tick(float DeltaTime)

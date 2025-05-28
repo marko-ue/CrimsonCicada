@@ -10,6 +10,7 @@ void ATW_Brick::BeginPlay()
 
 	LaunchForceVector = FVector(200,200,425);
 	TorqueStrengthVector = FVector(200.f, 125.f, 500.f);
+	HandsRequired = 1;
 }
 
 void ATW_Brick::PerformPrimaryAction()

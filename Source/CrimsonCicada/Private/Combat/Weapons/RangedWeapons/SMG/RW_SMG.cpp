@@ -14,6 +14,7 @@ void ARW_SMG::BeginPlay()
 	Super::BeginPlay();
 
 	bIsAutomatic = true;
+	HandsRequired = 2;
 }
 
 void ARW_SMG::PerformPrimaryActionAutomatic()

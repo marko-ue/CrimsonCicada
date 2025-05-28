@@ -83,6 +83,7 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 
 		EquippedWeapon = WeaponActor;
 		WeaponActor->bCanBeEquipped = false;
+		
 
 		USkeletalMeshComponent* SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetOwner()->GetDefaultSubobjectByName(TEXT("FirstPersonMesh")));
 		if (SkeletalMeshComp && WeaponActor->WeaponMesh)
