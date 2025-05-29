@@ -18,20 +18,30 @@ void AS_DualWield::CastSpell()
 {
 	if (!bIsSpellOnCooldown)
 	{
-		if (InventoryComp->EquippedWeapon->HandsRequired == 1)
+		if (InventoryComp->EquippedWeapon)
 		{
-			InventoryComp->EquippedWeapon->bIsDualWieldSpellActive = true;
-		}
+			if (InventoryComp->EquippedWeapon->HandsRequired == 1)
+			{
+				InventoryComp->EquippedWeapon->bIsDualWieldSpellActive = true;
+				
+				UE_LOG(LogTemp, Warning, TEXT("Dual wield active"));
 		
-		UE_LOG(LogTemp, Warning, TEXT("Dual wield active"));
-		
-		bIsSpellOnCooldown = true;
+				bIsSpellOnCooldown = true;
 
-		FTimerHandle EndDualWieldSpell;
-		GetWorldTimerManager().SetTimer(EndDualWieldSpell, [this]() { bIsDualWieldSpellActive = false; }, SpellDuration, false);
+				FTimerHandle EndDualWieldSpell;
+				GetWorldTimerManager().SetTimer(EndDualWieldSpell, [this]() { bIsDualWieldSpellActive = false; }, SpellDuration, false);
 	
-		FTimerHandle ResetCooldownHandle;
-		GetWorldTimerManager().SetTimer(ResetCooldownHandle, [this]() { bIsSpellOnCooldown = false; }, SpellCooldown, false);
+				FTimerHandle ResetCooldownHandle;
+				GetWorldTimerManager().SetTimer(ResetCooldownHandle, [this]() { bIsSpellOnCooldown = false; }, SpellCooldown, false);
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Cannot activate duel wield spell on two-handed weapons"));
+			}
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Cannot activate duel wield spell if there is not a weapon equipped"));
+		}
 	}
-	
 }

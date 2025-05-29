@@ -61,6 +61,13 @@ public:
 
 	UPROPERTY(EditAnywhere, Category="Sounds")
 	UAkAudioEvent* FootstepEvent;
+
+	UFUNCTION(BlueprintCallable)
+	void ZoomIn();
+	UFUNCTION(BlueprintCallable)
+	void ZoomOut();
+
+	bool bZoomingIn{ false };
 	
 private:
 	class UCameraComponent* CameraComp;

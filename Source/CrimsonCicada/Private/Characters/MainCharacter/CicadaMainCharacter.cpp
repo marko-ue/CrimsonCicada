@@ -7,6 +7,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Kismet/GameplayStatics.h"
 #include "AkGameplayStatics.h"
 #include "NavigationSystemTypes.h"
 
@@ -35,6 +37,16 @@ void ACicadaMainCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	HandlePlayFootstepSounds();
+
+	if (bZoomingIn)
+	{
+		ZoomIn();
+	}
+	else
+	{
+		ZoomOut();
+	}
+
 }
 
 // Called to bind functionality to input
@@ -129,6 +141,26 @@ void ACicadaMainCharacter::SetAlternateMovementMode(bool bSetting)
 
 	bIsInAlternateMovementMode = bSetting;
 	SetAlternateMovementModeSettings(bSetting);
+}
+
+void ACicadaMainCharacter::ZoomIn()
+{
+	bZoomingIn = true;
+	
+	float TargetFOV = 45;
+	
+	float NewFOV = UKismetMathLibrary::FInterpTo(CameraComp->FieldOfView, TargetFOV, UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), 10);
+	CameraComp->FieldOfView = NewFOV;
+}
+
+void ACicadaMainCharacter::ZoomOut()
+{
+	bZoomingIn = false;
+	
+	float TargetFOV = 90;
+	
+	float NewFOV = UKismetMathLibrary::FInterpTo(CameraComp->FieldOfView, TargetFOV, UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), 10);
+	CameraComp->FieldOfView = NewFOV;
 }
 
 void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
