@@ -54,4 +54,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 HandsRequired;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool bIsDualWieldSpellActive{ false };
 };

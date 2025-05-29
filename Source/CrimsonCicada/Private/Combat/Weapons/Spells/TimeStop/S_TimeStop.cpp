@@ -13,7 +13,7 @@ void AS_TimeStop::BeginPlay()
 	HandsRequired = 1;
 	PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 }
-
+// make all enemies and entities stop moving but let player move and pre-throw throwables (stay in air until resumed)
 void AS_TimeStop::CastSpell()
 {
 	if (!bIsSpellOnCooldown)
@@ -26,7 +26,7 @@ void AS_TimeStop::CastSpell()
 		bIsSpellOnCooldown = true;
 		
 
-		FTimerHandle TimerHandle;
-		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bIsSpellOnCooldown = false; }, SpellCooldown, false);
+		FTimerHandle ResetCooldownHandle;
+		GetWorldTimerManager().SetTimer(ResetCooldownHandle, [this]() { bIsSpellOnCooldown = false; }, SpellCooldown, false);
 	}
 }

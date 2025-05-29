@@ -28,5 +28,6 @@ public:
 
 protected:
 	float SpellCooldown;
+	float SpellDuration;
 	bool bIsSpellOnCooldown{ false };
 };

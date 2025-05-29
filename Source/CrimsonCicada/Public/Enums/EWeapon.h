@@ -12,5 +12,6 @@ enum class EWeapon : uint8
 	DoubleDeagle,
 	SMG,
 	ShotgunGun,
-	TimeStop
+	TimeStop,
+	DualWield
 };
