@@ -11,14 +11,20 @@ void ARW_DoubleDeagle::BeginPlay()
 	
 	CameraComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UCameraComponent>();
 	HandsRequired = 1;
+	
+	GetFlipbookLengthIfValid();
+}
+
+void ARW_DoubleDeagle::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
 }
 
 void ARW_DoubleDeagle::PerformPrimaryAction()
 {
-	//* Straight trace *\\
+	PlayActionFlipbook();
 	
-	WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
-	UE_LOG(LogTemp, Warning, TEXT("Animation length: %f"), ShootFlipbook->GetTotalDuration())
+	//* Straight trace *\\
 	
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
@@ -64,4 +70,13 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor with random trace: %s"), *HitActor->GetName());
 		}
 	}
+}
+
+void ARW_DoubleDeagle::PlayActionFlipbook()
+{
+	WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
+	WeaponFlipbookComp->PlayFromStart();
+	bIsWeaponActive = true;
+
+	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ShootFlipbookLength + 0.25f, false);
 }

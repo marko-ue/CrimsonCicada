@@ -188,10 +188,13 @@ void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
 
 void ACicadaMainCharacter::HandlePlayFootstepSounds()
 {
+	
 	if (!bCanPlayFootstep || MovementComp->IsFalling())
+	{
 		return;
-
-	if (MovementComp->Velocity.Size() <= 0)
+	}
+	
+	if (MovementComp->Velocity.Size() <= 50 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 	{
 		PlayIdleFlipbook();
 	}
@@ -204,7 +207,10 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		FTimerHandle TimerHandle;
 		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.25f, false);
 
-		PlayWalkFlipbook();
+		if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
+		{
+			PlayWalkFlipbook();
+		}
 	}
 	else if (MovementComp->Velocity.Size() > 0)  // walking
 	{
@@ -214,13 +220,17 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		FTimerHandle TimerHandle;
 		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.5f, false);
 
-		PlayWalkFlipbook();
+		if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
+		{
+			PlayWalkFlipbook();
+		}
 	}
-	
 }
 
 void ACicadaMainCharacter::PlayWalkFlipbook()
 {
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
+	
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->WalkFlipbook)
 	{
 		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->WalkFlipbook)
@@ -228,12 +238,13 @@ void ACicadaMainCharacter::PlayWalkFlipbook()
 			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->WalkFlipbook);
 			WeaponFlipbookComp->PlayFromStart();
 		}
-		WeaponFlipbookComp->PlayFromStart();
 	}
 }
 
 void ACicadaMainCharacter::PlayIdleFlipbook()
 {
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
+	
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
 	{
 		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
@@ -241,7 +252,6 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
 			WeaponFlipbookComp->PlayFromStart();
 		}
-		WeaponFlipbookComp->PlayFromStart();
 	}
 }
 

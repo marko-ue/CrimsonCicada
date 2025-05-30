@@ -17,6 +17,10 @@ class CRIMSONCICADA_API ARW_DoubleDeagle : public ARangedWeaponsBase
 protected:
 	void BeginPlay() override;
 
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 protected:
 	virtual EWeapon GetWeaponEnum() const override { return EWeapon::DoubleDeagle; }
 
@@ -29,4 +33,6 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	bool bDebugMode;
+
+	virtual void PlayActionFlipbook() override;
 };

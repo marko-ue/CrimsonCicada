@@ -89,7 +89,9 @@ private:
 	
 	bool bCanPlayFootstep{ true };
 
+	UFUNCTION(BlueprintCallable)
 	void PlayWalkFlipbook();
+	UFUNCTION(BlueprintCallable)
 	void PlayIdleFlipbook();
 
 	// Flipbook

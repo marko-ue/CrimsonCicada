@@ -44,6 +44,8 @@ protected:
 	
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
+	virtual void PlayActionFlipbook();
+
 public:
 	bool bCanBeEquipped{ true };
 
@@ -60,6 +62,13 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsDualWieldSpellActive{ false };
 
+	UPROPERTY(VisibleAnywhere)
+	bool bIsWeaponActive{ false };
+
+	UFUNCTION()
+	void SetWeaponInactive();
+
+	FTimerHandle SetWeaponInactiveTimerHandle;
 	
 	// Flipbook
 	UPaperFlipbookComponent* WeaponFlipbookComp;
@@ -69,4 +78,7 @@ public:
 	UPaperFlipbook* IdleFlipbook;
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* WalkFlipbook;
+
+	virtual void GetFlipbookLengthIfValid();
+	//
 };

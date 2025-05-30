@@ -12,6 +12,7 @@ void ARangedWeaponsBase::BeginPlay()
 	Super::BeginPlay();
 
 	PerformWeaponTraceComp = FindComponentByClass<UPerformWeaponTraceComponent>();
+	
 }
 
 void ARangedWeaponsBase::Tick(float DeltaTime)
@@ -29,5 +30,23 @@ void ARangedWeaponsBase::StopAutomaticFire()
 
 void ARangedWeaponsBase::PerformPrimaryActionAutomatic()
 {
+}
+
+void ARangedWeaponsBase::GetFlipbookLengthIfValid()
+{
+	if (ShootFlipbook)
+	{
+		ShootFlipbookLength = ShootFlipbook->GetTotalDuration();
+	}
+
+	if (ReloadFlipbook)
+	{
+		ReloadFlipbookLength = ReloadFlipbook->GetTotalDuration();
+	}
+}
+
+void ARangedWeaponsBase::PlayActionFlipbook()
+{
+	
 }
 

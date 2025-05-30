@@ -23,6 +23,8 @@ void AS_DualWield::CastSpell()
 			if (InventoryComp->EquippedWeapon->HandsRequired == 1)
 			{
 				InventoryComp->EquippedWeapon->bIsDualWieldSpellActive = true;
+
+				
 				
 				UE_LOG(LogTemp, Warning, TEXT("Dual wield active"));
 		

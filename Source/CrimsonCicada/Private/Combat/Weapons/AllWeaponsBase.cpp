@@ -72,8 +72,23 @@ void AAllWeaponsBase::AddWeaponToInventory(EWeapon WeaponToAdd)
 	InventoryComp->AddItemToInventory(WeaponToAdd, 1);
 }
 
+void AAllWeaponsBase::PlayActionFlipbook()
+{
+	
+}
+
 EWeapon AAllWeaponsBase::GetWeaponEnum() const
 {
 	return EWeapon::None;
+}
+
+void AAllWeaponsBase::SetWeaponInactive()
+{
+	bIsWeaponActive = false;
+}
+
+void AAllWeaponsBase::GetFlipbookLengthIfValid()
+{
+	
 }
 

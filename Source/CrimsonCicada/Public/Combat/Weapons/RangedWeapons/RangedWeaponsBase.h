@@ -50,7 +50,12 @@ protected:
 	// Flipbook
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* ShootFlipbook;
+	float ShootFlipbookLength;
+	
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* ReloadFlipbook;
+	float ReloadFlipbookLength;
 
+	virtual void GetFlipbookLengthIfValid() override;
+	virtual void PlayActionFlipbook() override;
 };
