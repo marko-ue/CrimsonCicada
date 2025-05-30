@@ -57,5 +57,5 @@ protected:
 	float ReloadFlipbookLength;
 
 	virtual void GetFlipbookLengthIfValid() override;
-	virtual void PlayActionFlipbook() override;
+	virtual void PlayShootFlipbook();
 };

@@ -45,7 +45,7 @@ void ARangedWeaponsBase::GetFlipbookLengthIfValid()
 	}
 }
 
-void ARangedWeaponsBase::PlayActionFlipbook()
+void ARangedWeaponsBase::PlayShootFlipbook()
 {
 	
 }

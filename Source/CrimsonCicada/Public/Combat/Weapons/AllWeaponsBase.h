@@ -44,8 +44,6 @@ protected:
 	
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
-	virtual void PlayActionFlipbook();
-
 public:
 	bool bCanBeEquipped{ true };
 
@@ -73,6 +71,7 @@ public:
 	// Flipbook
 	UPaperFlipbookComponent* WeaponFlipbookComp;
 	UPaperFlipbookComponent* SpellFlipbookComp;
+	UPaperFlipbookComponent* WeaponDuelWieldFlipbookComp;
 
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* IdleFlipbook;

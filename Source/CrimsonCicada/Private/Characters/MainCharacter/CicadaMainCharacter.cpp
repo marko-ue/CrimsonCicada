@@ -36,6 +36,7 @@ void ACicadaMainCharacter::BeginPlay()
 	InventoryComp = FindComponentByClass<UInventoryComponent>();
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
+	WeaponDuelWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
 }
 
 // Called every frame
@@ -239,6 +240,22 @@ void ACicadaMainCharacter::PlayWalkFlipbook()
 			WeaponFlipbookComp->PlayFromStart();
 		}
 	}
+
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->WalkFlipbook)
+	{
+		if (InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
+		{
+			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->WalkFlipbook)
+			{
+				WeaponDuelWieldFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->WalkFlipbook);
+				WeaponDuelWieldFlipbookComp->PlayFromStart();
+			}
+		}
+		else
+		{
+			WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
+		}
+	}
 }
 
 void ACicadaMainCharacter::PlayIdleFlipbook()
@@ -251,6 +268,22 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 		{
 			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
 			WeaponFlipbookComp->PlayFromStart();
+		}
+	}
+	
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
+	{
+		if (InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
+		{
+			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
+			{
+				WeaponDuelWieldFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
+				WeaponDuelWieldFlipbookComp->PlayFromStart();
+			}
+		}
+		else
+		{
+			WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
 		}
 	}
 }

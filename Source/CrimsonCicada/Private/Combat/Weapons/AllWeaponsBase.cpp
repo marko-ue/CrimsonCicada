@@ -22,8 +22,10 @@ void AAllWeaponsBase::BeginPlay()
 	InventoryComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UInventoryComponent>();
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
+	WeaponDuelWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
 	WeaponFlipbookComp->SetUsingAbsoluteRotation(false);
 	SpellFlipbookComp->SetUsingAbsoluteRotation(false);
+	WeaponDuelWieldFlipbookComp->SetUsingAbsoluteRotation(false);
 }
 
 // Called every frame
@@ -72,10 +74,6 @@ void AAllWeaponsBase::AddWeaponToInventory(EWeapon WeaponToAdd)
 	InventoryComp->AddItemToInventory(WeaponToAdd, 1);
 }
 
-void AAllWeaponsBase::PlayActionFlipbook()
-{
-	
-}
 
 EWeapon AAllWeaponsBase::GetWeaponEnum() const
 {

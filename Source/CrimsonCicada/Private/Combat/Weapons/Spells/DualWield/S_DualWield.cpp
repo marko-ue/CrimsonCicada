@@ -23,15 +23,13 @@ void AS_DualWield::CastSpell()
 			if (InventoryComp->EquippedWeapon->HandsRequired == 1)
 			{
 				InventoryComp->EquippedWeapon->bIsDualWieldSpellActive = true;
-
-				
 				
 				UE_LOG(LogTemp, Warning, TEXT("Dual wield active"));
 		
 				bIsSpellOnCooldown = true;
 
 				FTimerHandle EndDualWieldSpell;
-				GetWorldTimerManager().SetTimer(EndDualWieldSpell, [this]() { bIsDualWieldSpellActive = false; }, SpellDuration, false);
+				GetWorldTimerManager().SetTimer(EndDualWieldSpell, [this]() { InventoryComp->EquippedWeapon->bIsDualWieldSpellActive = false; }, SpellDuration, false);
 	
 				FTimerHandle ResetCooldownHandle;
 				GetWorldTimerManager().SetTimer(ResetCooldownHandle, [this]() { bIsSpellOnCooldown = false; }, SpellCooldown, false);

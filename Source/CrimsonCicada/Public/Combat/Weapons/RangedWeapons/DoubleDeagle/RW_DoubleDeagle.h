@@ -34,5 +34,5 @@ private:
 	UPROPERTY(EditAnywhere)
 	bool bDebugMode;
 
-	virtual void PlayActionFlipbook() override;
+	virtual void PlayShootFlipbook() override;
 };

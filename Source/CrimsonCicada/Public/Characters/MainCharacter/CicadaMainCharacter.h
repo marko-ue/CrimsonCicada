@@ -97,5 +97,6 @@ private:
 	// Flipbook
 	class UPaperFlipbookComponent* WeaponFlipbookComp;
 	class UPaperFlipbookComponent* SpellFlipbookComp;
+	class UPaperFlipbookComponent* WeaponDuelWieldFlipbookComp;
 	
 };
