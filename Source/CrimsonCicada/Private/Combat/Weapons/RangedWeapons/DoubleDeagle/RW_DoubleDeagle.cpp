@@ -22,6 +22,8 @@ void ARW_DoubleDeagle::Tick(float DeltaTime)
 
 void ARW_DoubleDeagle::PerformPrimaryAction()
 {
+	if (bIsWeaponActive) { return; }
+	
 	PlayShootFlipbook();
 	
 	//* Straight trace *\\
@@ -74,18 +76,23 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 
 void ARW_DoubleDeagle::PlayShootFlipbook()
 {
-	WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
-	WeaponFlipbookComp->PlayFromStart();
-	bIsWeaponActive = true;
-
+	if (!bIsWeaponActive)
+	{
+		WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
+		WeaponFlipbookComp->PlayFromStart();
+		bIsWeaponActive = true;
+	}
+	
 	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ShootFlipbookLength + 0.25f, false);
 
 	if (bIsDualWieldSpellActive)
 	{
-		WeaponDuelWieldFlipbookComp->SetFlipbook(ShootFlipbook);
-		WeaponDuelWieldFlipbookComp->PlayFromStart();
-		bIsWeaponActive = true;
-
+		if (!bIsWeaponActive)
+		{
+			WeaponDuelWieldFlipbookComp->SetFlipbook(ShootFlipbook);
+			WeaponDuelWieldFlipbookComp->PlayFromStart();
+			bIsWeaponActive = true;
+		}
 		GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ShootFlipbookLength + 0.25f, false);
 	}
 }

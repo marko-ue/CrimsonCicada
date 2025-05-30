@@ -195,7 +195,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		return;
 	}
 	
-	if (MovementComp->Velocity.Size() <= 50 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
+	if (MovementComp->Velocity.Size() <= 100 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 	{
 		PlayIdleFlipbook();
 	}

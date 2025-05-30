@@ -2,7 +2,7 @@
 
 
 #include "Combat/Weapons/AllWeaponsBase.h"
-
+#include "Camera/CameraComponent.h"
 
 
 // Sets default values
@@ -23,16 +23,12 @@ void AAllWeaponsBase::BeginPlay()
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
 	WeaponDuelWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
-	WeaponFlipbookComp->SetUsingAbsoluteRotation(false);
-	SpellFlipbookComp->SetUsingAbsoluteRotation(false);
-	WeaponDuelWieldFlipbookComp->SetUsingAbsoluteRotation(false);
 }
 
 // Called every frame
 void AAllWeaponsBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AAllWeaponsBase::PickUp()
