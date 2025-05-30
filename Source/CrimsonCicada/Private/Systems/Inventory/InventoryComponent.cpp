@@ -21,7 +21,8 @@ void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
+	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
 	
 }
 
@@ -76,8 +77,8 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 	{
 		if (!EquippedSpell || WeaponActor->HandsRequired != 2)
 		{
-			WeaponActor->SetActorHiddenInGame(false);
-			WeaponActor->SetActorEnableCollision(true);
+			//WeaponActor->SetActorHiddenInGame(false);
+			//WeaponActor->SetActorEnableCollision(true);
 			if (WeaponActor->WeaponMesh)
 			{
 				WeaponActor->WeaponMesh->SetSimulatePhysics(false);
@@ -86,6 +87,16 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 
 			EquippedWeapon = WeaponActor;
 			WeaponActor->bCanBeEquipped = false;
+
+			if (EquippedWeapon->IdleFlipbook)
+			{
+				WeaponFlipbookComp->SetFlipbook(EquippedWeapon->IdleFlipbook);
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Equipped weapon does not have a flipbook selected."))
+			}
+			
 		
 			USkeletalMeshComponent* SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetOwner()->GetDefaultSubobjectByName(TEXT("FirstPersonMesh")));
 			if (SkeletalMeshComp && WeaponActor->WeaponMesh)

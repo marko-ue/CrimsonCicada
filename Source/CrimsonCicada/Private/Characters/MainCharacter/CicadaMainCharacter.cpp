@@ -11,6 +11,10 @@
 #include "Kismet/GameplayStatics.h"
 #include "AkGameplayStatics.h"
 #include "NavigationSystemTypes.h"
+#include "PaperFlipbookComponent.h"
+#include "PaperFlipbook.h"
+#include "Combat/Weapons/AllWeaponsBase.h"
+#include "Systems/Inventory/InventoryComponent.h"
 
 // Sets default values
 ACicadaMainCharacter::ACicadaMainCharacter()
@@ -29,6 +33,9 @@ void ACicadaMainCharacter::BeginPlay()
 	CameraComp = GetComponentByClass<UCameraComponent>();
 	SpringArmComp = GetComponentByClass<USpringArmComponent>();
 	MovementComp = GetCharacterMovement();
+	InventoryComp = FindComponentByClass<UInventoryComponent>();
+	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
+	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
 }
 
 // Called every frame
@@ -183,14 +190,21 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 {
 	if (!bCanPlayFootstep || MovementComp->IsFalling())
 		return;
+
+	if (MovementComp->Velocity.Size() <= 0)
+	{
+		PlayIdleFlipbook();
+	}
 	
-	if (MovementComp->Velocity.Size() >= 700)  // running
+	else if (MovementComp->Velocity.Size() >= 700)  // running
 	{
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
 		bCanPlayFootstep = false;
 		
 		FTimerHandle TimerHandle;
 		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.25f, false);
+
+		PlayWalkFlipbook();
 	}
 	else if (MovementComp->Velocity.Size() > 0)  // walking
 	{
@@ -199,6 +213,35 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		
 		FTimerHandle TimerHandle;
 		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.5f, false);
+
+		PlayWalkFlipbook();
+	}
+	
+}
+
+void ACicadaMainCharacter::PlayWalkFlipbook()
+{
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->WalkFlipbook)
+	{
+		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->WalkFlipbook)
+		{
+			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->WalkFlipbook);
+			WeaponFlipbookComp->PlayFromStart();
+		}
+		WeaponFlipbookComp->PlayFromStart();
+	}
+}
+
+void ACicadaMainCharacter::PlayIdleFlipbook()
+{
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
+	{
+		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
+		{
+			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
+			WeaponFlipbookComp->PlayFromStart();
+		}
+		WeaponFlipbookComp->PlayFromStart();
 	}
 }
 

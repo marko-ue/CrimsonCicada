@@ -47,4 +47,10 @@ protected:
 	virtual void PerformPrimaryActionAutomatic();
 //
 
+	// Flipbook
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* ShootFlipbook;
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* ReloadFlipbook;
+
 };

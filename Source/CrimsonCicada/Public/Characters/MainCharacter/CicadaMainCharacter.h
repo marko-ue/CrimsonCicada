@@ -68,11 +68,14 @@ public:
 	void ZoomOut();
 
 	bool bZoomingIn{ false };
+
+	
 	
 private:
 	class UCameraComponent* CameraComp;
 	UCharacterMovementComponent* MovementComp;
 	class USpringArmComponent* SpringArmComp;
+	class UInventoryComponent* InventoryComp;
 
 	UPROPERTY(EditDefaultsOnly, Category="UI")
 	TSubclassOf<UUserWidget> DeathScreenWidgetClass;
@@ -86,6 +89,11 @@ private:
 	
 	bool bCanPlayFootstep{ true };
 
-	
+	void PlayWalkFlipbook();
+	void PlayIdleFlipbook();
+
+	// Flipbook
+	class UPaperFlipbookComponent* WeaponFlipbookComp;
+	class UPaperFlipbookComponent* SpellFlipbookComp;
 	
 };

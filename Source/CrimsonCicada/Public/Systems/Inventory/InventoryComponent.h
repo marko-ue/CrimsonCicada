@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Enums/EWeapon.h"
+#include "PaperFlipbookComponent.h"
 #include "InventoryComponent.generated.h"
 
 
@@ -53,5 +54,10 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	class ASpellsBase* EquippedSpell;
+
+private:
+	// Flipbook
+	UPaperFlipbookComponent* WeaponFlipbookComp;
+	UPaperFlipbookComponent* SpellFlipbookComp;
 };
 

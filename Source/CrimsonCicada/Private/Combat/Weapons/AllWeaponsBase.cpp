@@ -20,6 +20,10 @@ void AAllWeaponsBase::BeginPlay()
 	WeaponMesh = FindComponentByClass<UStaticMeshComponent>();
 	WeaponSkeletalMesh = FindComponentByClass<USkeletalMeshComponent>();
 	InventoryComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UInventoryComponent>();
+	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
+	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
+	WeaponFlipbookComp->SetUsingAbsoluteRotation(false);
+	SpellFlipbookComp->SetUsingAbsoluteRotation(false);
 }
 
 // Called every frame

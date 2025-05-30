@@ -8,6 +8,8 @@
 #include "Interfaces/WeaponActions.h"
 #include "Enums/EWeapon.h"
 #include "Systems/Inventory/InventoryComponent.h"
+#include "PaperFlipbookComponent.h"
+#include "PaperFlipbook.h"
 #include "AllWeaponsBase.generated.h"
 
 UCLASS()
@@ -57,4 +59,14 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsDualWieldSpellActive{ false };
+
+	
+	// Flipbook
+	UPaperFlipbookComponent* WeaponFlipbookComp;
+	UPaperFlipbookComponent* SpellFlipbookComp;
+
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* IdleFlipbook;
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* WalkFlipbook;
 };

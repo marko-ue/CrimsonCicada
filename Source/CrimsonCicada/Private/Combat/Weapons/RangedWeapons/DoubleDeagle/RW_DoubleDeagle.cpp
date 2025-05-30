@@ -17,6 +17,9 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 {
 	//* Straight trace *\\
 	
+	WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
+	UE_LOG(LogTemp, Warning, TEXT("Animation length: %f"), ShootFlipbook->GetTotalDuration())
+	
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
 
