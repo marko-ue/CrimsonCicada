@@ -29,8 +29,6 @@ protected:
 private:
 	float Range{ 2000.0f };
 
-	class UCameraComponent* CameraComp;
-
 	UPROPERTY(EditAnywhere)
 	bool bDebugMode;
 

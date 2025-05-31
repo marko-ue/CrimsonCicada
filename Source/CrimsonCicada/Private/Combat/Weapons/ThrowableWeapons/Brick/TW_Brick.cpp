@@ -8,14 +8,14 @@ void ATW_Brick::BeginPlay()
 {
 	Super::BeginPlay();
 
-	LaunchForceVector = FVector(200,200,425);
-	TorqueStrengthVector = FVector(200.f, 125.f, 500.f);
 	HandsRequired = 1;
 }
 
 void ATW_Brick::PerformPrimaryAction()
 {
-	LaunchDirectionVector = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UCameraComponent>()->GetForwardVector();
+	LaunchDirectionVector = CameraComp->GetForwardVector();
+	SetActorHiddenInGame(false);
+	SetActorEnableCollision(true);
 	WeaponMesh->SetSimulatePhysics(true);
 	WeaponMesh->AddImpulse(LaunchDirectionVector * LaunchForceVector);
 	WeaponMesh->AddTorqueInRadians(TorqueStrengthVector, NAME_None, true);

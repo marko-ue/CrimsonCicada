@@ -20,6 +20,8 @@ void AAllWeaponsBase::BeginPlay()
 	WeaponMesh = FindComponentByClass<UStaticMeshComponent>();
 	WeaponSkeletalMesh = FindComponentByClass<USkeletalMeshComponent>();
 	InventoryComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UInventoryComponent>();
+	CameraComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UCameraComponent>();
+	
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
 	WeaponDuelWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
@@ -36,6 +38,7 @@ void AAllWeaponsBase::PickUp()
 	if (WeaponMesh)
 	{
 		WeaponMesh->SetSimulatePhysics(false);
+		//WeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	
 	AddWeaponToInventory(GetWeaponEnum());

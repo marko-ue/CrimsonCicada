@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Combat/Weapons/ThrowableWeapons/ThrowableWeaponsBase.h"
+#include "Combat/Weapons/ThrowableWeapons/PercussionDynamite/TW_PercussionDynamite.h"
 #include "TW_ShotgunGun.generated.h"
 
 /**

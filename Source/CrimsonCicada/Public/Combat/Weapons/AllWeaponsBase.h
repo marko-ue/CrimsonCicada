@@ -10,6 +10,7 @@
 #include "Systems/Inventory/InventoryComponent.h"
 #include "PaperFlipbookComponent.h"
 #include "PaperFlipbook.h"
+#include "Camera/CameraComponent.h"
 #include "AllWeaponsBase.generated.h"
 
 UCLASS()
@@ -47,9 +48,12 @@ protected:
 public:
 	bool bCanBeEquipped{ true };
 
+	UPROPERTY(BlueprintReadOnly)
 	UStaticMeshComponent* WeaponMesh;
 
 	USkeletalMeshComponent* WeaponSkeletalMesh;
+
+	UCameraComponent* CameraComp;
 
 	UFUNCTION(BlueprintCallable)
 	virtual EWeapon GetWeaponEnum() const;

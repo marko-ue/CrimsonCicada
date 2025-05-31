@@ -2,14 +2,12 @@
 
 
 #include "Combat/Weapons/RangedWeapons/DoubleDeagle/RW_DoubleDeagle.h"
-#include "Camera/CameraComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 void ARW_DoubleDeagle::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	CameraComp = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UCameraComponent>();
 	HandsRequired = 1;
 	
 	GetFlipbookLengthIfValid();

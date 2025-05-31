@@ -94,7 +94,7 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Equipped weapon does not have a flipbook selected."))
+				UE_LOG(LogTemp, Warning, TEXT("Equipped weapon does not have a flipbook selected. Equipping weapon without flipbook."))
 			}
 			
 		

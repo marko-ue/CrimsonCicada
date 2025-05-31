@@ -8,7 +8,7 @@
 void ATW_ShotgunGun::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	BulletShootPoint = Cast<USceneComponent>(GetDefaultSubobjectByName(TEXT("BulletShootPoint")));
 	PerformWeaponTraceComp = FindComponentByClass<UPerformWeaponTraceComponent>();
 	
