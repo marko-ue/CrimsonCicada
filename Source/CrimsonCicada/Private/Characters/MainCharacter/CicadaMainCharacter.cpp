@@ -189,11 +189,21 @@ void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
 
 void ACicadaMainCharacter::HandlePlayFootstepSounds()
 {
-	
-	if (!bCanPlayFootstep || MovementComp->IsFalling())
+	if (!bCanPlayFootstep)
 	{
 		return;
 	}
+	
+	if (MovementComp->IsFalling())
+	{
+		PlayIdleFlipbook();
+		return;
+	}
+	
+	//if (!bCanPlayFootstep || MovementComp->IsFalling())
+	//{
+	//	return;
+	//}
 	
 	if (MovementComp->Velocity.Size() <= 100 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 	{
