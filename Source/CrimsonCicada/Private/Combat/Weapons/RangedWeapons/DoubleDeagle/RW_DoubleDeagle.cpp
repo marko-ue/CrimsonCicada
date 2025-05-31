@@ -80,7 +80,10 @@ void ARW_DoubleDeagle::PlayShootFlipbook()
 	{
 		WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
 		WeaponFlipbookComp->PlayFromStart();
-		bIsWeaponActive = true;
+		if (!bIsDualWieldSpellActive)
+		{
+			bIsWeaponActive = true;
+		}
 	}
 	
 	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ShootFlipbookLength + 0.25f, false);
