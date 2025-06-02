@@ -1,3 +1,4 @@
+
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
@@ -27,6 +28,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
+	// Time until spell can be activated again, duration of the spell once activated, and check if the spell is on cooldown
 	float SpellCooldown;
 	float SpellDuration;
 	bool bIsSpellOnCooldown{ false };

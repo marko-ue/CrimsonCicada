@@ -33,8 +33,10 @@ void UStatsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	// ...
 }
 
+
 void UStatsComponent::ReduceHealth(float Amount)
 {
+	// Reduces the health stat anad clamps
 	Stats[EStat::Health] -= Amount;
 	Stats[EStat::Health] = UKismetMathLibrary::FClamp(
 		Stats[EStat::Health], 0, Stats[EStat::MaxHealth]);
@@ -42,8 +44,10 @@ void UStatsComponent::ReduceHealth(float Amount)
 	UE_LOG(LogTemp, Warning, TEXT("Health: %f"), Stats[EStat::Health]);
 }
 
+
 float UStatsComponent::GetStat(EStat Stat) const
 {
+	// Checks if there's that stat, and if there is returns its value.
 	if (const float* Value = Stats.Find(Stat))
 	{
 		return *Value;

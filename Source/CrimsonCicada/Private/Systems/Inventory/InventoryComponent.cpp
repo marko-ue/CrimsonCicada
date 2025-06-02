@@ -37,6 +37,7 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 void UInventoryComponent::AddItemToInventory(EWeapon ItemID, int32 Amount)
 {
+	// If the item is already in the inventory, just add the extra amount, otherwise create a new pair
 	if (WeaponMap.Contains(ItemID))
 	{
 		WeaponMap[ItemID] += Amount;
@@ -49,6 +50,7 @@ void UInventoryComponent::AddItemToInventory(EWeapon ItemID, int32 Amount)
 
 void UInventoryComponent::RemoveItemFromInventory(EWeapon ItemID, int32 Amount)
 {
+	// Removes the weapon and weapon actor from the map
 	if (WeaponMap.Contains(ItemID))
 	{
 		WeaponMap[ItemID] -= Amount;
@@ -61,13 +63,16 @@ void UInventoryComponent::RemoveItemFromInventory(EWeapon ItemID, int32 Amount)
 
 void UInventoryComponent::StoreWeaponActor(EWeapon ItemID, class AAllWeaponsBase* WeaponActor)
 {
+	// Adds the specified weapon's actor to the map
 	WeaponActorMap.Add(ItemID, WeaponActor);
 }
 
 void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 {
+	// First sets the current weapon actor to none
 	AAllWeaponsBase* WeaponActor = nullptr;
 	
+	// Sets the variable to be the specified weapon's actor if it exists in the inventory
 	if (WeaponActorMap.Contains(WeaponToEquip))
 	{
 		WeaponActor = WeaponActorMap[WeaponToEquip];
@@ -75,19 +80,20 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 	
 	if (WeaponActor && WeaponActor->bCanBeEquipped && EquippedWeapon == nullptr)
 	{
+		// Only equip the weapon if the weapon is not 2 handed
 		if (!EquippedSpell || WeaponActor->HandsRequired != 2)
 		{
-			//WeaponActor->SetActorHiddenInGame(false);
-			//WeaponActor->SetActorEnableCollision(true);
 			if (WeaponActor->WeaponMesh)
 			{
 				WeaponActor->WeaponMesh->SetSimulatePhysics(false);
 			}
 			WeaponActor->EnableInput(GetWorld()->GetFirstPlayerController());
 
+			// Variable used globally to call functions on the equipped weapon
 			EquippedWeapon = WeaponActor;
 			WeaponActor->bCanBeEquipped = false;
 
+			// Play that weapon's idle flipbook initially
 			if (EquippedWeapon->IdleFlipbook)
 			{
 				WeaponFlipbookComp->SetFlipbook(EquippedWeapon->IdleFlipbook);
@@ -96,8 +102,8 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Equipped weapon does not have a flipbook selected. Equipping weapon without flipbook."))
 			}
-			
-		
+
+			// Set up attachment to skeletal mesh. Legacy code
 			USkeletalMeshComponent* SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetOwner()->GetDefaultSubobjectByName(TEXT("FirstPersonMesh")));
 			if (SkeletalMeshComp && WeaponActor->WeaponMesh)
 			{
@@ -160,6 +166,7 @@ void UInventoryComponent::EquipSpell(EWeapon SpellToEquip)
 	
 	SpellActor->EnableInput(GetWorld()->GetFirstPlayerController());
 
+	// Set up attachment to skeletal mesh. Legacy code
 	USkeletalMeshComponent* SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetOwner()->GetDefaultSubobjectByName(TEXT("FirstPersonMesh")));
 	if (SkeletalMeshComp && SpellActor->WeaponMesh)
 	{
@@ -175,14 +182,16 @@ void UInventoryComponent::EquipSpell(EWeapon SpellToEquip)
 
 void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 {
+	// Sets the weapon actor to none first
 	AAllWeaponsBase* WeaponActor = nullptr;
 	
-	
+	// Unequip only if there's an actor map
 	if (WeaponActorMap.Contains(WeaponToUnequip))
 	{
 		WeaponActor = WeaponActorMap[WeaponToUnequip];
 	}
 	
+	// Set settings for uneqipped weapon (make invisible and set equipped weapon to nullptr)
 	if (WeaponActor && EquippedWeapon != nullptr)
 	{
 		WeaponActor->SetActorHiddenInGame(true);
@@ -198,13 +207,16 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 
 void UInventoryComponent::UnequipSpell(EWeapon SpellToUnequip)
 {
+	// Sets the spell actor to none
 	ASpellsBase* SpellActor = Cast<ASpellsBase>(WeaponActorMap[SpellToUnequip]);
 
+	// Unequip if the actor map contains the spell
 	if (WeaponActorMap.Contains(SpellToUnequip))
 	{
 		SpellActor = Cast<ASpellsBase>(WeaponActorMap[SpellToUnequip]);
 	}
-	
+
+	// Set settings for uneqipped weapon (make invisible and set equipped weapon to nullptr)
 	if (SpellActor && EquippedSpell != nullptr)
 	{
 		SpellActor->SetActorHiddenInGame(true);

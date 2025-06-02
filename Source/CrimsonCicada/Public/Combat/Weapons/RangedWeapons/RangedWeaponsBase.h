@@ -43,6 +43,7 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	virtual void StopAutomaticFire();
 
+	// Ranged weapon specific function for automatic weapons
 	UFUNCTION()
 	virtual void PerformPrimaryActionAutomatic();
 //

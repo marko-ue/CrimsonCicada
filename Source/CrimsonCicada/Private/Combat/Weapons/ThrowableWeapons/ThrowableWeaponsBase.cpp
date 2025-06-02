@@ -24,6 +24,7 @@ void AThrowableWeaponsBase::AddWeaponToInventory(EWeapon WeaponToAdd)
 
 void AThrowableWeaponsBase::HandleWeaponThrown()
 {
+	// Makes the thrown weapon not equipped again, detaching, and making it equippable again
 	InventoryComp->EquippedWeapon = nullptr;
 	WeaponMesh->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
 	bCanBeEquipped = false;

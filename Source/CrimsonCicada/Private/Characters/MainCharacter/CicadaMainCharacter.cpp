@@ -30,6 +30,7 @@ void ACicadaMainCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	OnPlayerDeathDelegate.AddDynamic(this, &ACicadaMainCharacter::OnPlayerDeath);
+
 	CameraComp = GetComponentByClass<UCameraComponent>();
 	SpringArmComp = GetComponentByClass<USpringArmComponent>();
 	MovementComp = GetCharacterMovement();
@@ -44,8 +45,10 @@ void ACicadaMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// Function that plays footsteps at the appopriate intervals based on player speed
 	HandlePlayFootstepSounds();
 
+	// Check if player is zooming
 	if (bZoomingIn)
 	{
 		ZoomIn();
@@ -85,8 +88,6 @@ void ACicadaMainCharacter::Die()
 
 void ACicadaMainCharacter::OnPlayerDeath()
 {
-	// after a few seconds show widget for restarting and other options
-
 	MovementComp->MaxWalkSpeed = 0;
 
 	AController* PlayerController = GetController();
@@ -101,6 +102,7 @@ void ACicadaMainCharacter::OnPlayerDeath()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 
+	// Settings for making the camera zoom out from the player's death location
 	SpringArmComp->bUsePawnControlRotation = false;
 	CameraComp->bUsePawnControlRotation = false;
 	SpringArmComp->SetUsingAbsoluteRotation(true);
@@ -113,6 +115,7 @@ void ACicadaMainCharacter::OnPlayerDeath()
 	SpringArmComp->bEnableCameraLag = true;
 	SpringArmComp->CameraLagSpeed = 2.f;
 
+	
 	FTimerHandle DeathWidgetTimerHandle;
 	GetWorldTimerManager().SetTimer(
 		DeathWidgetTimerHandle, this, &ACicadaMainCharacter::CreateDeathScreenWidget, 3.0f);
@@ -120,6 +123,7 @@ void ACicadaMainCharacter::OnPlayerDeath()
 
 void ACicadaMainCharacter::CreateDeathScreenWidget()
 {
+	// Create the death widget and let the player use UI only
 	DeathScreenWidget = CreateWidget<UUserWidget>(GetWorld(), DeathScreenWidgetClass);
 	DeathScreenWidget->AddToViewport();
 	
@@ -132,13 +136,16 @@ void ACicadaMainCharacter::RestartGame()
 {
 	UE_LOG(LogTemp, Warning, TEXT("RestartGame"));
 	
+	// Resets all settings previously impacted by player death
 	APlayerController* PC = Cast<APlayerController>(GetController());
 	PC->SetInputMode(FInputModeGameOnly());
 	PC->bShowMouseCursor = false;
 
+	// Removes death widget
 	DeathScreenWidget->RemoveFromParent();
 	DeathScreenWidget = nullptr;
 	
+	// Opens the level that was opened when the player died in a fresh state
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 }
 
@@ -189,22 +196,20 @@ void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
 
 void ACicadaMainCharacter::HandlePlayFootstepSounds()
 {
+	// If a footstep cannot be played (a footstep is already playing), return
 	if (!bCanPlayFootstep)
 	{
 		return;
 	}
 	
+	// If the player is falling, play the idle flipbook (instead of playing walk which is based off of velocity) and return
 	if (MovementComp->IsFalling())
 	{
 		PlayIdleFlipbook();
 		return;
 	}
 	
-	//if (!bCanPlayFootstep || MovementComp->IsFalling())
-	//{
-	//	return;
-	//}
-	
+	// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
 	if (MovementComp->Velocity.Size() <= 100 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 	{
 		PlayIdleFlipbook();
@@ -212,6 +217,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 	
 	else if (MovementComp->Velocity.Size() >= 700)  // running
 	{
+		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
 		bCanPlayFootstep = false;
 		
@@ -225,6 +231,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 	}
 	else if (MovementComp->Velocity.Size() > 0)  // walking
 	{
+		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
 		bCanPlayFootstep = false;
 		
@@ -240,10 +247,13 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 
 void ACicadaMainCharacter::PlayWalkFlipbook()
 {
+	// Return if the equipped weapon is performing its primary action (we don't want walk overriding it)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
 	
+	// If the equipped weapon has the walk flipbook (nullptr check)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->WalkFlipbook)
 	{
+		// Play the walk flipbook from the start
 		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->WalkFlipbook)
 		{
 			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->WalkFlipbook);
@@ -251,8 +261,10 @@ void ACicadaMainCharacter::PlayWalkFlipbook()
 		}
 	}
 
+	// If the equipped weapon has a walk flipbook (nullptr check)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->WalkFlipbook)
 	{
+		// If the dual wield spell is active, play the same flipbook but in the dual field flipbook component
 		if (InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
 		{
 			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->WalkFlipbook)
@@ -263,26 +275,32 @@ void ACicadaMainCharacter::PlayWalkFlipbook()
 		}
 		else
 		{
+			// When the dual wield spell ends, remove the flipbook
 			WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
 		}
 	}
 }
 
 void ACicadaMainCharacter::PlayIdleFlipbook()
-{
+{ 
+	// Return if the equipped weapon is performing its primary action (we don't want idle overriding it)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
-	
+
+	// If the equipped weapon has a idle flipbook (nullptr check)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
 	{
+		// Play the idle flipbook from the start
 		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
 		{
 			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
 			WeaponFlipbookComp->PlayFromStart();
 		}
 	}
-	
+
+	// If the equipped weapon has a idle flipbook (nullptr check)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
 	{
+		// If the dual wield spell is active, play the same flipbook but in the dual field flipbook component
 		if (InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
 		{
 			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
@@ -293,10 +311,8 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 		}
 		else
 		{
+			// When the dual wield spell ends, remove the flipbook
 			WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
 		}
 	}
 }
-
-
-

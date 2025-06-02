@@ -16,6 +16,9 @@ void ATW_PercussionDynamite::BeginPlay()
 
 void ATW_PercussionDynamite::PerformPrimaryAction()
 {
+	// Launches the weapon in the direction of the camera's forward vector.
+	// Makes the weapon visible and enable physics.
+
 	LaunchDirectionVector = CameraComp->GetForwardVector();
 	SetActorHiddenInGame(false);
 	SetActorEnableCollision(true);
@@ -23,6 +26,7 @@ void ATW_PercussionDynamite::PerformPrimaryAction()
 	WeaponMesh->AddImpulse(LaunchDirectionVector * LaunchForceVector);
 	WeaponMesh->AddTorqueInRadians(TorqueStrengthVector, NAME_None, true);
 
+	// Function for handling thrown weapon (setting equipped weapon to none, detaching and making the weapon equippable)
 	HandleWeaponThrown();
 
 	// Timer that will allow collisions to be checked by making a bool true, bool checked in blueprint
@@ -50,6 +54,7 @@ void ATW_PercussionDynamite::Explode()
 		UKismetSystemLibrary::DrawDebugSphere(GetWorld(), WeaponMesh->GetComponentLocation(), DamageRadius, 32, FColor::Red, 2, 2);
 	}
 
+	// Broadcasts delegate which will be used to notify enemies so they run away and other behavior
 	OnExplosionDelegate.Broadcast();
 }
 

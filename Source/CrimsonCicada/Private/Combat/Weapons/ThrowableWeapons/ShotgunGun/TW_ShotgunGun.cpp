@@ -18,12 +18,14 @@ void ATW_ShotgunGun::BeginPlay()
 
 void ATW_ShotgunGun::PerformPrimaryAction()
 {
-	LaunchDirectionVector = GetWorld()->GetFirstPlayerController()->GetPawn()->FindComponentByClass<UCameraComponent>()->GetForwardVector();
+	// Launches the weapon in the direction of the camera's forward vector.
+	// Enable collision for physics checks.
+
+	LaunchDirectionVector = CameraComp->GetForwardVector();
 	WeaponMesh->SetSimulatePhysics(true);
 	WeaponMesh->AddImpulse(LaunchDirectionVector * LaunchForceVector);
 	WeaponMesh->AddTorqueInRadians(TorqueStrengthVector, NAME_None, true);
 	
-	//HandleWeaponThrown();
 
 	// Timer that will allow collisions to be checked by making a bool true, bool checked in blueprint
 	FTimerHandle SetCollisionsHandle;
@@ -38,6 +40,7 @@ void ATW_ShotgunGun::SetShouldCheckForCollisions(bool ShouldCheckForCollisions)
 
 void ATW_ShotgunGun::Fire()
 {
+	// Function called when the projectile collides with something. Performs spread traces like a shotgun.
 	TArray<FHitResult> HitResultsSpread;
 	if (PerformWeaponTraceComp->PerformSpreadTraces(BulletShootPoint->GetComponentLocation(), BulletShootPoint->GetForwardVector(), SpreadAngleDegrees,  NumberOfTraces, SpreadRange, HitResultsSpread, ECC_GameTraceChannel3))
 	{

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 
+// All weapon enums (melee, ranged, throwable, spells) used as identification for each weapon
 UENUM(BlueprintType)
 enum class EWeapon : uint8
 {

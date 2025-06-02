@@ -38,10 +38,11 @@ void AAllWeaponsBase::PickUp()
 	if (WeaponMesh)
 	{
 		WeaponMesh->SetSimulatePhysics(false);
-		//WeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	
+	// Add the picked up weapon to inventory, with that equipped weapon's enum
 	AddWeaponToInventory(GetWeaponEnum());
+	// Stores the weapon actor for reference purposes
 	InventoryComp->StoreWeaponActor(GetWeaponEnum(), this);
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);

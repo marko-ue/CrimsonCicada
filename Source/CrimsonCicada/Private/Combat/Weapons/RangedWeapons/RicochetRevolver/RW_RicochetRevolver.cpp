@@ -10,6 +10,7 @@ void ARW_RicochetRevolver::BeginPlay()
 
 void ARW_RicochetRevolver::PerformPrimaryAction()
 {
+	
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
 

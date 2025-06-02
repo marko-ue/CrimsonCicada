@@ -63,12 +63,15 @@ void UInteractComponent::PerformInteractTrace()
 		UE_LOG(LogTemp, Warning, TEXT("InteractableHit"));
 		AActor* HitActor{ InteractableHit.GetActor() };
 		
+		// If there's an actor hit, checks if it implements the pickupable interface
 		if (HitActor && HitActor->Implements<UPickupable>())
 		{
+			// Cast to pickupable
 			IPickupable* ItemToPickUp{ Cast<IPickupable>(HitActor) };
 
 			if (ItemToPickUp)
 			{
+				// Call the PickUp function on the hit actor
 				ItemToPickUp->PickUp();
 			}
 		}

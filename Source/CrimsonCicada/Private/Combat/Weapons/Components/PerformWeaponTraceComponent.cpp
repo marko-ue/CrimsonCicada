@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Combat/Weapons/Components/PerformWeaponTraceComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
@@ -34,6 +33,7 @@ void UPerformWeaponTraceComponent::TickComponent(float DeltaTime, ELevelTick Tic
 	// ...
 }
 
+// Performs a straight trace from camera with the passed in range. The hit result of the trace used in class that's calling, and performed on the specified trace channel.
 bool UPerformWeaponTraceComponent::PerformStraightTraceFromCamera(float WeaponRange, FHitResult& OutHit, ECollisionChannel TraceChannel)
 {
 	if (!CameraComp) { UE_LOG(LogTemp, Warning, TEXT("CameraComp is null")); return false; }
@@ -60,6 +60,7 @@ bool UPerformWeaponTraceComponent::PerformStraightTraceFromCamera(float WeaponRa
 	);
 }
 
+// Performs spread traces in a random cone with all specifics passed in
 bool UPerformWeaponTraceComponent::PerformSpreadTraces(
 	FVector TraceStart,
 	FVector ForwardDirection,
@@ -73,12 +74,14 @@ bool UPerformWeaponTraceComponent::PerformSpreadTraces(
 	IgnoreParams.AddIgnoredActor(GetOwner());
 	IgnoreParams.AddIgnoredActor(GetWorld()->GetFirstPlayerController()->GetPawn());
 
+	// Bool used for performance reasons
 	bool bHitSomething = false;
 
 	// For each number of traces specified, create a random direction in a cone with the specified spread degrees.
 	// Perform a trace for each, then store the results of each in a hit result out parameter.
 	// The out parameter is used to store the trace results in the hit result of the class that's calling.
 	
+
 	for (int32 i = 0; i < NumTraces; ++i)
 	{
 		FVector RandomDirection = FMath::VRandCone(

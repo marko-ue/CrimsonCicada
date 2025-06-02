@@ -20,6 +20,8 @@ void AS_TimeStop::CastSpell()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Casting time stop spell"));
 
+		// Deal damage to the player while the time stop spell is active. 
+		// Freeze all enemies and objects, only allow player movement.
 		FDamageEvent TimeStopHealthDrainEvent;
 		
 		PlayerPawn->TakeDamage(10, TimeStopHealthDrainEvent, PlayerPawn->GetInstigatorController(), this);

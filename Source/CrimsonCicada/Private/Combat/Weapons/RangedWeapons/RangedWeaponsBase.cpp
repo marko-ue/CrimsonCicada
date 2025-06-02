@@ -32,6 +32,7 @@ void ARangedWeaponsBase::PerformPrimaryActionAutomatic()
 {
 }
 
+// If the ranged weapon base specific flipbooks are not nullptr, get their length
 void ARangedWeaponsBase::GetFlipbookLengthIfValid()
 {
 	if (ShootFlipbook)

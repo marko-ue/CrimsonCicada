@@ -13,6 +13,7 @@ void ARW_Shotgun::BeginPlay()
 
 void ARW_Shotgun::PerformPrimaryAction()
 {
+	// The shotgun weapon spawns a projectile into the world and calls is primary action function (which in this case gets launched, like a throwable, not a bullet)
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 	SpawnParams.Owner = this;

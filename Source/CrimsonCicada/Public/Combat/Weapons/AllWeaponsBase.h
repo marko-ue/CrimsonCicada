@@ -35,11 +35,14 @@ protected:
 	
 	UInventoryComponent* InventoryComp;
 
+	// Handles picking up weapon for adding to the inventory
 	virtual void PickUp() override;
 
+	// Primary action for all weapons, override from interface
 	UFUNCTION(BlueprintCallable)
 	virtual void PerformPrimaryAction() override;
 
+	// Cast spell for function used by spells, override from interface
 	UFUNCTION(BlueprintCallable)
 	virtual void CastSpell() override;
 	
@@ -55,9 +58,14 @@ public:
 
 	UCameraComponent* CameraComp;
 
+	// Used for getting the equipped weapon's enum. Useful for proper inheritance
 	UFUNCTION(BlueprintCallable)
 	virtual EWeapon GetWeaponEnum() const;
 
+	// Variable that determines if a weapon is one handed or two handed
+	// Weapons handle different based on the hands required
+	// One handed weapons can be equipped at the same time as a spell, and dual wield works on them
+	// Two handed weapons are genereally heavier and pack a bigger punch but lack other properties
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 HandsRequired;
 
@@ -72,16 +80,18 @@ public:
 
 	FTimerHandle SetWeaponInactiveTimerHandle;
 	
-	// Flipbook
+	// All flipbook components for the player each with their own purpose.
 	UPaperFlipbookComponent* WeaponFlipbookComp;
 	UPaperFlipbookComponent* SpellFlipbookComp;
 	UPaperFlipbookComponent* WeaponDuelWieldFlipbookComp;
 
+	// All weapons will have a flipbook that's played when idle, walking and running
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* IdleFlipbook;
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* WalkFlipbook;
 
+	// In the all weapons base function, checks if the basic flipbooks are valid
 	virtual void GetFlipbookLengthIfValid();
 	//
 };

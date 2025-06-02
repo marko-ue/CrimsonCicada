@@ -13,6 +13,8 @@ void ATW_Brick::BeginPlay()
 
 void ATW_Brick::PerformPrimaryAction()
 {
+	// Launches the weapon in the direction of the camera's forward vector. 
+	// Makes the weapon visible and enable physics.
 	LaunchDirectionVector = CameraComp->GetForwardVector();
 	SetActorHiddenInGame(false);
 	SetActorEnableCollision(true);
@@ -20,5 +22,6 @@ void ATW_Brick::PerformPrimaryAction()
 	WeaponMesh->AddImpulse(LaunchDirectionVector * LaunchForceVector);
 	WeaponMesh->AddTorqueInRadians(TorqueStrengthVector, NAME_None, true);
 	
+	// Function for handling thrown weapon (setting equipped weapon to none, detaching and making the weapon equippable)
 	HandleWeaponThrown();
 }

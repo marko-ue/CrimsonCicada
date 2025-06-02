@@ -29,9 +29,12 @@ public:
 	UPROPERTY(EditAnywhere)
 	TMap<EStat, float> Stats;
 
+	// Reduce function used with the AnyDamage actor event
+	// Parameter from event used to reduce that actor's health
 	UFUNCTION(BlueprintCallable)
 	void ReduceHealth(float Amount);
 
+	// Function for getting the specified stat value
 	UFUNCTION(BlueprintCallable)
 	float GetStat(EStat Stat) const;
 };
