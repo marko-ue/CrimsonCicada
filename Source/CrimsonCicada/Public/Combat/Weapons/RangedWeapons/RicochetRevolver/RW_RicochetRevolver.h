@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Combat/Weapons/RangedWeapons/RangedWeaponsBase.h"
+#include "Combat/Weapons/Projectiles/RicochetBullet/P_RicochetBullet.h"
 #include "RW_RicochetRevolver.generated.h"
 
 /**
@@ -24,4 +25,9 @@ protected:
 private:
 	float Range{ 2000.0f };
 
+	USceneComponent* BulletShootPoint;
+
+public:
+	UPROPERTY(EditDefaultsOnly, Category = "Projectile")
+	TSubclassOf<AP_RicochetBullet> ProjectileClass;
 };

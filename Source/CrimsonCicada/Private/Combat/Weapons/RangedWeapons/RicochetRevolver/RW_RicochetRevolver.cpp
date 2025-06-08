@@ -6,26 +6,23 @@
 void ARW_RicochetRevolver::BeginPlay()
 {
 	Super::BeginPlay();
+	BulletShootPoint = Cast<USceneComponent>(GetDefaultSubobjectByName(TEXT("BulletShootPoint")));
+	HandsRequired = 2;
 }
 
 void ARW_RicochetRevolver::PerformPrimaryAction()
 {
 	
-	FHitResult HitResultStraight;
-	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
+	// The ricochet revolver weapon spawns its projectile into the world and calls its launch function (which in this case shoots it from the camera forward vector)
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	SpawnParams.Owner = this;
+	SpawnParams.Instigator = GetInstigator();
+	
+	AP_RicochetBullet* SpawnedShotgunGun = GetWorld()->SpawnActor<AP_RicochetBullet>(ProjectileClass, CameraComp->GetComponentLocation(), CameraComp->GetComponentRotation(), SpawnParams);
 
-	if (bHit)
+	if (SpawnedShotgunGun)
 	{
-		AActor* HitActor = HitResultStraight.GetActor();
-		if (HitActor)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Hit actor with straight trace: %s"), *HitActor->GetName());
-			FHitResult HitResultSecond;
-			bool bHitSecond = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
-			if (bHitSecond)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("Hit second trace"));
-			}
-		}
+		SpawnedShotgunGun->LaunchProjectile();
 	}
 }

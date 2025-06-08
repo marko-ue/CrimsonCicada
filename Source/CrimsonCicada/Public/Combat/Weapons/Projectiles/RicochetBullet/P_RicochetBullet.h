@@ -23,7 +23,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere)
 	class UProjectileMovementComponent* ProjectileMovementComp;
 
 	void LaunchProjectile();
+
+	UFUNCTION(BlueprintCallable)
+	void DestroyProjectile();
+
+private:
+	UStaticMeshComponent* BulletMesh;
 };

@@ -10,19 +10,23 @@ AP_RicochetBullet::AP_RicochetBullet()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Projectile movement comp default settings
 	ProjectileMovementComp = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComp"));
-	ProjectileMovementComp->InitialSpeed = 5000.f;
+	ProjectileMovementComp->InitialSpeed = 1500.f;
 	ProjectileMovementComp->MaxSpeed = 5000.f;
 	ProjectileMovementComp->bShouldBounce = true;
 	ProjectileMovementComp->Bounciness = 0.8f;
-	ProjectileMovementComp->ProjectileGravityScale = 0.f; // Optional if you want zero gravity
+	ProjectileMovementComp->ProjectileGravityScale = 0.f;
+
+	
 }
 
 // Called when the game starts or when spawned
 void AP_RicochetBullet::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	BulletMesh = FindComponentByClass<UStaticMeshComponent>();
 }
 
 // Called every frame
@@ -34,8 +38,15 @@ void AP_RicochetBullet::Tick(float DeltaTime)
 
 void AP_RicochetBullet::LaunchProjectile()
 {
+	BulletMesh->IgnoreActorWhenMoving(GetWorld()->GetFirstPlayerController()->GetPawn(), true);
+	
 	ProjectileMovementComp->SetVelocityInLocalSpace(FVector::ForwardVector * ProjectileMovementComp->InitialSpeed);
 	ProjectileMovementComp->Activate();
+}
+
+void AP_RicochetBullet::DestroyProjectile()
+{
+	Destroy();
 }
 
 
