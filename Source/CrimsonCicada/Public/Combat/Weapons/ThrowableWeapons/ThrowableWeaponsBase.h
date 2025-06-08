@@ -56,4 +56,6 @@ public:
 
 	UFUNCTION()
 	void ApplyThrowPhysics();
+
+	virtual void PlayThrowFlipbook();
 };

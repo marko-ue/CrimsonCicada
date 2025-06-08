@@ -16,19 +16,10 @@ void ATW_PercussionDynamite::BeginPlay()
 
 void ATW_PercussionDynamite::PerformPrimaryAction()
 {
-	// Launches the weapon in the direction of the camera's forward vector.
-	// Makes the weapon visible and enable physics.
-
-	LaunchDirectionVector = CameraComp->GetForwardVector();
-	SetActorHiddenInGame(false);
-	SetActorEnableCollision(true);
-	WeaponMesh->SetSimulatePhysics(true);
-	WeaponMesh->AddImpulse(LaunchDirectionVector * LaunchForceVector);
-	WeaponMesh->AddTorqueInRadians(TorqueStrengthVector, NAME_None, true);
-
-	// Function for handling thrown weapon (setting equipped weapon to none, detaching and making the weapon equippable)
-	HandleWeaponThrown();
-
+	if (bIsWeaponActive) { return; }
+	
+	PlayThrowFlipbook();
+	
 	// Timer that will allow collisions to be checked by making a bool true, bool checked in blueprint
 	FTimerHandle SetCollisionsHandle;
 	FTimerDelegate SetCollisionsDelegate = FTimerDelegate::CreateUObject(this, &ATW_PercussionDynamite::SetShouldCheckForCollisions, true);
@@ -38,6 +29,11 @@ void ATW_PercussionDynamite::PerformPrimaryAction()
 void ATW_PercussionDynamite::SetShouldCheckForCollisions(bool ShouldCheckForCollisions)
 {
 	bShouldCheckForCollisions = ShouldCheckForCollisions;
+}
+
+void ATW_PercussionDynamite::PlayThrowFlipbook()
+{
+	Super::PlayThrowFlipbook();
 }
 
 
