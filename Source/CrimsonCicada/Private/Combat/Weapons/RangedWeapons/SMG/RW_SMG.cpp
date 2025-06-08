@@ -19,6 +19,8 @@ void ARW_SMG::BeginPlay()
 
 void ARW_SMG::PerformPrimaryActionAutomatic()
 {
+	PlayShootFlipbook();
+	
 	// Performs a regular trace from the camera but automatic
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
@@ -35,7 +37,7 @@ void ARW_SMG::PerformPrimaryActionAutomatic()
 
 void ARW_SMG::StartAutomaticFire()
 {
-	// Allows the player to hold down the input and have the weapon shoot automtically through the timer
+	// Allows the player to hold down the input and have the weapon shoot automatically through the timer
 	if (!GetWorld()->GetTimerManager().IsTimerActive(AutomaticFireTimerHandle))
 	{
 		PerformPrimaryActionAutomatic();
@@ -54,4 +56,10 @@ void ARW_SMG::StopAutomaticFire()
 {
 	// Stops the looping timer for shooting when input released
 	GetWorld()->GetTimerManager().ClearTimer(AutomaticFireTimerHandle);
+	bIsWeaponActive = false;
+}
+
+void ARW_SMG::PlayShootFlipbook()
+{
+	Super::PlayShootFlipbook();
 }

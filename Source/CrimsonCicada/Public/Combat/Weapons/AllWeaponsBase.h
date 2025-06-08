@@ -72,7 +72,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsDualWieldSpellActive{ false };
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bIsWeaponActive{ false };
 
 	UFUNCTION()

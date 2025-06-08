@@ -31,4 +31,10 @@ protected:
 	
 private:
 	float Range{ 2000.0f };
+
+	virtual void PlayShootFlipbook() override;
+
+public:
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsFiring;
 };

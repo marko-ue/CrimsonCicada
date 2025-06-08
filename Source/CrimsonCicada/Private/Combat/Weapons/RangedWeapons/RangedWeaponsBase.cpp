@@ -48,6 +48,15 @@ void ARangedWeaponsBase::GetFlipbookLengthIfValid()
 
 void ARangedWeaponsBase::PlayShootFlipbook()
 {
-	
+	if (!bIsWeaponActive)
+	{
+		WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
+		WeaponFlipbookComp->PlayFromStart();
+		// Check if dual wield spell is active
+		if (!bIsDualWieldSpellActive)
+		{
+			bIsWeaponActive = true;
+		}
+	}
 }
 
