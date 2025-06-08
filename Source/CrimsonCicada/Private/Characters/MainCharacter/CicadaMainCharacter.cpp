@@ -226,7 +226,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 
 		if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 		{
-			PlayWalkFlipbook();
+			PlayRunFlipbook();
 		}
 	}
 	else if (MovementComp->Velocity.Size() > 0)  // walking
@@ -241,6 +241,42 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 		{
 			PlayWalkFlipbook();
+		}
+	}
+}
+
+void ACicadaMainCharacter::PlayIdleFlipbook()
+{ 
+	// Return if the equipped weapon is performing its primary action (we don't want idle overriding it)
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
+
+	// If the equipped weapon has a idle flipbook (nullptr check)
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
+	{
+		// Play the idle flipbook from the start
+		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
+		{
+			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
+			WeaponFlipbookComp->PlayFromStart();
+		}
+	}
+
+	// If the equipped weapon has a idle flipbook (nullptr check)
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
+	{
+		// If the dual wield spell is active, play the same flipbook but in the dual field flipbook component
+		if (InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
+		{
+			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
+			{
+				WeaponDuelWieldFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
+				WeaponDuelWieldFlipbookComp->PlayFromStart();
+			}
+		}
+		else
+		{
+			// When the dual wield spell ends, remove the flipbook
+			WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
 		}
 	}
 }
@@ -281,31 +317,31 @@ void ACicadaMainCharacter::PlayWalkFlipbook()
 	}
 }
 
-void ACicadaMainCharacter::PlayIdleFlipbook()
-{ 
-	// Return if the equipped weapon is performing its primary action (we don't want idle overriding it)
+void ACicadaMainCharacter::PlayRunFlipbook()
+{
+	// Return if the equipped weapon is performing its primary action (we don't want walk overriding it)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
-
-	// If the equipped weapon has a idle flipbook (nullptr check)
-	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
+	
+	// If the equipped weapon has the run flipbook (nullptr check)
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->RunFlipbook)
 	{
-		// Play the idle flipbook from the start
-		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
+		// Play the run flipbook from the start
+		if (WeaponFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->RunFlipbook)
 		{
-			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
+			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->RunFlipbook);
 			WeaponFlipbookComp->PlayFromStart();
 		}
 	}
 
-	// If the equipped weapon has a idle flipbook (nullptr check)
-	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
+	// If the equipped weapon has a run flipbook (nullptr check)
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->RunFlipbook)
 	{
 		// If the dual wield spell is active, play the same flipbook but in the dual field flipbook component
 		if (InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
 		{
-			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->IdleFlipbook)
+			if (WeaponDuelWieldFlipbookComp->GetFlipbook() != InventoryComp->EquippedWeapon->RunFlipbook)
 			{
-				WeaponDuelWieldFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
+				WeaponDuelWieldFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->RunFlipbook);
 				WeaponDuelWieldFlipbookComp->PlayFromStart();
 			}
 		}
@@ -316,3 +352,5 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 		}
 	}
 }
+
+

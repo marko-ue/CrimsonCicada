@@ -90,9 +90,11 @@ private:
 	bool bCanPlayFootstep{ true };
 
 	UFUNCTION(BlueprintCallable)
+	void PlayIdleFlipbook();
+	UFUNCTION(BlueprintCallable)
 	void PlayWalkFlipbook();
 	UFUNCTION(BlueprintCallable)
-	void PlayIdleFlipbook();
+	void PlayRunFlipbook();
 
 	// Flipbook
 	class UPaperFlipbookComponent* WeaponFlipbookComp;

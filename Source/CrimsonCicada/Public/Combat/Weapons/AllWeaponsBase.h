@@ -90,6 +90,8 @@ public:
 	UPaperFlipbook* IdleFlipbook;
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* WalkFlipbook;
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* RunFlipbook;
 
 	// In the all weapons base function, checks if the basic flipbooks are valid
 	virtual void GetFlipbookLengthIfValid();
