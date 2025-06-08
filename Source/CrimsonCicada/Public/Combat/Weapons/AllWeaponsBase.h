@@ -95,5 +95,8 @@ public:
 
 	// In the all weapons base function, checks if the basic flipbooks are valid
 	virtual void GetFlipbookLengthIfValid();
+
+	UFUNCTION(BlueprintCallable)
+	void ClearAllFlipbooks();
 	//
 };

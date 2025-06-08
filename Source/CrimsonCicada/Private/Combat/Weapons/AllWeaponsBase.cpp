@@ -90,3 +90,10 @@ void AAllWeaponsBase::GetFlipbookLengthIfValid()
 	
 }
 
+void AAllWeaponsBase::ClearAllFlipbooks()
+{
+	WeaponFlipbookComp->SetFlipbook(nullptr);
+	SpellFlipbookComp->SetFlipbook(nullptr);
+	WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
+}
+

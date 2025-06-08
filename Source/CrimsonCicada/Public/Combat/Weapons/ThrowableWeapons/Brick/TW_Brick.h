@@ -14,10 +14,19 @@ class CRIMSONCICADA_API ATW_Brick : public AThrowableWeaponsBase
 {
 	GENERATED_BODY()
 
+public:
+	virtual void Tick(float DeltaTime) override;
+	
 protected:
 	virtual void BeginPlay() override;
 	
 	virtual EWeapon GetWeaponEnum() const override { return EWeapon::Brick; }
 	
 	virtual void PerformPrimaryAction() override;
+
+private:
+	void PlayThrowFlipbook();
+
+
+	
 };

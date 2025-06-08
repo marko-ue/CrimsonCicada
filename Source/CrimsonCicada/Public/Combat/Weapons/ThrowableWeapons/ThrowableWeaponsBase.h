@@ -28,10 +28,7 @@ public:
 
 protected:
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd) override;
-
-	void HandleWeaponThrown();
 	
-
 	UPROPERTY(BlueprintReadOnly)
 	bool bShouldCheckForCollisions{ false };
 
@@ -41,4 +38,22 @@ protected:
 	FVector LaunchForceVector;
 	UPROPERTY(EditAnywhere, Category = "Throw Settings")
 	FVector TorqueStrengthVector;
+
+	// Flipbook
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* ThrowFlipbook;
+	float ThrowFlipbookLength;
+
+	FTimerHandle RemoveFlipbookTimerHandle;
+
+	FTimerHandle ApplyPhysicsTimerHandle;
+
+public:
+	void HandleWeaponThrown();
+
+	UFUNCTION()
+	void ClearThrowFlipbook();
+
+	UFUNCTION()
+	void ApplyThrowPhysics();
 };
