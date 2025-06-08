@@ -20,6 +20,12 @@ void ARW_RicochetRevolver::PerformPrimaryAction()
 		if (HitActor)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor with straight trace: %s"), *HitActor->GetName());
+			FHitResult HitResultSecond;
+			bool bHitSecond = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
+			if (bHitSecond)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Hit second trace"));
+			}
 		}
 	}
 }

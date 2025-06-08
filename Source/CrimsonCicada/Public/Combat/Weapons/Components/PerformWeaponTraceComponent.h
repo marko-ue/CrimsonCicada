@@ -32,11 +32,7 @@ protected:
 
 public:
 	bool PerformStraightTraceFromCamera(float WeaponRange, FHitResult& OutHit, ECollisionChannel TraceChannel);
-	bool PerformSpreadTraces(FVector TraceStart,
-	FVector ForwardDirection,
-	float SpreadAngleDegrees,
-	int32 NumTraces,
-	float TraceRange,
-	TArray<FHitResult>& OutHits,
-	ECollisionChannel TraceChannel);
+	
+	bool PerformSpreadTraces(FVector TraceStart, FVector ForwardDirection, float SpreadAngleDegrees,
+	int32 NumTraces, float TraceRange,TArray<FHitResult>& OutHits, ECollisionChannel TraceChannel);
 };
