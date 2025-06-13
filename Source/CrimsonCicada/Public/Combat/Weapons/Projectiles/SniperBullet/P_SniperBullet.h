@@ -37,5 +37,6 @@ private:
 	UStaticMeshComponent* BulletMesh;
 	class UInventoryComponent* InventoryComp;
 	APawn* PlayerPawn;
+	ACharacter* PlayerCharacter;
 	
 };

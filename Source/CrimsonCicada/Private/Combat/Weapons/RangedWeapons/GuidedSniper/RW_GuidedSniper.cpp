@@ -2,6 +2,8 @@
 
 
 #include "Combat/Weapons/RangedWeapons/GuidedSniper/RW_GuidedSniper.h"
+#include "GameFramework/Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 void ARW_GuidedSniper::BeginPlay()
 {
@@ -33,6 +35,12 @@ void ARW_GuidedSniper::PerformPrimaryAction()
 
 		// Switch camera to the bullet's
 		GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(SpawnedSniperBullet, 0.3f);
+
+		// Disable player input
+		Cast<ACharacter>(GetWorld()->GetFirstPlayerController()->GetPawn())->GetCharacterMovement()->DisableMovement();
+
+		// Possess the spawned bullet, allowing usage of its inputs
+		GetWorld()->GetFirstPlayerController()->Possess(SpawnedSniperBullet);
 	}
 
 	bIsWeaponActive = true;

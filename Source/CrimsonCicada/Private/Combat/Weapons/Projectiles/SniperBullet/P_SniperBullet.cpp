@@ -6,6 +6,8 @@
 #include "Camera/CameraComponent.h"
 #include "Combat/Weapons/AllWeaponsBase.h"
 #include "Systems/Inventory/InventoryComponent.h"
+#include "GameFramework/Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AP_SniperBullet::AP_SniperBullet()
@@ -30,6 +32,7 @@ void AP_SniperBullet::BeginPlay()
 	BulletCamera = FindComponentByClass<UCameraComponent>();
 	PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 	InventoryComp = PlayerPawn->FindComponentByClass<UInventoryComponent>();
+	PlayerCharacter = Cast<ACharacter>(PlayerPawn);
 }
 
 // Called every frame
@@ -49,8 +52,10 @@ void AP_SniperBullet::LaunchProjectile()
 
 void AP_SniperBullet::DestroyProjectile()
 {
-	// Set camera back to the player
-	GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(PlayerPawn, 0.3f);
+	// Set camera back to the player, possess player again, enable player movement, and allow weapon to be fired again
+	GetWorld()->GetFirstPlayerController()->Possess(PlayerPawn);
+	GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(PlayerPawn, 0.1f);
+	Cast<ACharacter>(GetWorld()->GetFirstPlayerController()->GetPawn())->GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Walking);
 	InventoryComp->EquippedWeapon->bIsWeaponActive = false;
 	Destroy();
 }

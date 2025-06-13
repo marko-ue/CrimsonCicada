@@ -215,7 +215,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		PlayIdleFlipbook();
 	}
 	
-	else if (MovementComp->Velocity.Size() >= 700)  // running
+	else if (MovementComp->Velocity.Size() >= 700)  // Running
 	{
 		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
@@ -229,7 +229,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 			PlayRunFlipbook();
 		}
 	}
-	else if (MovementComp->Velocity.Size() > 0)  // walking
+	else if (MovementComp->Velocity.Size() > 0)  // Walking
 	{
 		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
@@ -259,6 +259,10 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 			WeaponFlipbookComp->SetFlipbook(InventoryComp->EquippedWeapon->IdleFlipbook);
 			WeaponFlipbookComp->PlayFromStart();
 		}
+	}
+	else
+	{
+		WeaponFlipbookComp->SetFlipbook(nullptr);
 	}
 
 	// If the equipped weapon has a idle flipbook (nullptr check)
