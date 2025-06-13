@@ -16,5 +16,6 @@ enum class EWeapon : uint8
 	TimeStop,
 	DualWield,
 	PercussionDynamite,
-	RicochetRevolver
+	RicochetRevolver,
+	GuidedSniper
 };

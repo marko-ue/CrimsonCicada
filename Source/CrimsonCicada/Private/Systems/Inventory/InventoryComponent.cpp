@@ -191,7 +191,7 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 		WeaponActor = WeaponActorMap[WeaponToUnequip];
 	}
 	
-	// Set settings for uneqipped weapon (make invisible and set equipped weapon to nullptr)
+	// Set settings for unequipped weapon (make invisible and set equipped weapon to nullptr)
 	if (WeaponActor && EquippedWeapon != nullptr)
 	{
 		WeaponActor->SetActorHiddenInGame(true);
@@ -201,8 +201,6 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 		EquippedWeapon = nullptr;
 		WeaponActor->bCanBeEquipped = true;
 	}
-
-	
 }
 
 void UInventoryComponent::UnequipSpell(EWeapon SpellToUnequip)
@@ -216,7 +214,7 @@ void UInventoryComponent::UnequipSpell(EWeapon SpellToUnequip)
 		SpellActor = Cast<ASpellsBase>(WeaponActorMap[SpellToUnequip]);
 	}
 
-	// Set settings for uneqipped weapon (make invisible and set equipped weapon to nullptr)
+	// Set settings for unequipped weapon (make invisible and set equipped weapon to nullptr)
 	if (SpellActor && EquippedSpell != nullptr)
 	{
 		SpellActor->SetActorHiddenInGame(true);
