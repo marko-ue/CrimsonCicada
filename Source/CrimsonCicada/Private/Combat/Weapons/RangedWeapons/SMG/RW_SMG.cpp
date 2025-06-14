@@ -19,12 +19,16 @@ void ARW_SMG::BeginPlay()
 
 void ARW_SMG::PerformPrimaryActionAutomatic()
 {
-	PlayShootFlipbook();
+	if (AmmoInClip <= 0) { return; }
+	
+	PlayShootFlipbook(ShootFlipbookLength + 0.25f);
 	
 	// Performs a regular trace from the camera but automatic
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
 
+	ReduceAmmoInClipByAmount(1);
+	
 	if (bHit)
 	{
 		AActor* HitActor = HitResultStraight.GetActor();
@@ -59,7 +63,17 @@ void ARW_SMG::StopAutomaticFire()
 	bIsWeaponActive = false;
 }
 
-void ARW_SMG::PlayShootFlipbook()
+void ARW_SMG::Reload(float InactivityDelay)
 {
-	Super::PlayShootFlipbook();
+	Super::Reload(ReloadFlipbookLength + 0.5f);
+}
+
+void ARW_SMG::PlayShootFlipbook(float InactivityDelay)
+{
+	Super::PlayShootFlipbook(ShootFlipbookLength + 0.25f);
+}
+
+void ARW_SMG::PlayReloadFlipbook()
+{
+	Super::PlayReloadFlipbook();
 }

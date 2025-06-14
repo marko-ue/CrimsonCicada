@@ -46,7 +46,7 @@ void ARW_GuidedSniper::PerformPrimaryAction()
 	bIsWeaponActive = true;
 }
 
-void ARW_GuidedSniper::PlayShootFlipbook()
+void ARW_GuidedSniper::PlayShootFlipbook(float InactivityDelay)
 {
-	Super::PlayShootFlipbook();
+	Super::PlayShootFlipbook(ShootFlipbookLength + 0.25f);
 }

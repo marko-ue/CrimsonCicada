@@ -3,6 +3,8 @@
 
 #include "Combat/Weapons/AllWeaponsBase.h"
 #include "Camera/CameraComponent.h"
+#include "Characters/MainCharacter/CicadaMainCharacter.h"
+#include "GameFramework/Character.h"
 
 
 // Sets default values
@@ -83,6 +85,12 @@ EWeapon AAllWeaponsBase::GetWeaponEnum() const
 void AAllWeaponsBase::SetWeaponInactive()
 {
 	bIsWeaponActive = false;
+
+	ACharacter* Character = Cast<ACharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	ACicadaMainCharacter* PlayerCharacter = Cast<ACicadaMainCharacter>(Character);
+	PlayerCharacter->StartFlipbookCooldown();
+	
+	
 }
 
 void AAllWeaponsBase::GetFlipbookLengthIfValid()

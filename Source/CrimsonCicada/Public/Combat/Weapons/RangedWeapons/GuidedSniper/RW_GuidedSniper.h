@@ -33,7 +33,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	bool bDebugMode;
 
-	virtual void PlayShootFlipbook() override;
+	virtual void PlayShootFlipbook(float InactivityDelay) override;
 
 public:
 	UPROPERTY(EditDefaultsOnly, Category = "Projectile")

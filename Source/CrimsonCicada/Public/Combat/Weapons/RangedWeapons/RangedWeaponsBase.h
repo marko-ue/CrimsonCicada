@@ -28,6 +28,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
+	UFUNCTION(BlueprintCallable)
+	virtual void Reload(float InactivityDelay);
 
 	class UPerformWeaponTraceComponent* PerformWeaponTraceComp;
 // Automatic weapons
@@ -58,5 +60,19 @@ protected:
 	float ReloadFlipbookLength;
 
 	virtual void GetFlipbookLengthIfValid() override;
-	virtual void PlayShootFlipbook();
+	virtual void PlayShootFlipbook(float InactivityDelay);
+	virtual void PlayReloadFlipbook();
+
+	// Ammo
+	UPROPERTY(EditDefaultsOnly, Category="Ammo")
+	int ClipSize;
+	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	int AmmoInClip;
+	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	int Ammo;
+	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	int MaxAmmo;
+
+	void ReduceAmmoInClipByAmount(float Amount) { AmmoInClip -= Amount; }
+	
 };

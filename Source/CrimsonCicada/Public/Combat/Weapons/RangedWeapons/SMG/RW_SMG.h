@@ -29,10 +29,15 @@ protected:
 
 	FTimerHandle AutomaticFireTimerHandle;
 	
+	FTimerHandle SetWeaponActiveTimerHandle;
+
+	virtual void Reload(float InactivityDelay) override;
+	
 private:
 	float Range{ 2000.0f };
 
-	virtual void PlayShootFlipbook() override;
+	virtual void PlayShootFlipbook(float InactivityDelay) override;
+	virtual void PlayReloadFlipbook() override;
 
 public:
 	UPROPERTY(BlueprintReadWrite)

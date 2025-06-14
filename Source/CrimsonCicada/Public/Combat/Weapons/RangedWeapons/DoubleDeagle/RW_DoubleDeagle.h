@@ -25,6 +25,8 @@ protected:
 	virtual EWeapon GetWeaponEnum() const override { return EWeapon::DoubleDeagle; }
 
 	virtual void PerformPrimaryAction() override;
+	
+	virtual void Reload(float InactivityDelay) override;
 
 private:
 	float Range{ 2000.0f };
@@ -32,5 +34,6 @@ private:
 	UPROPERTY(EditAnywhere)
 	bool bDebugMode;
 
-	virtual void PlayShootFlipbook() override;
+	virtual void PlayShootFlipbook(float InactivityDelay) override;
+	virtual void PlayReloadFlipbook() override;
 };

@@ -22,14 +22,17 @@ void ARW_DoubleDeagle::Tick(float DeltaTime)
 void ARW_DoubleDeagle::PerformPrimaryAction()
 {
 	// This weapon shouldn't shoot if it's already shooting. Return the function if it's already doing so.
-	if (bIsWeaponActive) { return; }
+	if (bIsWeaponActive) { return; } 
+
+	if (AmmoInClip <= 0) { return; }
 	
-	PlayShootFlipbook();
+	PlayShootFlipbook(ShootFlipbookLength + 0.25f);
 	
 	//* Straight trace *\\
 	
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
+	ReduceAmmoInClipByAmount(1);
 
 	if (bHit)
 	{
@@ -65,6 +68,8 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 		IgnoreParams
 	) };
 
+	ReduceAmmoInClipByAmount(1);
+
 	if (bActorHit)
 	{
 		AActor* HitActor = HitResultRandom.GetActor();
@@ -75,32 +80,17 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 	}
 }
 
-void ARW_DoubleDeagle::PlayShootFlipbook()
+void ARW_DoubleDeagle::Reload(float InactivityDelay)
 {
-	// Plays the shoot flipbook if not already playing/weapon active
-	if (!bIsWeaponActive)
-	{
-		WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
-		WeaponFlipbookComp->PlayFromStart();
-		// Check if dual wield spell is active
-		if (!bIsDualWieldSpellActive)
-		{
-			bIsWeaponActive = true;
-		}
-	}
-	
-	// Makes the weapon inactive after the duration of the flipbook and some extra to avoid bugs
-	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ShootFlipbookLength + 0.25f, false);
+	Super::Reload(ReloadFlipbookLength - 0.2f);
+}
 
-	// If the dual wield spell is active, do the same but for the other weapon
-	if (bIsDualWieldSpellActive)
-	{
-		if (!bIsWeaponActive)
-		{
-			WeaponDuelWieldFlipbookComp->SetFlipbook(ShootFlipbook);
-			WeaponDuelWieldFlipbookComp->PlayFromStart();
-			bIsWeaponActive = true;
-		}
-		GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ShootFlipbookLength + 0.25f, false);
-	}
+void ARW_DoubleDeagle::PlayShootFlipbook(float InactivityDelay)
+{
+	Super::PlayShootFlipbook(ShootFlipbookLength + 0.25f);
+}
+
+void ARW_DoubleDeagle::PlayReloadFlipbook()
+{
+	Super::PlayReloadFlipbook();
 }
