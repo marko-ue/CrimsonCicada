@@ -17,6 +17,8 @@ void ARW_DoubleDeagle::BeginPlay()
 void ARW_DoubleDeagle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	UE_LOG(LogTemp, Warning, TEXT("Weapon active : %df"), bIsWeaponActive ? 1 : 0);
 }
 
 void ARW_DoubleDeagle::PerformPrimaryAction()

@@ -196,12 +196,6 @@ void ACicadaMainCharacter::SetAlternateMovementModeSettings(bool State)
 
 void ACicadaMainCharacter::HandlePlayFootstepSounds()
 {
-	// Return if non-weapon flipbooks are on cooldown
-	if (bIsInFlipbookCooldown)
-	{
-		return;
-	}
-	
 	// If a footstep cannot be played (a footstep is already playing), return
 	if (!bCanPlayFootstep)
 	{
@@ -214,42 +208,43 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		PlayIdleFlipbook();
 		return;
 	}
-
-	// Cache the speed to avoid multiple .Size() calls
-	float Speed = MovementComp->Velocity.Size();
-
-	if (Speed >= 700)  // Running
+	
+	// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
+	if (MovementComp->Velocity.Size() <= 100 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
+	{
+		PlayIdleFlipbook();
+	}
+	
+	else if (MovementComp->Velocity.Size() >= 700)  // Running
 	{
 		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
 		bCanPlayFootstep = false;
+		
+		FTimerHandle TimerHandle;
+		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.25f, false);
 
-		GetWorldTimerManager().SetTimer(ResetFootstepBoolRunTimerHandle, [this]() { bCanPlayFootstep = true; }, 0.25f, false);
-
-		// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
 		if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 		{
 			PlayRunFlipbook();
 		}
 	}
-	else if (Speed > 100)  // Walking
+	else if (MovementComp->Velocity.Size() > 0)  // Walking
 	{
 		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
 		bCanPlayFootstep = false;
+		
+		FTimerHandle TimerHandle;
+		GetWorldTimerManager().SetTimer(TimerHandle, [this]() { bCanPlayFootstep = true; }, 0.5f, false);
 
-		// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
 		if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
 		{
 			PlayWalkFlipbook();
 		}
 	}
-	else if (InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
-	{
-		// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
-		PlayIdleFlipbook();
-	}
 }
+
 
 void ACicadaMainCharacter::PlayIdleFlipbook()
 { 
