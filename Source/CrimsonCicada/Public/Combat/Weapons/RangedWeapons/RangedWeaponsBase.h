@@ -60,6 +60,7 @@ protected:
 	float ReloadFlipbookLength;
 
 	virtual void GetFlipbookLengthIfValid() override;
+	// !!!!!!!!!!!! InactivityDelay is no longer in use. Remove when sure it won't ever be used again !!!!!!!!!! //
 	virtual void PlayShootFlipbook(float InactivityDelay);
 	virtual void PlayReloadFlipbook();
 

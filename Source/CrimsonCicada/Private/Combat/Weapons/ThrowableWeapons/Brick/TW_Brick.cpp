@@ -25,10 +25,10 @@ void ATW_Brick::PerformPrimaryAction()
 {
 	if (bIsWeaponActive) { return; }
 	
-	PlayThrowFlipbook();
+	PlayThrowFlipbook(ThrowFlipbookLength + 0.33f);
 }
 
-void ATW_Brick::PlayThrowFlipbook()
+void ATW_Brick::PlayThrowFlipbook(float RemoveFlipbookDelay)
 {
-	Super::PlayThrowFlipbook();
+	Super::PlayThrowFlipbook(ThrowFlipbookLength + 0.33f);
 }

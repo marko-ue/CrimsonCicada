@@ -25,7 +25,7 @@ protected:
 	virtual void PerformPrimaryAction() override;
 
 private:
-	virtual void PlayThrowFlipbook() override;
+	virtual void PlayThrowFlipbook(float RemoveFlipbookDelay) override;
 
 
 	

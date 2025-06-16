@@ -45,7 +45,7 @@ void ACicadaMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Function that plays footsteps at the appopriate intervals based on player speed
+	// Function that plays footsteps at the appropriate intervals based on player speed
 	HandlePlayFootstepSounds();
 
 	// Check if player is zooming
@@ -58,6 +58,14 @@ void ACicadaMainCharacter::Tick(float DeltaTime)
 		ZoomOut();
 	}
 
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive)
+	{
+		WeaponFlipbookComp->SetLooping(false);
+	}
+	else
+	{
+		WeaponFlipbookComp->SetLooping(true);
+	}
 }
 
 // Called to bind functionality to input
@@ -209,13 +217,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 		return;
 	}
 	
-	// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
-	if (MovementComp->Velocity.Size() <= 100 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
-	{
-		PlayIdleFlipbook();
-	}
-	
-	else if (MovementComp->Velocity.Size() >= 700)  // Running
+	if (MovementComp->Velocity.Size() >= 700)  // Running
 	{
 		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
@@ -229,7 +231,7 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 			PlayRunFlipbook();
 		}
 	}
-	else if (MovementComp->Velocity.Size() > 0)  // Walking
+	else if (MovementComp->Velocity.Size() > 120)  // Walking
 	{
 		// Play footstep sound, then don't play another footstep until the timer is up
 		UAkGameplayStatics::PostEvent(FootstepEvent, this, 0, FOnAkPostEventCallback());
@@ -243,8 +245,13 @@ void ACicadaMainCharacter::HandlePlayFootstepSounds()
 			PlayWalkFlipbook();
 		}
 	}
-}
 
+	// Always check if there's an equipped weapon and if that weapon is performing its action before playing idle
+	else if (MovementComp->Velocity.Size() <= 100 && InventoryComp->EquippedWeapon && !InventoryComp->EquippedWeapon->bIsWeaponActive)
+	{
+		PlayIdleFlipbook();
+	}
+}
 
 void ACicadaMainCharacter::PlayIdleFlipbook()
 { 
@@ -357,15 +364,4 @@ void ACicadaMainCharacter::PlayRunFlipbook()
 		}
 	}
 }
-
-void ACicadaMainCharacter::StartFlipbookCooldown()
-{
-	bIsInFlipbookCooldown = true;
-
-	GetWorldTimerManager().SetTimer(FlipbookCooldownHandle, [this]()
-	{
-		bIsInFlipbookCooldown = false;
-	}, 0.15f, false);
-}
-
 

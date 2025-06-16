@@ -57,5 +57,5 @@ public:
 	UFUNCTION()
 	void ApplyThrowPhysics();
 
-	virtual void PlayThrowFlipbook();
+	virtual void PlayThrowFlipbook(float RemoveFlipbookDelay);
 };

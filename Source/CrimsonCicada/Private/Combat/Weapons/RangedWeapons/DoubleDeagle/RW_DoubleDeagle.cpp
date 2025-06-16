@@ -12,13 +12,14 @@ void ARW_DoubleDeagle::BeginPlay()
 	
 	// Function that tries to get basic flipbooks from weapons, so you don't have to check every time
 	GetFlipbookLengthIfValid();
+
+	WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
+	WeaponDuelWieldFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
 }
 
 void ARW_DoubleDeagle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	UE_LOG(LogTemp, Warning, TEXT("Weapon active : %df"), bIsWeaponActive ? 1 : 0);
 }
 
 void ARW_DoubleDeagle::PerformPrimaryAction()
@@ -84,12 +85,12 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 
 void ARW_DoubleDeagle::Reload(float InactivityDelay)
 {
-	Super::Reload(ReloadFlipbookLength - 0.2f);
+	Super::Reload(ReloadFlipbookLength);
 }
 
 void ARW_DoubleDeagle::PlayShootFlipbook(float InactivityDelay)
 {
-	Super::PlayShootFlipbook(ShootFlipbookLength + 0.25f);
+	Super::PlayShootFlipbook(ShootFlipbook->GetTotalDuration());
 }
 
 void ARW_DoubleDeagle::PlayReloadFlipbook()

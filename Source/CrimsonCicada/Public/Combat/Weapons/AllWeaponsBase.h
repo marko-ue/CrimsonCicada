@@ -13,6 +13,7 @@
 #include "Camera/CameraComponent.h"
 #include "AllWeaponsBase.generated.h"
 
+
 UCLASS()
 class CRIMSONCICADA_API AAllWeaponsBase : public AActor, public IPickupable, public IWeaponActions
 {
@@ -49,6 +50,7 @@ protected:
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
 public:
+	
 	bool bCanBeEquipped{ true };
 
 	UPROPERTY(BlueprintReadOnly)

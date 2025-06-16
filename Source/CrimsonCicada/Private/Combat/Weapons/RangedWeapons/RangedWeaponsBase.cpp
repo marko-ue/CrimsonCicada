@@ -89,7 +89,7 @@ void ARangedWeaponsBase::PlayShootFlipbook(float InactivityDelay)
 
 			//UE_LOG(LogTemp, Warning, TEXT("Timer delay: %f"), InactivityDelay);
 			
-			GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
+			//GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
 		}
 	}
 
@@ -103,7 +103,7 @@ void ARangedWeaponsBase::PlayShootFlipbook(float InactivityDelay)
 
 			//UE_LOG(LogTemp, Warning, TEXT("Timer delay: %f"), InactivityDelay);
 		
-			GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
+			//GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
 		}
 	}
 }

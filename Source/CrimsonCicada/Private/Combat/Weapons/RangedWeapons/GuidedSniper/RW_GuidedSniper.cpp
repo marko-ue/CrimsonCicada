@@ -10,6 +10,9 @@ void ARW_GuidedSniper::BeginPlay()
 	Super::BeginPlay();
 
 	HandsRequired = 2;
+	
+	WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
+	WeaponDuelWieldFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
 }
 
 void ARW_GuidedSniper::Tick(float DeltaTime)

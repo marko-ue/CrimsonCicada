@@ -15,6 +15,11 @@ void ARW_SMG::BeginPlay()
 
 	bIsAutomatic = true;
 	HandsRequired = 2;
+
+	GetFlipbookLengthIfValid();
+
+	WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
+	WeaponDuelWieldFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
 }
 
 void ARW_SMG::PerformPrimaryActionAutomatic()

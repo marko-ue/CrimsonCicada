@@ -24,6 +24,7 @@ void AThrowableWeaponsBase::AddWeaponToInventory(EWeapon WeaponToAdd)
 
 void AThrowableWeaponsBase::ClearThrowFlipbook()
 {
+	WeaponFlipbookComp->Stop();
 	WeaponFlipbookComp->SetFlipbook(nullptr);
 }
 
@@ -43,7 +44,7 @@ void AThrowableWeaponsBase::ApplyThrowPhysics()
 	HandleWeaponThrown();
 }
 
-void AThrowableWeaponsBase::PlayThrowFlipbook()
+void AThrowableWeaponsBase::PlayThrowFlipbook(float RemoveFlipbookDelay)
 {
 	// Plays the shoot flipbook if not already playing/weapon active
 	if (!bIsWeaponActive)
@@ -59,7 +60,7 @@ void AThrowableWeaponsBase::PlayThrowFlipbook()
 
 	// Makes the weapon inactive after the duration of the flipbook and some extra to avoid bugs
 	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ThrowFlipbookLength + 0.25f, false);
-	GetWorld()->GetTimerManager().SetTimer(RemoveFlipbookTimerHandle, this, &AThrowableWeaponsBase::ClearThrowFlipbook, ThrowFlipbookLength + 0.55f, false);
+	GetWorld()->GetTimerManager().SetTimer(RemoveFlipbookTimerHandle, this, &AThrowableWeaponsBase::ClearThrowFlipbook, RemoveFlipbookDelay, false);
 	GetWorld()->GetTimerManager().SetTimer(ApplyPhysicsTimerHandle, this, &AThrowableWeaponsBase::ApplyThrowPhysics, ThrowFlipbookLength + 0.32f, false);
 }
 

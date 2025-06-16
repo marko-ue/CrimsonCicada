@@ -11,6 +11,8 @@ void ATW_PercussionDynamite::BeginPlay()
 	
 	HandsRequired = 1;
 	WeaponMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+
+	//WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AThrowableWeaponsBase::ClearThrowFlipbook);
 	
 }
 
@@ -18,7 +20,7 @@ void ATW_PercussionDynamite::PerformPrimaryAction()
 {
 	if (bIsWeaponActive) { return; }
 	
-	PlayThrowFlipbook();
+	PlayThrowFlipbook(ThrowFlipbookLength + 0.33f);
 	
 	// Timer that will allow collisions to be checked by making a bool true, bool checked in blueprint
 	FTimerHandle SetCollisionsHandle;
@@ -31,9 +33,9 @@ void ATW_PercussionDynamite::SetShouldCheckForCollisions(bool ShouldCheckForColl
 	bShouldCheckForCollisions = ShouldCheckForCollisions;
 }
 
-void ATW_PercussionDynamite::PlayThrowFlipbook()
+void ATW_PercussionDynamite::PlayThrowFlipbook(float RemoveFlipbookDelay)
 {
-	Super::PlayThrowFlipbook();
+	Super::PlayThrowFlipbook(ThrowFlipbookLength + 0.33f);
 }
 
 

@@ -49,6 +49,6 @@ private:
 	UPROPERTY(EditAnywhere)
 	float DamageRadius{ 500.0f };
 	
-	virtual void PlayThrowFlipbook();
+	virtual void PlayThrowFlipbook(float RemoveFlipbookDelay);
 
 };

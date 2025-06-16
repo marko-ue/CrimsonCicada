@@ -68,11 +68,6 @@ public:
 	void ZoomOut();
 
 	bool bZoomingIn{ false };
-
-	FTimerHandle FlipbookCooldownHandle;
-	bool bIsInFlipbookCooldown = false;
-
-	void StartFlipbookCooldown();
 	
 private:
 	class UCameraComponent* CameraComp;
@@ -98,9 +93,6 @@ private:
 	void PlayWalkFlipbook();
 	UFUNCTION(BlueprintCallable)
 	void PlayRunFlipbook();
-
-	FTimerHandle ResetFootstepBoolRunTimerHandle;
-	FTimerHandle ResetFootstepBoolWalkTimerHandle;
 
 	// Flipbook
 	class UPaperFlipbookComponent* WeaponFlipbookComp;
