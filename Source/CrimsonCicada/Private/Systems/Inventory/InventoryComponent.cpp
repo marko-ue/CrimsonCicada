@@ -23,7 +23,7 @@ void UInventoryComponent::BeginPlay()
 
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
-	DualWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
+	DualWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
 	
 }
 
@@ -227,7 +227,6 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 				UnequipWeaponFlipbookTimerHandle,
 				[this, WeaponBeingUnequipped]() {
 					WeaponFlipbookComp->Stop();
-					//WeaponFlipbookComp->SetFlipbook(nullptr);
 					WeaponBeingUnequipped->bIsWeaponActive = false;
 				},
 				WeaponBeingUnequipped->UnequipTimerDelay,
@@ -236,20 +235,22 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 			
 			if (WeaponBeingUnequipped->bIsDualWieldSpellActive)
 			{
-				DualWieldFlipbookComp->SetFlipbook(WeaponBeingUnequipped->UnequipFlipbook);
-				WeaponBeingUnequipped->bIsWeaponActive = true;
+				if (DualWieldFlipbookComp)
+				{
+					DualWieldFlipbookComp->SetFlipbook(WeaponBeingUnequipped->UnequipFlipbook);
+					WeaponBeingUnequipped->bIsWeaponActive = true;
 
-				FTimerHandle UnequipDualWieldFlipbookTimerHandle;
-				GetOwner()->GetWorldTimerManager().SetTimer(
-					UnequipDualWieldFlipbookTimerHandle,
-					[this, WeaponBeingUnequipped]() {
-						WeaponFlipbookComp->Stop();
-						//WeaponFlipbookComp->SetFlipbook(nullptr);
-						WeaponBeingUnequipped->bIsWeaponActive = false;
-					},
-					WeaponBeingUnequipped->UnequipTimerDelay,
-					false
-				);
+					FTimerHandle UnequipDualWieldFlipbookTimerHandle;
+					GetOwner()->GetWorldTimerManager().SetTimer(
+						UnequipDualWieldFlipbookTimerHandle,
+						[this, WeaponBeingUnequipped]() {
+							DualWieldFlipbookComp->Stop();
+							WeaponBeingUnequipped->bIsWeaponActive = false;
+						},
+						WeaponBeingUnequipped->UnequipTimerDelay,
+						false
+					);
+				}
 			}
 		}
 		

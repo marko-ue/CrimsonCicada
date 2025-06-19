@@ -3,6 +3,8 @@
 
 #include "Combat/Weapons/RangedWeapons/RangedWeaponsBase.h"
 
+#include "CollisionDebugDrawingPublic.h"
+
 ARangedWeaponsBase::ARangedWeaponsBase()
 {
 }
@@ -86,10 +88,6 @@ void ARangedWeaponsBase::PlayShootFlipbook(float InactivityDelay)
 		if (!bIsDualWieldSpellActive)
 		{
 			bIsWeaponActive = true;
-
-			//UE_LOG(LogTemp, Warning, TEXT("Timer delay: %f"), InactivityDelay);
-			
-			//GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
 		}
 	}
 
@@ -100,10 +98,7 @@ void ARangedWeaponsBase::PlayShootFlipbook(float InactivityDelay)
 			WeaponDuelWieldFlipbookComp->SetFlipbook(ShootFlipbook);
 			WeaponDuelWieldFlipbookComp->PlayFromStart();
 			bIsWeaponActive = true;
-
-			//UE_LOG(LogTemp, Warning, TEXT("Timer delay: %f"), InactivityDelay);
-		
-			//GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
+			//GetWorldTimerManager().SetTimer(DelayWeaponInactiveTimerHandle, [this]() { bIsWeaponActive = true; }, 0.1f, false);
 		}
 	}
 }

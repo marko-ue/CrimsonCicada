@@ -28,6 +28,8 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 	if (bIsWeaponActive) { return; } 
 
 	if (AmmoInClip <= 0) { return; }
+
+	UE_LOG(LogTemp, Warning, TEXT("PRIMARY ACTION DEAGLE"))
 	
 	PlayShootFlipbook(ShootFlipbookLength + 0.25f);
 	
@@ -67,7 +69,7 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 		HitResultRandom,
 		StartLocation,
 		EndLocation,
-		ECC_GameTraceChannel2,
+		ECC_GameTraceChannel3,
 		IgnoreParams
 	) };
 

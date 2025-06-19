@@ -85,8 +85,6 @@ EWeapon AAllWeaponsBase::GetWeaponEnum() const
 void AAllWeaponsBase::SetWeaponInactive()
 {
 	bIsWeaponActive = false;
-	
-	UE_LOG(LogTemp, Warning, TEXT("Weapon set to inactive"));
 }
 
 void AAllWeaponsBase::GetFlipbookLengthIfValid()
