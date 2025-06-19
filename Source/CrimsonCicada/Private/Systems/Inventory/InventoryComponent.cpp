@@ -23,6 +23,7 @@ void UInventoryComponent::BeginPlay()
 
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
+	DualWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
 	
 }
 
@@ -91,6 +92,7 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 
 			// Variable used globally to call functions on the equipped weapon
 			EquippedWeapon = WeaponActor;
+			
 			WeaponActor->bCanBeEquipped = false;
 
 			// Play that weapon's idle flipbook initially
@@ -113,14 +115,29 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 			{
 				WeaponActor->WeaponSkeletalMesh->AttachToComponent(SkeletalMeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("GripPoint"));
 			}
+
+			if (EquippedWeapon->EquipFlipbook)
+			{
+				WeaponFlipbookComp->Play();
+				WeaponFlipbookComp->SetFlipbook(EquippedWeapon->EquipFlipbook);
+				EquippedWeapon->bIsWeaponActive = true;
+
+				if (EquippedWeapon->bIsDualWieldSpellActive)
+				{
+					WeaponFlipbookComp->Play();
+					DualWieldFlipbookComp->SetFlipbook(EquippedWeapon->EquipFlipbook);
+				}
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Equipped weapon does not have an equip flipbook selected"));
+			}
 		}
-		
 		else
 		{
-			UE_LOG(LogTemp, Error, TEXT("Cannot equip a two-handed weapon when a one-handed spell is equipped or a two-handed spell is equipped"));
+			UE_LOG(LogTemp, Error, TEXT("Cannot equip a two-handed weapon when a spell is equipped"));
 		}
 	}
-
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("A weapon is already equipped or selected weapon is not in inventory"));
@@ -194,9 +211,52 @@ void UInventoryComponent::UnequipWeapon(EWeapon WeaponToUnequip)
 	// Set settings for unequipped weapon (make invisible and set equipped weapon to nullptr)
 	if (WeaponActor && EquippedWeapon != nullptr)
 	{
+		AAllWeaponsBase* WeaponBeingUnequipped = EquippedWeapon;
+
 		WeaponActor->SetActorHiddenInGame(true);
 		WeaponActor->SetActorEnableCollision(false);
 		WeaponActor->DisableInput(GetWorld()->GetFirstPlayerController());
+
+		if (WeaponBeingUnequipped->UnequipFlipbook)
+		{
+			WeaponFlipbookComp->SetFlipbook(WeaponBeingUnequipped->UnequipFlipbook);
+			WeaponBeingUnequipped->bIsWeaponActive = true;
+
+			FTimerHandle UnequipWeaponFlipbookTimerHandle;
+			GetOwner()->GetWorldTimerManager().SetTimer(
+				UnequipWeaponFlipbookTimerHandle,
+				[this, WeaponBeingUnequipped]() {
+					WeaponFlipbookComp->Stop();
+					//WeaponFlipbookComp->SetFlipbook(nullptr);
+					WeaponBeingUnequipped->bIsWeaponActive = false;
+				},
+				WeaponBeingUnequipped->UnequipTimerDelay,
+				false
+			);
+			
+			if (WeaponBeingUnequipped->bIsDualWieldSpellActive)
+			{
+				DualWieldFlipbookComp->SetFlipbook(WeaponBeingUnequipped->UnequipFlipbook);
+				WeaponBeingUnequipped->bIsWeaponActive = true;
+
+				FTimerHandle UnequipDualWieldFlipbookTimerHandle;
+				GetOwner()->GetWorldTimerManager().SetTimer(
+					UnequipDualWieldFlipbookTimerHandle,
+					[this, WeaponBeingUnequipped]() {
+						WeaponFlipbookComp->Stop();
+						//WeaponFlipbookComp->SetFlipbook(nullptr);
+						WeaponBeingUnequipped->bIsWeaponActive = false;
+					},
+					WeaponBeingUnequipped->UnequipTimerDelay,
+					false
+				);
+			}
+		}
+		
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("Unequipped weapon does not have an unequip flipbook selected"));
+		}
 
 		EquippedWeapon = nullptr;
 		WeaponActor->bCanBeEquipped = true;

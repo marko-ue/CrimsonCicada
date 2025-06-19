@@ -58,14 +58,7 @@ void ACicadaMainCharacter::Tick(float DeltaTime)
 		ZoomOut();
 	}
 
-	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive)
-	{
-		WeaponFlipbookComp->SetLooping(false);
-	}
-	else
-	{
-		WeaponFlipbookComp->SetLooping(true);
-	}
+	SetFlipbookLoopSettings();
 }
 
 // Called to bind functionality to input
@@ -258,7 +251,7 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 	// Return if the equipped weapon is performing its primary action (we don't want idle overriding it)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive) return;
 
-	// If the equipped weapon has a idle flipbook (nullptr check)
+	// If the equipped weapon has an idle flipbook (nullptr check)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
 	{
 		// Play the idle flipbook from the start
@@ -273,7 +266,7 @@ void ACicadaMainCharacter::PlayIdleFlipbook()
 		WeaponFlipbookComp->SetFlipbook(nullptr);
 	}
 
-	// If the equipped weapon has a idle flipbook (nullptr check)
+	// If the equipped weapon has an idle flipbook (nullptr check)
 	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->IdleFlipbook)
 	{
 		// If the dual wield spell is active, play the same flipbook but in the dual field flipbook component
@@ -365,3 +358,23 @@ void ACicadaMainCharacter::PlayRunFlipbook()
 	}
 }
 
+void ACicadaMainCharacter::SetFlipbookLoopSettings()
+{
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive)
+	{
+		WeaponFlipbookComp->SetLooping(false);
+	}
+	else
+	{
+		WeaponFlipbookComp->SetLooping(true);
+	}
+
+	if (InventoryComp->EquippedWeapon && InventoryComp->EquippedWeapon->bIsWeaponActive && InventoryComp->EquippedWeapon->bIsDualWieldSpellActive)
+	{
+		WeaponDuelWieldFlipbookComp->SetLooping(false);
+	}
+	else
+	{
+		WeaponDuelWieldFlipbookComp->SetLooping(true);
+	}
+}

@@ -95,10 +95,17 @@ public:
 	UPROPERTY(EditAnywhere)
 	UPaperFlipbook* RunFlipbook;
 
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* EquipFlipbook;
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* UnequipFlipbook;
+
 	// In the all weapons base function, checks if the basic flipbooks are valid
 	virtual void GetFlipbookLengthIfValid();
 
 	UFUNCTION(BlueprintCallable)
 	void ClearAllFlipbooks();
+	
+	float UnequipTimerDelay{ 0.3f };
 	//
 };

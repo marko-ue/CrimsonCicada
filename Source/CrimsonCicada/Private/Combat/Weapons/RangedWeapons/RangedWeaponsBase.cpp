@@ -114,6 +114,12 @@ void ARangedWeaponsBase::PlayReloadFlipbook()
 	{
 		WeaponFlipbookComp->SetFlipbook(ReloadFlipbook);
 		WeaponFlipbookComp->PlayFromStart();
+
+		if (bIsDualWieldSpellActive)
+		{
+			WeaponDuelWieldFlipbookComp->SetFlipbook(ReloadFlipbook);
+			WeaponDuelWieldFlipbookComp->PlayFromStart();
+		}
 	}
 }
 

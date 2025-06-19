@@ -85,6 +85,8 @@ EWeapon AAllWeaponsBase::GetWeaponEnum() const
 void AAllWeaponsBase::SetWeaponInactive()
 {
 	bIsWeaponActive = false;
+	
+	UE_LOG(LogTemp, Warning, TEXT("Weapon set to inactive"));
 }
 
 void AAllWeaponsBase::GetFlipbookLengthIfValid()
@@ -94,13 +96,13 @@ void AAllWeaponsBase::GetFlipbookLengthIfValid()
 
 void AAllWeaponsBase::ClearAllFlipbooks()
 {
-	WeaponFlipbookComp->Stop();
-	WeaponFlipbookComp->SetFlipbook(nullptr);
-	
-	SpellFlipbookComp->Stop();
-	SpellFlipbookComp->SetFlipbook(nullptr);
-
-	WeaponDuelWieldFlipbookComp->Stop();
-	WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
+	// WeaponFlipbookComp->Stop();
+	// WeaponFlipbookComp->SetFlipbook(nullptr);
+	//
+	// SpellFlipbookComp->Stop();
+	// SpellFlipbookComp->SetFlipbook(nullptr);
+	//
+	// WeaponDuelWieldFlipbookComp->Stop();
+	// WeaponDuelWieldFlipbookComp->SetFlipbook(nullptr);
 }
 

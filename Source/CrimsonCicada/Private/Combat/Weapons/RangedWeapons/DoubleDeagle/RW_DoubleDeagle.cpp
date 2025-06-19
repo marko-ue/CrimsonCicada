@@ -36,7 +36,7 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 	FHitResult HitResultStraight;
 	bool bHit = PerformWeaponTraceComp->PerformStraightTraceFromCamera(Range, HitResultStraight, ECC_GameTraceChannel3);
 	ReduceAmmoInClipByAmount(1);
-
+	
 	if (bHit)
 	{
 		AActor* HitActor = HitResultStraight.GetActor();

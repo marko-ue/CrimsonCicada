@@ -58,6 +58,7 @@ public:
 private:
 	// Flipbook
 	UPaperFlipbookComponent* WeaponFlipbookComp;
+	UPaperFlipbookComponent* DualWieldFlipbookComp;
 	UPaperFlipbookComponent* SpellFlipbookComp;
 };
 
