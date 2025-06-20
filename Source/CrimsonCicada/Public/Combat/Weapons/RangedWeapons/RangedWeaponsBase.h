@@ -31,6 +31,8 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	virtual void Reload(float InactivityDelay);
 
+	FTimerHandle DelayWeaponInactiveTimerHandle;
+
 	class UPerformWeaponTraceComponent* PerformWeaponTraceComp;
 // Automatic weapons
 	UPROPERTY(BlueprintReadOnly)

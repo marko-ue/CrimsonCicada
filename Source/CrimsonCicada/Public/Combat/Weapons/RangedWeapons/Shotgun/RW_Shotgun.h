@@ -22,11 +22,37 @@ protected:
 
 	virtual void PerformPrimaryAction() override;
 
+	virtual void Reload(float InactivityDelay) override;
+
 public:
+	virtual void Tick(float DeltaTime) override;
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Projectile")
 	TSubclassOf<ATW_ShotgunGun> ProjectileClass;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* IdleFullFlipbook;
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* IdleEmptyFlipbook;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* WalkFullFlipbook;
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* WalkEmptyFlipbook;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* RunFullFlipbook;
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* RunEmptyFlipbook;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* EquipFullFlipbook;
+	UPROPERTY(EditDefaultsOnly, Category = "Shotgun-specific flipbooks")
+	UPaperFlipbook* EquipEmptyFlipbook;
+
 private:
 	USceneComponent* BulletShootPoint;
-	
+
+	virtual void PlayShootFlipbook(float InactivityDelay) override;
+	virtual void PlayReloadFlipbook() override;
 };

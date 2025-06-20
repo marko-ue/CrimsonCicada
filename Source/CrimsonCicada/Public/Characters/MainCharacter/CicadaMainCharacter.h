@@ -25,6 +25,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	
 
 public:	
 	// Called every frame
@@ -87,6 +88,8 @@ private:
 	
 	bool bCanPlayFootstep{ true };
 
+	void SetFlipbookLoopSettings();
+
 	UFUNCTION(BlueprintCallable)
 	void PlayIdleFlipbook();
 	UFUNCTION(BlueprintCallable)
@@ -94,6 +97,7 @@ private:
 	UFUNCTION(BlueprintCallable)
 	void PlayRunFlipbook();
 
+public:
 	// Flipbook
 	class UPaperFlipbookComponent* WeaponFlipbookComp;
 	class UPaperFlipbookComponent* SpellFlipbookComp;

@@ -44,7 +44,7 @@ void AS_DualWield::CastSpell()
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Cannot activate duel wield spell if there is not a weapon equipped"));
+			UE_LOG(LogTemp, Warning, TEXT("Cannot activate duel wield spell if a weapon is not equipped"));
 		}
 	}
 }
