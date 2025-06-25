@@ -13,7 +13,7 @@ void ATW_Brick::BeginPlay()
 	
 	GetFlipbookLengthIfValid();
 
-	//WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AThrowableWeaponsBase::ClearThrowFlipbook);
+	WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
 }
 
 void ATW_Brick::Tick(float DeltaTime)
