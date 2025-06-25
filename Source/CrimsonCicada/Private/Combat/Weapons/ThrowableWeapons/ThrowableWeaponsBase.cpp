@@ -60,7 +60,7 @@ void AThrowableWeaponsBase::PlayThrowFlipbook(float RemoveFlipbookDelay)
 
 	// Makes the weapon inactive after the duration of the flipbook and some extra to avoid bugs
 	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, ThrowFlipbookLength + 0.25f, false);
-	GetWorld()->GetTimerManager().SetTimer(RemoveFlipbookTimerHandle, this, &AThrowableWeaponsBase::ClearThrowFlipbook, RemoveFlipbookDelay, false);
+	GetWorld()->GetTimerManager().SetTimer(RemoveFlipbookTimerHandle, this, &AThrowableWeaponsBase::ClearThrowFlipbook, ThrowFlipbookLength + RemoveFlipbookDelay, false);
 	GetWorld()->GetTimerManager().SetTimer(ApplyPhysicsTimerHandle, this, &AThrowableWeaponsBase::ApplyThrowPhysics, ThrowFlipbookLength + 0.32f, false);
 }
 
