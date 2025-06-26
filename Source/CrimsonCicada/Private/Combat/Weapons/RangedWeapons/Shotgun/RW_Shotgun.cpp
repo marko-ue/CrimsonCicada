@@ -37,16 +37,13 @@ void ARW_Shotgun::Tick(float DeltaTime)
 
 void ARW_Shotgun::PerformPrimaryAction()
 {
-	if (AmmoInClip >= 1 && !bIsWeaponActive)
-	{
-		IdleFlipbook = IdleEmptyFlipbook;
-		WalkFlipbook = WalkEmptyFlipbook;
-		RunFlipbook = RunEmptyFlipbook;
-	}
-	
 	if (bIsWeaponActive) { return; }
 
 	if (AmmoInClip <= 0) { return; }
+
+	IdleFlipbook = IdleEmptyFlipbook;
+	WalkFlipbook = WalkEmptyFlipbook;
+	RunFlipbook = RunEmptyFlipbook;
 
 	PlayShootFlipbook(ShootFlipbookLength);
 

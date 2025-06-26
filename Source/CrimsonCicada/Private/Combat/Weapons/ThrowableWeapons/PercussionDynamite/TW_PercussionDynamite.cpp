@@ -12,7 +12,7 @@ void ATW_PercussionDynamite::BeginPlay()
 	HandsRequired = 1;
 	WeaponMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 
-	//WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AThrowableWeaponsBase::ClearThrowFlipbook);
+	WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
 	
 }
 

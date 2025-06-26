@@ -12,6 +12,8 @@ void ATW_Brick::BeginPlay()
 	HandsRequired = 1;
 	
 	GetFlipbookLengthIfValid();
+
+	WeaponFlipbookComp->OnFinishedPlaying.AddDynamic(this, &AAllWeaponsBase::SetWeaponInactive);
 }
 
 void ATW_Brick::Tick(float DeltaTime)
