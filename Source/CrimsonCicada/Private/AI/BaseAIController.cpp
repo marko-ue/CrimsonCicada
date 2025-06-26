@@ -42,45 +42,35 @@ void ABaseAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	APawn* ControlledPawn = GetPawn();
-	if (!ControlledPawn) 
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No Controlled Pawn!"));
-		return;
-	}
+	if (!ControlledPawn) return;
     
 	if (CurrentTarget)
 	{
 		float Distance = ControlledPawn->GetDistanceTo(CurrentTarget);
-		bool bInMeleeRange = (Distance <= MeleeRange);
-       
-		if (bInMeleeRange)
+		bool bInDetectionRange = (Distance <= DetectionRange);
+		bool bInEngagementRange = (Distance <= EngagementRange);
+		
+       if (UBlackboardComponent* BlackboardComp = GetBlackboardComponent())
+       		{
+       			BlackboardComp->SetValueAsBool(TEXT("InDetectionRange"), bInDetectionRange);
+       			BlackboardComp->SetValueAsBool(TEXT("InEngagementRange"), bInEngagementRange);
+       			BlackboardComp->SetValueAsObject(TEXT("TargetActor"), CurrentTarget);
+       			BlackboardComp->SetValueAsName(TEXT("CurrentState"), CurrentState);
+       	
+       			
+       		}	
+		if (bInEngagementRange)
 		{
-			ABaseEnemyCharacter* EnemyChar = Cast<ABaseEnemyCharacter>(ControlledPawn);
-			if (EnemyChar)
-			{
-				EnemyChar->PlayAttackMontage();
-			}
+			MoveToTarget(CurrentTarget);
 		}
-		UE_LOG(LogTemp, Warning, TEXT("Target: %s, Distance: %f, MeleeRange: %f, CanAttack: %s"), 
-			   *CurrentTarget->GetName(), Distance, MeleeRange, bInMeleeRange ? TEXT("TRUE") : TEXT("FALSE"));
-       
-		if (UBlackboardComponent* BlackboardComp = GetBlackboardComponent())
-		{
-			BlackboardComp->SetValueAsBool(TEXT("CanAttack"), bInMeleeRange);
-			UE_LOG(LogTemp, Warning, TEXT("Successfully set CanAttack to: %s"), bInMeleeRange ? TEXT("TRUE") : TEXT("FALSE"));
-		}	
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("No Blackboard Component in Tick!"));
-		}
-	}
-	else
+		
+	else if (UBlackboardComponent* BlackboardComp = GetBlackboardComponent())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("No CurrentTarget - setting CanAttack to false"));
-		if (UBlackboardComponent* BlackboardComp = GetBlackboardComponent())
-		{
-			BlackboardComp->SetValueAsBool(TEXT("CanAttack"), false);
-		}
+		BlackboardComp->SetValueAsBool(TEXT("InDetectionRange"), false);
+		BlackboardComp->SetValueAsBool(TEXT("InEngagementRange"), false);
+		BlackboardComp->SetValueAsObject(TEXT("TargetActor"), nullptr);
+		
+		
 	}
 	
 }
@@ -88,30 +78,25 @@ void ABaseAIController::Tick(float DeltaTime)
 void ABaseAIController::BeginPlay()
 {
 	Super::BeginPlay();
-	if (BehaviorTreeAsset)
+	if (BehaviorTreeAsset && UseBlackboard(BehaviorTreeAsset->GetBlackboardAsset(), BlackboardComponent))
 	{
-		if (UseBlackboard(BehaviorTreeAsset->GetBlackboardAsset(),BlackboardComponent))
-		{
-			RunBehaviorTree(BehaviorTreeAsset);
-		};
+		RunBehaviorTree(BehaviorTreeAsset);
 	}
 }
 
-void ABaseAIController::OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
+void ABaseAIController::OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
 {
-	UE_LOG(LogTemp, Warning, TEXT("=== Perception Debug ==="));
-	UE_LOG(LogTemp, Warning, TEXT("Actor: %s"), Actor ? *Actor->GetName() : TEXT("NULL"));
-	UE_LOG(LogTemp, Warning, TEXT("Actor Pointer: %p"), Actor);
-	UE_LOG(LogTemp, Warning, TEXT("Successfully Sensed: %s"), Stimulus.WasSuccessfullySensed() ? TEXT("TRUE") : TEXT("FALSE"));
-	UE_LOG(LogTemp, Warning, TEXT("Current Target Before: %s"), CurrentTarget ? *CurrentTarget->GetName() : TEXT("NULL"));
-    
+	
 	if (Stimulus.WasSuccessfullySensed())
 	{
 		CurrentTarget = Actor;
 		if (UBlackboardComponent* BlackboardComp = GetBlackboardComponent())
 		{
 			BlackboardComp->SetValueAsObject(TEXT("TargetActor"), Actor);
-			UE_LOG(LogTemp, Warning, TEXT("Blackboard TargetActor set to: %s"), *Actor->GetName());
+			if (CurrentState = TEXT("Idle"))
+			{
+				SetState(TEXT("Alert"));
+			} 
 		}
 		else
 		{
@@ -128,12 +113,17 @@ void ABaseAIController::OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
 			if (UBlackboardComponent* BlackboardComp = GetBlackboardComponent())
 			{
 				BlackboardComp->SetValueAsObject(TEXT("TargetActor"), nullptr);
-				UE_LOG(LogTemp, Warning, TEXT("Blackboard TargetActor cleared"));
+				
 			}
             
-			UE_LOG(LogTemp, Warning, TEXT("Lost sight of: %s"), *Actor->GetName());
+			
 		}
 	}
-	UE_LOG(LogTemp, Warning, TEXT("=== End Debug ==="));
+	
+}
+
+void ABaseAIController::SetState(FName NewState)
+{
+	
 };
 

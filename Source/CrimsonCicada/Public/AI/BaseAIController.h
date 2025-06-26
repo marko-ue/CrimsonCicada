@@ -43,5 +43,17 @@ protected:
 	UBlackboardComponent* BlackboardComponent;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat")
 	float MeleeRange = 200.0f;
-	
+
+	//AI
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= "AI")
+	float DetectionRange = 500.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI")
+	float EngagementRange = 300.0f;
+	UFUNCTION(BlueprintCallable, Category = "AI")
+	void SetState(FName NewState);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	FName CurrentState = TEXT("Idle");
+	UFUNCTION(BlueprintNativeEvent, Category = "AI")
+	void MoveToTarget(AActor* Target);
+	virtual void MoveToTarget_Implementation(AActor* Target);
 };
