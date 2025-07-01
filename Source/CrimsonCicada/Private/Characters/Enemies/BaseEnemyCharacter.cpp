@@ -2,9 +2,6 @@
 
 
 #include "Characters/Enemies/BaseEnemyCharacter.h"
-
-#include <AK/WwiseAuthoringAPI/waapi.h>
-
 #include "AI/BaseAIController.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
