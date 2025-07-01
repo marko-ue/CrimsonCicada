@@ -24,7 +24,7 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-
+public:
 	//Sight Config
 	UPROPERTY()
 	UAISenseConfig_Sight* SightConfig;
@@ -53,7 +53,7 @@ protected:
 	void SetState(FName NewState);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	FName CurrentState = TEXT("Idle");
-	UFUNCTION(BlueprintNativeEvent, Category = "AI")
-	void MoveToTarget(AActor* Target);
-	virtual void MoveToTarget_Implementation(AActor* Target);
+	
+	
+	virtual void OnPossess(APawn* InPawn) override;
 };
