@@ -67,13 +67,13 @@ protected:
 	virtual void PlayReloadFlipbook();
 
 	// Ammo
-	UPROPERTY(EditDefaultsOnly, Category="Ammo")
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Ammo")
 	int ClipSize;
-	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Ammo")
 	int AmmoInClip;
-	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Ammo")
 	int Ammo;
-	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Ammo")
 	int MaxAmmo;
 
 	void ReduceAmmoInClipByAmount(float Amount) { AmmoInClip -= Amount; }
