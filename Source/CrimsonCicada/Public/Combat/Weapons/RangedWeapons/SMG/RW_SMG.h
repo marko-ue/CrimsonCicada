@@ -42,4 +42,6 @@ private:
 public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsFiring;
+
+	
 };

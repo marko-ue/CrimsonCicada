@@ -26,6 +26,8 @@ void ARangedWeaponsBase::Reload(float InactivityDelay)
 {
 	if (AmmoInClip == ClipSize || Ammo == 0) { return; }
 
+	if (bIsWeaponActive) { return; }
+
 	PlayReloadFlipbook();
 
 	bIsWeaponActive = true;

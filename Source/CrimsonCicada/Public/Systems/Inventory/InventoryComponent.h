@@ -8,6 +8,11 @@
 #include "PaperFlipbookComponent.h"
 #include "InventoryComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_OneParam(
+	FOnWeaponEquippedSignature,
+	UInventoryComponent, OnWeaponEquippedDelegate,
+	class AAllWeaponsBase*, EquippedWeapon);
+
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CRIMSONCICADA_API UInventoryComponent : public UActorComponent
@@ -32,6 +37,9 @@ protected:
 	TMap<EWeapon, class ASpellsBase*> SpellActorMap;
 
 public:
+	UPROPERTY(BlueprintAssignable)
+	FOnWeaponEquippedSignature OnWeaponEquippedDelegate;
+	
 	void AddItemToInventory(EWeapon ItemID, int32 Amount);
 	void RemoveItemFromInventory(EWeapon ItemID, int32 Amount);
 	void StoreWeaponActor(EWeapon ItemID, class AAllWeaponsBase* WeaponActor);

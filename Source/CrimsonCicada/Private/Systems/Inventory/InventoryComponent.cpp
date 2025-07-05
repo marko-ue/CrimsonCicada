@@ -92,6 +92,8 @@ void UInventoryComponent::EquipWeapon(EWeapon WeaponToEquip)
 
 			// Variable used globally to call functions on the equipped weapon
 			EquippedWeapon = WeaponActor;
+
+			OnWeaponEquippedDelegate.Broadcast(EquippedWeapon);
 			
 			WeaponActor->bCanBeEquipped = false;
 

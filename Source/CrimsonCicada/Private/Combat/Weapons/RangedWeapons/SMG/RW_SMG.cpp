@@ -3,6 +3,8 @@
 
 #include "Combat/Weapons/RangedWeapons/SMG/RW_SMG.h"
 
+#include "Characters/MainCharacter/CicadaMainCharacter.h"
+
 void ARW_SMG::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
