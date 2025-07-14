@@ -48,6 +48,8 @@ void ARW_Shotgun::PerformPrimaryAction()
 	PlayShootFlipbook(ShootFlipbookLength);
 
 	ReduceAmmoInClipByAmount(1);
+
+	Ammo --;
 	
 	// The shotgun weapon spawns a projectile into the world and calls is primary action function (which in this case gets launched, like a throwable, not a bullet)
 	FActorSpawnParameters SpawnParams;
@@ -65,7 +67,34 @@ void ARW_Shotgun::PerformPrimaryAction()
 
 void ARW_Shotgun::Reload(float InactivityDelay)
 {
-	Super::Reload(ReloadFlipbookLength);
+	if (AmmoInClip == ClipSize || Ammo == 0) { return; }
+
+	if (bIsWeaponActive) { return; }
+
+	PlayReloadFlipbook();
+
+	bIsWeaponActive = true;
+
+	int AmmoToReduce{ ClipSize - AmmoInClip };
+
+	if (AmmoToReduce > Ammo)
+	{
+		AmmoInClip += Ammo;
+		//Ammo = 0;
+	}
+	else
+	{
+		//Ammo -= AmmoToReduce;
+		AmmoInClip = ClipSize;
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Reloading"));
+	UE_LOG(LogTemp, Warning, TEXT("Ammo left: %i"), Ammo);
+	UE_LOG(LogTemp, Warning, TEXT("Ammo in clip: %i"), AmmoInClip);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Timer delay: %f"), InactivityDelay);
+
+	GetWorld()->GetTimerManager().SetTimer(SetWeaponInactiveTimerHandle, this, &AAllWeaponsBase::SetWeaponInactive, InactivityDelay, false);
 
 	if (Ammo > 0)
 	{
