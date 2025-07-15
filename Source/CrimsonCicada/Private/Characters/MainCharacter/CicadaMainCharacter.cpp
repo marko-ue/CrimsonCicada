@@ -15,6 +15,7 @@
 #include "PaperFlipbook.h"
 #include "Combat/Weapons/AllWeaponsBase.h"
 #include "Systems/Inventory/InventoryComponent.h"
+#include "Components/Widget.h"
 
 // Sets default values
 ACicadaMainCharacter::ACicadaMainCharacter()
@@ -79,6 +80,7 @@ void ACicadaMainCharacter::StopSprinting()
 }
 
 void ACicadaMainCharacter::Die()
+
 {
 	if (!bIsDead)
 	{

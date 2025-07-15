@@ -8,6 +8,10 @@
 ACricketEnemyCharacter::ACricketEnemyCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	bUseControllerRotationYaw = false;
+	GetCharacterMovement()->bUseControllerDesiredRotation = false;
+	GetCharacterMovement()->bOrientRotationToMovement = false;
+
 	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BT_CricketObj(TEXT("/Game/AI/BT_Cricket.BT_Cricket"));
 	if (BT_CricketObj.Succeeded())
 	{
@@ -75,13 +79,23 @@ void ACricketEnemyCharacter::Tick(float DeltaTime)
 
 void ACricketEnemyCharacter::StartLeap()
 {
+	ABaseAIController* AIController = Cast<ABaseAIController>(GetController());
+	if (!AIController) return;
+
+	AActor* Target = AIController->CurrentTarget;
+	FVector ToTarget = Target->GetActorLocation() - GetActorLocation();
 	if (!bIsLeaping && LeapMontage)
 	{
+		
 		bIsLeaping = true;
 		bHasHitTarget = false;
 		PlayAnimMontage(LeapMontage);
+		FRotator LookAtRotation = FRotationMatrix::MakeFromX(ToTarget).Rotator();
+		LookAtRotation.Pitch = 0.0f;
+		LookAtRotation.Roll = 0.0f;
+		SetActorRotation(LookAtRotation);
 
-		FVector LaunchDirection = (GetActorForwardVector() + FVector(0, 0, 0.5f)).GetSafeNormal();
+		FVector LaunchDirection = (ToTarget.GetSafeNormal() + FVector(0, 0, 0.2f)).GetSafeNormal();
 		GetCharacterMovement()->AddImpulse(LaunchDirection * LeapForce, true);
 
 		GetWorldTimerManager().SetTimer(LeapTimerHandle, this, &ACricketEnemyCharacter::LeapEnd, 1.0f, false);
@@ -95,9 +109,14 @@ void ACricketEnemyCharacter::LeapEnd()
 	{
 		Destroy();
 	}
-	else if (ABaseAIController* AIController = Cast<ABaseAIController>(GetController()))
+	else if (bHasHitTarget)
 	{
-		AIController->SetState(TEXT("Triggered"));
+		ABaseAIController* AIController = Cast<ABaseAIController>(GetController());
+		if (!AIController) return;
+		UBlackboardComponent* Blackboard = AIController->GetBlackboardComponent();
+		if (!Blackboard) return;
+		Blackboard->SetValueAsBool(TEXT("HasHitTarget"),true);
+		
 	}
 }
 

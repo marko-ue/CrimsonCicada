@@ -23,6 +23,7 @@ protected:
 	virtual EWeapon GetWeaponEnum() const override { return EWeapon::SMG; }
 	
 	virtual void PerformPrimaryActionAutomatic() override;
+	virtual void PerformPrimaryAction() override;
 
 	virtual void StartAutomaticFire() override;
 	virtual void StopAutomaticFire() override;
