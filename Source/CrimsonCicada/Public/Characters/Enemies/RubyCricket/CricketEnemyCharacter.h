@@ -45,6 +45,8 @@ public:
 	bool bIsLeaping = false;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Cricket")
 	bool bHasHitTarget = false;
+	FVector RetreatLocation;
+	bool bIsRetreating = false;
 	
 	FTimerHandle LeapTimerHandle;
 	
