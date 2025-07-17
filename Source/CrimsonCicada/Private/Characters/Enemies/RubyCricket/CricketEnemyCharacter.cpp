@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "Characters/Enemies/RubyCricket/CricketEnemyCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "AI/BaseAIController.h"
+#include "BehaviorTree/BlackboardComponent.h"
+#include "AI/CricketAIController.h"
 #include "Kismet/GameplayStatics.h"
 #include "UObject/ConstructorHelpers.h"
 
@@ -27,14 +28,14 @@ UBehaviorTree* ACricketEnemyCharacter::GetBehaviorTree() const
 void ACricketEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	if (ABaseAIController* AIController = Cast<ABaseAIController>(GetController()))
+	if (ACricketAIController* CricketAiController = Cast<ACricketAIController>(GetController()))
 	{
 		
-		AIController->DetectionRange = 500.0f;
-		AIController->SetState(TEXT("Inactive"));
-		if (AIController->BehaviorTreeAsset && AIController->GetBrainComponent() && !AIController->GetBrainComponent()->IsRunning())
+		CricketAiController->DetectionRange = 500.0f;
+		CricketAiController->SetState(TEXT("Inactive"));
+		if (CricketAiController->BehaviorTreeAsset && CricketAiController->GetBrainComponent() && !CricketAiController->GetBrainComponent()->IsRunning())
 		{
-			AIController->RunBehaviorTree(AIController->BehaviorTreeAsset);
+			CricketAiController->RunBehaviorTree(CricketAiController->BehaviorTreeAsset);
 		}
 	}
 }
@@ -43,13 +44,13 @@ void ACricketEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	ABaseAIController* AIController = Cast<ABaseAIController>(GetController());
-	if (!AIController) return;
+	ACricketAIController* CricketAiController = Cast<ACricketAIController>(GetController());
+	if (!CricketAiController) return;
 
-	UBlackboardComponent* Blackboard = AIController->GetBlackboardComponent();
+	UBlackboardComponent* Blackboard = CricketAiController->GetBlackboardComponent();
 	if (!Blackboard) return;
 
-	AActor* Target = AIController->CurrentTarget;
+	AActor* Target = CricketAiController->CurrentTarget;
 
 	if (Target)
 	{
@@ -79,10 +80,10 @@ void ACricketEnemyCharacter::Tick(float DeltaTime)
 
 void ACricketEnemyCharacter::StartLeap()
 {
-	ABaseAIController* AIController = Cast<ABaseAIController>(GetController());
-	if (!AIController) return;
+	ACricketAIController* CricketAiController = Cast<ACricketAIController>(GetController());
+	if (!CricketAiController) return;
 
-	AActor* Target = AIController->CurrentTarget;
+	AActor* Target = CricketAiController->CurrentTarget;
 	FVector ToTarget = Target->GetActorLocation() - GetActorLocation();
 	if (!bIsLeaping && LeapMontage)
 	{
@@ -111,9 +112,9 @@ void ACricketEnemyCharacter::LeapEnd()
 	}
 	else if (bHasHitTarget)
 	{
-		ABaseAIController* AIController = Cast<ABaseAIController>(GetController());
-		if (!AIController) return;
-		UBlackboardComponent* Blackboard = AIController->GetBlackboardComponent();
+		ACricketAIController* CricketAiController = Cast<ACricketAIController>(GetController());
+		if (!CricketAiController) return;
+		UBlackboardComponent* Blackboard = CricketAiController->GetBlackboardComponent();
 		if (!Blackboard) return;
 		Blackboard->SetValueAsBool(TEXT("HasHitTarget"),true);
 		

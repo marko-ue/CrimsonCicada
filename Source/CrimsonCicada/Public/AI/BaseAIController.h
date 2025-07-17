@@ -8,7 +8,7 @@
 #include "BaseAIController.generated.h"
 
 UCLASS()
-class YOURGAME_API ABaseAIController : public AAIController
+class CRIMSONCICADA_API ABaseAIController : public AAIController
 {
 	GENERATED_BODY()
 
