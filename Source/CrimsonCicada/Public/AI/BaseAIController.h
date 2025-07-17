@@ -16,8 +16,5 @@ public:
 	ABaseAIController();
 
 protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
-	UAIPerceptionComponent* PerceptionComponent;
-
 	virtual void BeginPlay() override;
 };
