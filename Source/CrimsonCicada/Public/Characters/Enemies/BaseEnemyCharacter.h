@@ -19,7 +19,7 @@ public:
 	ABaseEnemyCharacter();
 	virtual UBehaviorTree* GetBehaviorTree() const;
 
-protected:
+public:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

@@ -15,3 +15,5 @@ void ABaseAIController::BeginPlay()
 	Super::BeginPlay();
 	
 }
+
+
