@@ -47,7 +47,7 @@ void UStatsComponent::ReduceHealth(float Amount)
 
 float UStatsComponent::GetStat(EStat Stat) const
 {
-	// Checks if there's that stat, and if there is returns its value.
+	// Checks if that stat exists, and if it does, returns its value.
 	if (const float* Value = Stats.Find(Stat))
 	{
 		return *Value;

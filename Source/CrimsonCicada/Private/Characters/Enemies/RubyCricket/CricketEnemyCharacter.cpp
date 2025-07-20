@@ -5,6 +5,7 @@
 #include "AI/CricketAIController.h"
 #include "Kismet/GameplayStatics.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Engine/DamageEvents.h"
 
 ACricketEnemyCharacter::ACricketEnemyCharacter()
 {
@@ -28,6 +29,7 @@ UBehaviorTree* ACricketEnemyCharacter::GetBehaviorTree() const
 void ACricketEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	if (ACricketAIController* CricketAiController = Cast<ACricketAIController>(GetController()))
 	{
 		
@@ -125,6 +127,13 @@ void ACricketEnemyCharacter::Explosion()
 {
 	UGameplayStatics::ApplyRadialDamage(this, ExplosionDamage, GetActorLocation(), ExplosionRadius, nullptr,
 		TArray<AActor*>(),this);
+}
+
+void ACricketEnemyCharacter::DealDamage(float DamageAmount)
+{
+	FDamageEvent DamageEvent;
+	
+	TakeDamage(DamageAmount, DamageEvent, PlayerPawn->GetController(), this);
 }
 
 

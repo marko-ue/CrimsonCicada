@@ -3,6 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "Characters/Enemies/BaseEnemyCharacter.h"
+#include "Interfaces/Damageable.h"
 #include "CricketEnemyCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -19,9 +20,11 @@ class CRIMSONCICADA_API ACricketEnemyCharacter : public ABaseEnemyCharacter
 public:
 	ACricketEnemyCharacter();
 	virtual UBehaviorTree* GetBehaviorTree() const override;
+	
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
+	
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Cricket")
 	UAnimMontage* LeapMontage;
@@ -50,5 +53,6 @@ public:
 	
 	FTimerHandle LeapTimerHandle;
 	
-	
+private:
+	virtual void DealDamage(float DamageAmount) override;
 };

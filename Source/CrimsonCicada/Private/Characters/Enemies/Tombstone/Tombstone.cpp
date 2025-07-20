@@ -4,6 +4,7 @@
 #include "Characters/Enemies/Tombstone/Tombstone.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Perception/AISenseConfig_Sight.h"
+#include "Engine/DamageEvents.h"
 
 ATombstone::ATombstone()
 {
@@ -29,5 +30,12 @@ void ATombstone::Tick(float DeltaTime)
 UBehaviorTree* ATombstone::GetBehaviorTree() const
 {
 	return Super::GetBehaviorTree();
+}
+
+void ATombstone::DealDamage(float DamageAmount)
+{
+	FDamageEvent DamageEvent;
+	
+	TakeDamage(DamageAmount, DamageEvent, PlayerPawn->GetController(), this);
 }
 

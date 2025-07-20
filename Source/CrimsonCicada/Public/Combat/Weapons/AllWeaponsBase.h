@@ -49,8 +49,8 @@ protected:
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd);
 
 public:
-
-	
+	UPROPERTY(EditAnywhere)
+	float WeaponDamage;
 	
 	bool bCanBeEquipped{ true };
 

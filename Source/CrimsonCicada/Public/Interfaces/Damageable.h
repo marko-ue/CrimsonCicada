@@ -22,5 +22,5 @@ class CRIMSONCICADA_API IDamageable
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void TakeDamage(float DamageAmount) = 0;
+	virtual void DealDamage(float DamageAmount) = 0;
 };

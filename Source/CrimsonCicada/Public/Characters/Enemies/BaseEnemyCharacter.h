@@ -9,6 +9,11 @@
 #include "BehaviorTree/BehaviorTree.h"
 #include "BaseEnemyCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE(
+	FOnEnemyDeathSignature,
+	ABaseEnemyCharacter, OnEnemyDeathDelegate
+);
+
 UCLASS()
 class CRIMSONCICADA_API ABaseEnemyCharacter : public ACharacter, public IDamageable
 {
@@ -20,12 +25,24 @@ public:
 	virtual UBehaviorTree* GetBehaviorTree() const;
 
 public:
+	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	virtual void TakeDamage(float DamageAmount) override;
+	
+	virtual void DealDamage(float DamageAmount) override;
+
+	bool bIsDead{ false };
+	
+	FOnEnemyDeathSignature OnEnemyDeathDelegate;
+
+	UFUNCTION()
+	void OnEnemyDeath();
+
+	UFUNCTION(BlueprintCallable)
+	void Die();
 
 	UFUNCTION(BlueprintCallable, Category = "Animation")
 	float GetMovementSpeed() const;
@@ -46,6 +63,10 @@ public:
 	UBehaviorTree* CustomBehaviorTree;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats", meta = (ClampMin = 0.0))
 	float Health = 100.0f;
+
 	
 	
+protected:
+	APawn* PlayerPawn;
+	class UInventoryComponent* InventoryComp;
 };

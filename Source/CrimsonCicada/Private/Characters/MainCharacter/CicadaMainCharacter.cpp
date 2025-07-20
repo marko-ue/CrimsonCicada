@@ -80,7 +80,6 @@ void ACicadaMainCharacter::StopSprinting()
 }
 
 void ACicadaMainCharacter::Die()
-
 {
 	if (!bIsDead)
 	{

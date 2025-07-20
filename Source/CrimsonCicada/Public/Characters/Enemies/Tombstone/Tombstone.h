@@ -33,4 +33,7 @@ public:
 	bool bIsAttacking = false;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Tombstone")
 	bool bTargetTooClose = false;
+
+private:
+	virtual void DealDamage(float DamageAmount) override;
 };

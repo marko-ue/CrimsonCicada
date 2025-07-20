@@ -2,6 +2,8 @@
 
 
 #include "Combat/Weapons/RangedWeapons/DoubleDeagle/RW_DoubleDeagle.h"
+
+#include "Interfaces/Damageable.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 void ARW_DoubleDeagle::BeginPlay()
@@ -43,6 +45,16 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 		if (HitActor)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor with straight trace: %s"), *HitActor->GetName());
+			
+			if (HitActor->Implements<UDamageable>())
+			{
+				IDamageable* ActorToDamage{ Cast<IDamageable>(HitActor) };
+
+				if (ActorToDamage)
+				{
+					ActorToDamage->DealDamage(WeaponDamage);
+				}
+			}
 		}
 	}
 	
@@ -79,6 +91,16 @@ void ARW_DoubleDeagle::PerformPrimaryAction()
 		if (HitActor)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor with random trace: %s"), *HitActor->GetName());
+			
+			if (HitActor->Implements<UDamageable>())
+			{
+				IDamageable* ActorToDamage{ Cast<IDamageable>(HitActor) };
+
+				if (ActorToDamage)
+				{
+					ActorToDamage->DealDamage(WeaponDamage);
+				}
+			}
 		}
 	}
 }

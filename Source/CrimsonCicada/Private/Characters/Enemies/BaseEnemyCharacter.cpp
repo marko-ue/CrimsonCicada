@@ -3,6 +3,7 @@
 
 #include "Characters/Enemies/BaseEnemyCharacter.h"
 #include "AI/BaseAIController.h"
+#include "Systems/Inventory/InventoryComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
@@ -22,7 +23,11 @@ UBehaviorTree* ABaseEnemyCharacter::GetBehaviorTree() const
 void ABaseEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	InventoryComp = PlayerPawn->FindComponentByClass<UInventoryComponent>();
+
+	OnEnemyDeathDelegate.AddDynamic(this, &ABaseEnemyCharacter::OnEnemyDeath);
 }
 
 // Called every frame
@@ -39,7 +44,7 @@ void ABaseEnemyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 
 }
 
-void ABaseEnemyCharacter::TakeDamage(float DamageAmount)
+void ABaseEnemyCharacter::DealDamage(float DamageAmount)
 {
 	Health -= DamageAmount;
 	if (Health <= 0)
@@ -68,6 +73,22 @@ void ABaseEnemyCharacter::PerformAttack_Implementation()
 void ABaseEnemyCharacter::PerformSpecialMove_Implementation()
 {
 }
+
+void ABaseEnemyCharacter::Die()
+{
+	if (!bIsDead)
+	{
+		bIsDead = true;
+		OnEnemyDeathDelegate.Broadcast();
+	}
+}
+
+void ABaseEnemyCharacter::OnEnemyDeath()
+{
+	Destroy();
+}
+
+
 
 
 
