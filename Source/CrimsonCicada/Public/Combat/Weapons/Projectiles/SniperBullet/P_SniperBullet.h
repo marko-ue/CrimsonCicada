@@ -24,6 +24,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere)
+	float ProjectileDamage;
+
+	UPROPERTY(EditAnywhere)
 	class UProjectileMovementComponent* ProjectileMovementComp;
 
 	void LaunchProjectile();
@@ -32,6 +35,9 @@ public:
 	void DestroyProjectile();
 
 	class UCameraComponent* BulletCamera;
+
+	UFUNCTION(BlueprintCallable)
+	void DealDamage(AActor* HitActor);
 
 private:
 	UStaticMeshComponent* BulletMesh;

@@ -48,8 +48,6 @@ void ARW_Shotgun::PerformPrimaryAction()
 	PlayShootFlipbook(ShootFlipbookLength);
 
 	ReduceAmmoInClipByAmount(1);
-
-	Ammo --;
 	
 	// The shotgun weapon spawns a projectile into the world and calls is primary action function (which in this case gets launched, like a throwable, not a bullet)
 	FActorSpawnParameters SpawnParams;

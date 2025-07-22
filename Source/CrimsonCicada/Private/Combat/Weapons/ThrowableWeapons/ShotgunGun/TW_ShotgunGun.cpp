@@ -42,8 +42,22 @@ void ATW_ShotgunGun::Fire()
 {
 	// Function called when the projectile collides with something. Performs spread traces like a shotgun.
 	TArray<FHitResult> HitResultsSpread;
-	if (PerformWeaponTraceComp->PerformSpreadTraces(BulletShootPoint->GetComponentLocation(), BulletShootPoint->GetForwardVector(), SpreadAngleDegrees,  NumberOfTraces, SpreadRange, HitResultsSpread, ECC_GameTraceChannel3))
+	bool bHit = PerformWeaponTraceComp->PerformSpreadTraces(BulletShootPoint->GetComponentLocation(), BulletShootPoint->GetForwardVector(), SpreadAngleDegrees,  NumberOfTraces, SpreadRange, HitResultsSpread, ECC_GameTraceChannel3);
+
+	if (bHit)
 	{
+		for (FHitResult HitResult : HitResultsSpread)
+		{
+			AActor* HitActor = HitResult.GetActor();
+			if (HitActor && HitActor->Implements<UDamageable>())
+			{
+				IDamageable* ActorToDamage = Cast<IDamageable>(HitActor);
+				if (ActorToDamage)
+				{
+					ActorToDamage->DealDamage(WeaponDamage);
+				}
+			}
+		}
 		UE_LOG(LogTemp, Warning, TEXT("%d"), HitResultsSpread.Num());
 	}
 }

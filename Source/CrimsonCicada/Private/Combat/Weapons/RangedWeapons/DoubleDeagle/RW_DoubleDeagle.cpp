@@ -2,8 +2,6 @@
 
 
 #include "Combat/Weapons/RangedWeapons/DoubleDeagle/RW_DoubleDeagle.h"
-
-#include "Interfaces/Damageable.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 void ARW_DoubleDeagle::BeginPlay()

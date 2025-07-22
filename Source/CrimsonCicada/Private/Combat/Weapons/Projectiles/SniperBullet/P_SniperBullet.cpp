@@ -8,6 +8,7 @@
 #include "Systems/Inventory/InventoryComponent.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Interfaces/Damageable.h"
 
 // Sets default values
 AP_SniperBullet::AP_SniperBullet()
@@ -58,5 +59,17 @@ void AP_SniperBullet::DestroyProjectile()
 	Cast<ACharacter>(GetWorld()->GetFirstPlayerController()->GetPawn())->GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Walking);
 	InventoryComp->EquippedWeapon->bIsWeaponActive = false;
 	Destroy();
+}
+
+void AP_SniperBullet::DealDamage(AActor* HitActor)
+{
+	if (HitActor && HitActor->Implements<UDamageable>())
+	{
+		IDamageable* ActorToDamage = Cast<IDamageable>(HitActor);
+		if (ActorToDamage)
+		{
+			ActorToDamage->DealDamage(ProjectileDamage);
+		}
+	}
 }
 

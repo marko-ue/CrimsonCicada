@@ -22,6 +22,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	UPROPERTY(EditAnywhere)
+	float ProjectileDamage;
 
 	UPROPERTY(EditAnywhere)
 	class UProjectileMovementComponent* ProjectileMovementComp;
@@ -30,6 +33,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DestroyProjectile();
+
+	UFUNCTION(BlueprintCallable)
+	void DealDamage(AActor* HitActor);
 
 private:
 	UStaticMeshComponent* BulletMesh;

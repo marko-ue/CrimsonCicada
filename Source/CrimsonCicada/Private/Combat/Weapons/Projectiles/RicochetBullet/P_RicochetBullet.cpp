@@ -3,6 +3,7 @@
 
 #include "Combat/Weapons/Projectiles/RicochetBullet/P_RicochetBullet.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Interfaces/Damageable.h"
 
 // Sets default values
 AP_RicochetBullet::AP_RicochetBullet()
@@ -47,6 +48,18 @@ void AP_RicochetBullet::LaunchProjectile()
 void AP_RicochetBullet::DestroyProjectile()
 {
 	Destroy();
+}
+
+void AP_RicochetBullet::DealDamage(AActor* HitActor)
+{
+	if (HitActor && HitActor->Implements<UDamageable>())
+	{
+		IDamageable* ActorToDamage = Cast<IDamageable>(HitActor);
+		if (ActorToDamage)
+		{
+			ActorToDamage->DealDamage(ProjectileDamage);
+		}
+	}
 }
 
 
