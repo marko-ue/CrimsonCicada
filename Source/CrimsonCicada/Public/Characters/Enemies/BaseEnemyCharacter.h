@@ -64,7 +64,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats", meta = (ClampMin = 0.0))
 	float Health = 100.0f;
 
-	
+	UPROPERTY(EditAnywhere)
+	float MoveSpeed;
+	float StoppedSpeed{ 0.0f };
+	void SetMovementSpeed(bool bIsFrozen);
 	
 protected:
 	APawn* PlayerPawn;

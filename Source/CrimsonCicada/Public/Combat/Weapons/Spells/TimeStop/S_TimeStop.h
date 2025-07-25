@@ -20,8 +20,16 @@ protected:
 	virtual EWeapon GetWeaponEnum() const override { return EWeapon::TimeStop; }
 	
 public:
+	virtual void Tick(float DeltaTime) override;
+	
 	virtual void CastSpell() override;
 
 private:
 	APawn* PlayerPawn;
+	FTimerHandle DrainHealthHandle;
+	FTimerHandle ResetCooldownHandle;
+	
+	void SetEnemyMoveSpeed(bool bIsFrozen);
+	
+	float EnemyWalkSpeed;
 };

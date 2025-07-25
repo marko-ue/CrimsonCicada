@@ -32,4 +32,5 @@ protected:
 	float SpellCooldown;
 	float SpellDuration;
 	bool bIsSpellOnCooldown{ false };
+	bool bIsSpellActive{ false };
 };

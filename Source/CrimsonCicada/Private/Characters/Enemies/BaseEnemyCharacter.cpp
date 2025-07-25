@@ -74,6 +74,18 @@ void ABaseEnemyCharacter::PerformSpecialMove_Implementation()
 {
 }
 
+void ABaseEnemyCharacter::SetMovementSpeed(bool bIsFrozen)
+{
+	if (bIsFrozen)
+	{
+		GetCharacterMovement()->MaxWalkSpeed = StoppedSpeed;
+	}
+	else
+	{
+		GetCharacterMovement()->MaxWalkSpeed = MoveSpeed;
+	}
+}
+
 void ABaseEnemyCharacter::Die()
 {
 	if (!bIsDead)
