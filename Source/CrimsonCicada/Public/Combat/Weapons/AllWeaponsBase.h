@@ -11,6 +11,7 @@
 #include "PaperFlipbookComponent.h"
 #include "PaperFlipbook.h"
 #include "Camera/CameraComponent.h"
+#include "Interfaces/Damageable.h"
 #include "AllWeaponsBase.generated.h"
 
 UCLASS()

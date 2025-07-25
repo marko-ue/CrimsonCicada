@@ -44,13 +44,23 @@ void ARW_SMG::PerformPrimaryActionAutomatic()
 		if (HitActor)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor with straight trace: %s"), *HitActor->GetName());
+
+			if (HitActor->Implements<UDamageable>())
+			{
+				IDamageable* ActorToDamage{ Cast<IDamageable>(HitActor) };
+
+				if (ActorToDamage)
+				{
+					ActorToDamage->DealDamage(WeaponDamage);
+				}
+			}
 		}
 	}
 }
 
 void ARW_SMG::PerformPrimaryAction()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Primary action regular from smg"));
+	//UE_LOG(LogTemp, Warning, TEXT("Primary action regular from smg"));
 }
 
 void ARW_SMG::StartAutomaticFire()
