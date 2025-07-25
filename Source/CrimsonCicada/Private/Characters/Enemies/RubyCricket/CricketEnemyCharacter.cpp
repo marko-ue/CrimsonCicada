@@ -2,7 +2,7 @@
 #include "Characters/Enemies/RubyCricket/CricketEnemyCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
-#include "AI/CricketAIController.h"
+#include "AI/Cricket/CricketAIController.h"
 #include "Kismet/GameplayStatics.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Engine/DamageEvents.h"
