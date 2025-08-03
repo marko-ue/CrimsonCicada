@@ -77,5 +77,8 @@ protected:
 	int MaxAmmo;
 
 	void ReduceAmmoInClipByAmount(float Amount) { AmmoInClip -= Amount; }
-	
+
+public:
+	UPROPERTY(BlueprintReadOnly)
+	bool bIsBulletStasisSpellActive{ false };
 };
