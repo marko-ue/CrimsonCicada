@@ -30,6 +30,7 @@ private:
 	FTimerHandle ResetCooldownHandle;
 	
 	void SetEnemyMoveSpeed(bool bIsFrozen);
-	
+	void SetThrowablesTimeDillation(bool bShouldFreeze);
+
 	float EnemyWalkSpeed;
 };

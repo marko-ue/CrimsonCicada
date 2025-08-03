@@ -64,6 +64,26 @@ void AThrowableWeaponsBase::PlayThrowFlipbook(float RemoveFlipbookDelay)
 	GetWorld()->GetTimerManager().SetTimer(ApplyPhysicsTimerHandle, this, &AThrowableWeaponsBase::ApplyThrowPhysics, ThrowFlipbookLength + 0.32f, false);
 }
 
+void AThrowableWeaponsBase::FreezePhysics(bool bShouldFreeze)
+{
+	UPrimitiveComponent* Mesh = Cast<UPrimitiveComponent>(GetComponentByClass(UPrimitiveComponent::StaticClass()));
+	if (!Mesh)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No mesh"));
+	}
+
+	if (bShouldFreeze)
+	{
+		StoredVelocity = Mesh->GetPhysicsLinearVelocity();
+		Mesh->SetSimulatePhysics(false);
+	}
+	else
+	{
+		Mesh->SetSimulatePhysics(true);
+		Mesh->SetPhysicsLinearVelocity(StoredVelocity);
+	}
+}
+
 void AThrowableWeaponsBase::HandleWeaponThrown()
 {
 	// Makes the thrown weapon not equipped again, detaching, and making it equippable again
