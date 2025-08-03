@@ -20,7 +20,7 @@ void ATW_Brick::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	
+	//UE_LOG(LogTemp, Warning, TEXT("Custom time dilation: %f"), CustomTimeDilation);
 }
 
 void ATW_Brick::PerformPrimaryAction()

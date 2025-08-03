@@ -58,4 +58,9 @@ public:
 	void ApplyThrowPhysics();
 
 	virtual void PlayThrowFlipbook(float RemoveFlipbookDelay);
+
+	UPROPERTY()
+	FVector StoredVelocity;
+
+	void FreezePhysics(bool bShouldFreeze);
 };

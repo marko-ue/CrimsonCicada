@@ -2,8 +2,9 @@
 
 
 #include "Combat/Weapons/Spells/TimeStop/S_TimeStop.h"
-
 #include "Characters/Enemies/BaseEnemyCharacter.h"
+#include "Combat/Weapons/ThrowableWeapons/ThrowableWeaponsBase.h"
+#include "Combat/Weapons/ThrowableWeapons/Brick/TW_Brick.h"
 #include "Kismet/GameplayStatics.h"
 #include "Interfaces/Damageable.h"
 #include "Engine/DamageEvents.h"
@@ -24,8 +25,8 @@ void AS_TimeStop::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("Is spell active: %d"), bIsSpellActive ? 1 : 0);
-	UE_LOG(LogTemp, Warning, TEXT("Is spell on cooldown: %d"), bIsSpellOnCooldown ? 1 : 0);
+	//UE_LOG(LogTemp, Warning, TEXT("Is spell active: %d"), bIsSpellActive ? 1 : 0);
+	//UE_LOG(LogTemp, Warning, TEXT("Is spell on cooldown: %d"), bIsSpellOnCooldown ? 1 : 0);
 }
 
 void AS_TimeStop::SetEnemyMoveSpeed(bool bIsFrozen)
@@ -47,10 +48,21 @@ void AS_TimeStop::SetEnemyMoveSpeed(bool bIsFrozen)
 	}
 }
 
-// when spell is inactive, activate it and start cooldown
-// when spell becomes inactive, disable it and start the 2 second cooldodwn
-// after the cooldown is done, allow activating the spell again
-// make it so the cooldown isn't being set back to the 2 seconds if you try to use the spell when it's already on cooldown
+void AS_TimeStop::SetThrowablesTimeDillation(bool bShouldFreeze)
+{
+	TArray<AActor*> Throwables;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AThrowableWeaponsBase::StaticClass(), Throwables);
+
+	for (AActor* Throwable : Throwables)
+	{
+		AThrowableWeaponsBase* ThrowablesBase = Cast<AThrowableWeaponsBase>(Throwable);
+		if (ThrowablesBase)
+		{
+			ThrowablesBase->FreezePhysics(bShouldFreeze);
+			//UE_LOG(LogTemp, Warning, TEXT("Custom Time Dilation: %f"), Amount);
+		}
+	}
+}
 
 // Make all enemies and entities stop moving but let player move and pre-throw throwables (stay in air until resumed)
 void AS_TimeStop::CastSpell()
@@ -60,6 +72,8 @@ void AS_TimeStop::CastSpell()
 		UE_LOG(LogTemp, Warning, TEXT("Casting time stop spell"));
 		
 		SetEnemyMoveSpeed(true);
+
+		SetThrowablesTimeDillation(true);
 		
 		bIsSpellOnCooldown = true;
 		bIsSpellActive = true;
@@ -80,6 +94,9 @@ void AS_TimeStop::CastSpell()
 		}
 
 		GetWorldTimerManager().ClearTimer(DrainHealthHandle);
+		
 		SetEnemyMoveSpeed(false);
+
+		SetThrowablesTimeDillation(false);
 	}
 }

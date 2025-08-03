@@ -35,7 +35,6 @@ UBehaviorTree* ATombstone::GetBehaviorTree() const
 void ATombstone::DealDamage(float DamageAmount)
 {
 	FDamageEvent DamageEvent;
-	
 	TakeDamage(DamageAmount, DamageEvent, PlayerPawn->GetController(), this);
 }
 
