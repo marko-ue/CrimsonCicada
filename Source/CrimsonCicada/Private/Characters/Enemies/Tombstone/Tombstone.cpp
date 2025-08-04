@@ -81,7 +81,6 @@ void ATombstone::StartAttack()
 void ATombstone::DealDamage(float DamageAmount)
 {
 	FDamageEvent DamageEvent;
-	
 	TakeDamage(DamageAmount, DamageEvent, PlayerPawn->GetController(), this);
 }
 
