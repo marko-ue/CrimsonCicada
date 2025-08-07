@@ -1,8 +1,8 @@
  
 
-#include "BTTasks/LeapTaskNode.h"
+#include "BTTasks/Cricket/LeapTaskNode.h"
 #include "Characters/Enemies/RubyCricket/CricketEnemyCharacter.h"
-#include "AI/BaseAIController.h"
+#include "AI/Cricket/CricketAIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
 

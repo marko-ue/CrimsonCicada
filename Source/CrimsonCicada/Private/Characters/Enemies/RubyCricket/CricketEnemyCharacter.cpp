@@ -57,7 +57,7 @@ void ACricketEnemyCharacter::Tick(float DeltaTime)
 	if (Target)
 	{
 		float Distance = GetDistanceTo(Target);
-		bool bInLeapRange = Distance <= 900.0f;
+		bool bInLeapRange = Distance <= 600.0f;
 
 		
 		Blackboard->SetValueAsBool(TEXT("InLeapRange"), bInLeapRange);
