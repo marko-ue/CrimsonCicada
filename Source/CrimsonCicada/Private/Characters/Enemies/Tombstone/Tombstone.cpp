@@ -46,7 +46,7 @@ void ATombstone::Tick(float DeltaTime)
 		}
 		else
 		{
-			Blackboard->SetValueAsBool("IsAttacking", false);
+			
 			TombstoneAiController->SetState("Chasing");
 		}
 	}
@@ -66,17 +66,27 @@ void ATombstone::StartAttack()
 {
 	ATombstoneAIController* TombstoneAiController = Cast<ATombstoneAIController>(GetController());
 	if (!TombstoneAiController) return;
+
 	AActor* Target = TombstoneAiController->CurrentTarget;
 	if (Target && GetDistanceTo(Target) <= 250.0f)
 	{
 		bIsAttacking = true;
-		PlayAnimMontage(SwingMontage);
+
+		if (SwingMontage && GetMesh() && GetMesh()->GetAnimInstance())
+		{
+			
+			UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+
+			AnimInstance->Montage_Stop(0.1f);
+			AnimInstance->Montage_Play(SwingMontage, 1.0f);
+		}
 	}
 	else
 	{
 		bIsAttacking = false;
 	}
 }
+
 
 void ATombstone::DealDamage(float DamageAmount)
 {
