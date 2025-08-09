@@ -5,6 +5,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Interfaces/Pickupable.h"
+#include "Interfaces/Interactable.h"
 
 // Sets default values for this component's properties
 UInteractComponent::UInteractComponent()
@@ -73,6 +74,14 @@ void UInteractComponent::PerformInteractTrace()
 			{
 				// Call the PickUp function on the hit actor
 				ItemToPickUp->PickUp();
+			}
+		}
+
+		else if (HitActor && HitActor->Implements<UInteractable>())
+		{
+			IInteractable* ActorToInteractWith{ Cast<IInteractable>(HitActor) };
+			{
+				ActorToInteractWith->Interact();
 			}
 		}
 	}
