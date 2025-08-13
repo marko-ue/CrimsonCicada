@@ -214,6 +214,1349 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Folder Name="JumpLand" ID="{B28E9C54-1FE3-49CF-8DF0-BFCBE4D951EF}" ShortID="1070573332">
+									<ChildrenList>
+										<Folder Name="Jump" ID="{DAD52C20-8CC2-4934-837E-F5AC22FAAED7}" ShortID="634183790">
+											<ChildrenList>
+												<Sound Name="PlayerJump" ID="{72F13E11-F315-4EB6-8B20-6CC8E5CFF303}" ShortID="501365970">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{70B9553C-BF7E-487C-8782-1FFF5B301CE7}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="100"/>
+																			<Property Name="Min" Type="Real64" Value="-100"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="UserAuxSendVolume0" Type="Real64">
+															<ValueList>
+																<Value>-6</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+														<Reference Name="UserAuxSend0">
+															<ObjectRef Name="Rev" ID="{EF03F319-EFA3-4FEE-8934-DAE89B16AD99}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="PlayerJump" ID="{45CEB483-10B9-4F63-9946-BD54D930F9AF}">
+															<Language>SFX</Language>
+															<AudioFile>PlayerJump.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="870692975"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="PlayerJump" ID="{45CEB483-10B9-4F63-9946-BD54D930F9AF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</Folder>
+										<RandomSequenceContainer Name="Land" ID="{4A61737A-82E8-4C17-BD9C-25795A2BCAE2}" ShortID="169896585">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{EBD308B7-6623-4D4F-A868-A141C30EA594}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="125"/>
+																	<Property Name="Min" Type="Real64" Value="-300"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rev" ID="{EF03F319-EFA3-4FEE-8934-DAE89B16AD99}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="PlayerLand1" ID="{9280B5CD-9EA6-4F18-969F-CDD8FC36DADB}" ShortID="58764593">
+													<PropertyList>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>64</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="PlayerLand1" ID="{FAB7DEA2-A191-45E3-B43F-A113A0415FB5}">
+															<Language>SFX</Language>
+															<AudioFile>PlayerLand1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="546750646"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="PlayerLand1" ID="{FAB7DEA2-A191-45E3-B43F-A113A0415FB5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="PlayerLand2" ID="{57FB2408-8590-45F6-ACAC-740BED217857}" ShortID="546612053">
+													<PropertyList>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>39</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="PlayerLand2" ID="{160B2D5D-FCF9-4225-9123-5CCD623DFDFA}">
+															<Language>SFX</Language>
+															<AudioFile>PlayerLand2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="48475353"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="PlayerLand2" ID="{160B2D5D-FCF9-4225-9123-5CCD623DFDFA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="WeaponSwitch" ID="{2E11CA78-81E6-412D-AA73-D7F5240F69D5}" ShortID="335342150">
+									<ChildrenList>
+										<Sound Name="WeaponSwitch" ID="{4AD91CEC-D421-45FE-A319-FF5E456C3A5A}" ShortID="938323849">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="WeaponSwitch" ID="{C07555BB-26F2-4EE7-A2ED-D4A6C62CBF44}">
+													<PropertyList>
+														<Property Name="VolumeOffset" Type="Real64">
+															<ValueList>
+																<Value>1</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>WeaponSwitch.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="694153784"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="WeaponSwitch" ID="{C07555BB-26F2-4EE7-A2ED-D4A6C62CBF44}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Weapons" ID="{A9D315AF-895F-4007-99D1-D977451A555D}" ShortID="166362646">
+									<ChildrenList>
+										<Folder Name="DD" ID="{A4CC61CF-2B8F-4A36-A67B-E79486DC1D67}" ShortID="874503733">
+											<ChildrenList>
+												<Sound Name="DDShot" ID="{D8ED6B63-9808-4430-8060-5431EF9D63F8}" ShortID="98366755">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="DDShot" ID="{BD82E4AD-464F-4306-AEFA-B8045C6C2D48}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>-2.6</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>DDShot.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="602081711"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{099F40E0-05C9-455D-985B-F31EBDD34639}" ShortID="5911798">
+																		<ReferenceList>
+																			<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																				<ObjectRef Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="DDShot" ID="{BD82E4AD-464F-4306-AEFA-B8045C6C2D48}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</Folder>
+										<Folder Name="PrcDynamite" ID="{7072A634-D88E-4B79-A828-2B32F62CC754}" ShortID="697502845">
+											<ChildrenList>
+												<Sound Name="PrcDynamiteThrow" ID="{A5B7031A-4BBB-44BE-B896-77CECF57D1F3}" ShortID="846500833">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="PrcDynamiteThrow" ID="{865CDE6F-84D8-47A5-BFC5-8702B9F3764B}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>-1.2</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>PrcDynamiteThrow.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="735924955"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="PrcDynamiteThrow" ID="{865CDE6F-84D8-47A5-BFC5-8702B9F3764B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="PrcDynamiteExplosion" ID="{11645B83-70DC-462E-A90F-22E4859654C5}" ShortID="521020131">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<Custom>
+																<Attenuation Name="Attenuation (Custom)" ID="{851A7EA5-A18A-41E8-8460-86FBC85353D8}" ShortID="132040230">
+																	<CurveUsageInfoList>
+																		<VolumeDryUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																				<Curve Name="VolumeDry" ID="{1CD1B467-2D8C-48A1-BF7E-05B98698B245}">
+																					<PropertyList>
+																						<Property Name="Flags" Type="int32" Value="3"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>0</YPos>
+																							<Flags>5</Flags>
+																						</Point>
+																						<Point>
+																							<XPos>100</XPos>
+																							<YPos>-200</YPos>
+																							<Flags>37</Flags>
+																						</Point>
+																					</PointList>
+																				</Curve>
+																			</CurveUsageInfo>
+																		</VolumeDryUsage>
+																		<VolumeWetGameUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetGameUsage>
+																		<VolumeWetUserUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetUserUsage>
+																		<LowPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</LowPassFilterUsage>
+																		<HighPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</HighPassFilterUsage>
+																		<SpreadUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</SpreadUsage>
+																		<FocusUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</FocusUsage>
+																		<ObstructionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionVolumeUsage>
+																		<ObstructionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionLPFUsage>
+																		<ObstructionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionHPFUsage>
+																		<OcclusionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionVolumeUsage>
+																		<OcclusionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionLPFUsage>
+																		<OcclusionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionHPFUsage>
+																		<DiffractionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionVolumeUsage>
+																		<DiffractionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionLPFUsage>
+																		<DiffractionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionHPFUsage>
+																		<TransmissionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionVolumeUsage>
+																		<TransmissionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionLPFUsage>
+																		<TransmissionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionHPFUsage>
+																	</CurveUsageInfoList>
+																</Attenuation>
+															</Custom>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="PrcDynamiteExplosion" ID="{1A454F04-0D6A-4150-82CD-1DE1D19ACE86}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>0.4</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>PrcDynamiteExplosion.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="338987964"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{B03B4132-0C3A-4C17-BEF2-03F95454DAC8}" ShortID="791234104">
+																		<ReferenceList>
+																			<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																				<ObjectRef Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="PrcDynamiteExplosion" ID="{1A454F04-0D6A-4150-82CD-1DE1D19ACE86}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</Folder>
+										<Folder Name="ShotgunGun" ID="{599202B0-2B1A-4A78-A39E-8D5470F97A2F}" ShortID="94016425">
+											<ChildrenList>
+												<Sound Name="ShotgunGunShot" ID="{219BB285-0005-40D3-A3C7-8C94EC1F2138}" ShortID="724684423">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="ShotgunGunShot" ID="{0EAF60DA-F318-4170-80A3-C436D1E4AC99}">
+															<PropertyList>
+																<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>ShotgunGunShot.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="371049051"/>
+															</MediaIDList>
+															<ObjectLists>
+																<ObjectList Name="Markers">
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{D5D47A0C-F9C3-4DB0-8AE2-6BC3D0B1E5D7}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="Winchester1300 Handling (consolidated)"/>
+																					<Property Name="Time" Type="Real64" Value="0.189190078965549"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{EA820FC5-FE81-4D56-B9AB-1CCB2DA64DE2}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="AK47 V1 4x SingleShots huge"/>
+																					<Property Name="Time" Type="Real64" Value="0.183041666666667"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																</ObjectList>
+															</ObjectLists>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{79489DA0-DEFB-45B2-9CEC-DF2D4E5D4FA1}" ShortID="321246022">
+																		<ReferenceList>
+																			<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																				<ObjectRef Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="ShotgunGunShot" ID="{0EAF60DA-F318-4170-80A3-C436D1E4AC99}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="ShotgunGunExplosion" ID="{AAAE80F9-C141-4E01-91F8-DD3914FD5DCD}" ShortID="747445371">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<Custom>
+																<Attenuation Name="Attenuation (Custom)" ID="{48836AA1-7F72-4EB6-A39D-2F60097EE8E4}" ShortID="563143100">
+																	<CurveUsageInfoList>
+																		<VolumeDryUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																				<Curve Name="VolumeDry" ID="{234D0D42-BCA6-45E7-B417-473B2BEEA9FC}">
+																					<PropertyList>
+																						<Property Name="Flags" Type="int32" Value="3"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>0</YPos>
+																							<Flags>5</Flags>
+																						</Point>
+																						<Point>
+																							<XPos>100</XPos>
+																							<YPos>-200</YPos>
+																							<Flags>37</Flags>
+																						</Point>
+																					</PointList>
+																				</Curve>
+																			</CurveUsageInfo>
+																		</VolumeDryUsage>
+																		<VolumeWetGameUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetGameUsage>
+																		<VolumeWetUserUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetUserUsage>
+																		<LowPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</LowPassFilterUsage>
+																		<HighPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</HighPassFilterUsage>
+																		<SpreadUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</SpreadUsage>
+																		<FocusUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</FocusUsage>
+																		<ObstructionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionVolumeUsage>
+																		<ObstructionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionLPFUsage>
+																		<ObstructionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionHPFUsage>
+																		<OcclusionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionVolumeUsage>
+																		<OcclusionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionLPFUsage>
+																		<OcclusionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionHPFUsage>
+																		<DiffractionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionVolumeUsage>
+																		<DiffractionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionLPFUsage>
+																		<DiffractionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionHPFUsage>
+																		<TransmissionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionVolumeUsage>
+																		<TransmissionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionLPFUsage>
+																		<TransmissionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionHPFUsage>
+																	</CurveUsageInfoList>
+																</Attenuation>
+															</Custom>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="ShotgunGunExplosion" ID="{F17DFBA6-D7FB-448C-8148-F8B205C16779}">
+															<PropertyList>
+																<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>ShotgunGunExplosion.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="307381799"/>
+															</MediaIDList>
+															<ObjectLists>
+																<ObjectList Name="Markers">
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{24E6E683-8B93-4E3A-A7C3-F908D057F9ED}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="CECK SWEETENER Explosion Impact Distorted"/>
+																					<Property Name="Time" Type="Real64" Value="0.179392873099024"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{D6CD4471-FBCF-419C-86A7-9C0A8DEADC00}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="S&amp;W Model66 4x SingleShots natural"/>
+																					<Property Name="Time" Type="Real64" Value="0.129458333333333"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{DFA2548B-AF69-4A1B-B5AF-97BB0776C73A}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="EXPLDsgn_Large Explosion With Debris 01"/>
+																					<Property Name="Time" Type="Real64" Value="0.200895833333333"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																</ObjectList>
+															</ObjectLists>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{C1622FC9-57F9-4161-9F3D-092A58C95184}" ShortID="354265870">
+																		<ReferenceList>
+																			<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																				<ObjectRef Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="ShotgunGunExplosion" ID="{F17DFBA6-D7FB-448C-8148-F8B205C16779}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</Folder>
+										<Folder Name="RicRevolver" ID="{C66AA3BC-937B-4E68-B04A-16FEA2D2EF0D}" ShortID="300407234">
+											<ChildrenList>
+												<Sound Name="RicRevolverShot" ID="{D8F121E2-2863-4F3E-AB79-25C6D89DD0BB}" ShortID="19703943">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="RicRevolverShot" ID="{9D66E7B5-52DE-4B95-AECC-CA17E7ADF60F}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="0.0699912608811682"/>
+																<Property Name="LoopEnd" Type="Real64" Value="1.17854166666667"/>
+																<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>RicRevolverShot.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="689640343"/>
+															</MediaIDList>
+															<ObjectLists>
+																<ObjectList Name="Markers">
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{B2043D96-1AEB-48F9-970E-D275C0FD89EE}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="SKS M59 4x SingleShots natural"/>
+																					<Property Name="Time" Type="Real64" Value="0.0824090652310528"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																	<Reference>
+																		<Local>
+																			<Marker Name="" ID="{18295945-90D4-4D01-B37D-57996E52F7CE}">
+																				<PropertyList>
+																					<Property Name="Label" Type="string" Value="SKS M59 4x SingleShots natural #2"/>
+																					<Property Name="Time" Type="Real64" Value="0.08220097102516"/>
+																				</PropertyList>
+																			</Marker>
+																		</Local>
+																	</Reference>
+																</ObjectList>
+															</ObjectLists>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{B84D5DF1-7C89-413D-99E2-F6E9079D18AD}" ShortID="1029503910">
+																		<ReferenceList>
+																			<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																				<ObjectRef Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+													<ActiveSourceList>
+														<ActiveSource Name="RicRevolverShot" ID="{9D66E7B5-52DE-4B95-AECC-CA17E7ADF60F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<RandomSequenceContainer Name="RicRevolverRic" ID="{C16C18C7-9844-4B1C-BB82-8C6FBB068ED1}" ShortID="280949255">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{42907BE5-3482-4AC3-B50D-CF2CD24880A1}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="500"/>
+																			<Property Name="Min" Type="Real64" Value="-575"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<Custom>
+																<Attenuation Name="Attenuation (Custom)" ID="{2524B064-5657-4B80-A937-0A18454A422C}" ShortID="374285806">
+																	<CurveUsageInfoList>
+																		<VolumeDryUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																				<Curve Name="VolumeDry" ID="{A4E8F2A4-98E4-4326-AC12-9F714547D455}">
+																					<PropertyList>
+																						<Property Name="Flags" Type="int32" Value="3"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>0</YPos>
+																							<Flags>5</Flags>
+																						</Point>
+																						<Point>
+																							<XPos>100</XPos>
+																							<YPos>-200</YPos>
+																							<Flags>37</Flags>
+																						</Point>
+																					</PointList>
+																				</Curve>
+																			</CurveUsageInfo>
+																		</VolumeDryUsage>
+																		<VolumeWetGameUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetGameUsage>
+																		<VolumeWetUserUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetUserUsage>
+																		<LowPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</LowPassFilterUsage>
+																		<HighPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</HighPassFilterUsage>
+																		<SpreadUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</SpreadUsage>
+																		<FocusUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</FocusUsage>
+																		<ObstructionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionVolumeUsage>
+																		<ObstructionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionLPFUsage>
+																		<ObstructionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionHPFUsage>
+																		<OcclusionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionVolumeUsage>
+																		<OcclusionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionLPFUsage>
+																		<OcclusionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionHPFUsage>
+																		<DiffractionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionVolumeUsage>
+																		<DiffractionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionLPFUsage>
+																		<DiffractionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionHPFUsage>
+																		<TransmissionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionVolumeUsage>
+																		<TransmissionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionLPFUsage>
+																		<TransmissionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionHPFUsage>
+																	</CurveUsageInfoList>
+																</Attenuation>
+															</Custom>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="ric1" ID="{ABF9CD9D-FB50-410A-9E94-F281A796D0B6}" ShortID="572606510">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="ric1" ID="{70C94E4C-E5E0-4CE1-A8A0-06B921D6297D}">
+																	<PropertyList>
+																		<Property Name="LoopBegin" Type="Real64" Value="0.0373563222101822"/>
+																		<Property Name="LoopEnd" Type="Real64" Value="0.428548752834467"/>
+																		<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+																		<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>ric1.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="701067724"/>
+																	</MediaIDList>
+																	<ObjectLists>
+																		<ObjectList Name="Markers">
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{B3CA0005-9CBA-40EE-9A1B-0A83B0E91220}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="RicRevolverRic"/>
+																							<Property Name="Time" Type="Real64" Value="0.0373563222101822"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																		</ObjectList>
+																	</ObjectLists>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="ric1" ID="{70C94E4C-E5E0-4CE1-A8A0-06B921D6297D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="ric2" ID="{B9D4DF7F-D6E4-4DD3-9EF3-DB39DFBEF7CB}" ShortID="132601180">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="ric2" ID="{D6210339-0975-4B43-B8AC-765F4E23C277}">
+																	<PropertyList>
+																		<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+																		<Property Name="VolumeOffset" Type="Real64">
+																			<ValueList>
+																				<Value>-0.8</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>ric2.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="661929221"/>
+																	</MediaIDList>
+																	<ObjectLists>
+																		<ObjectList Name="Markers">
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{383612AA-3069-4D05-84FC-782076564934}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="RicRevolverRic"/>
+																							<Property Name="Time" Type="Real64" Value="0.0233990150107734"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																		</ObjectList>
+																	</ObjectLists>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="ric2" ID="{D6210339-0975-4B43-B8AC-765F4E23C277}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="ric3" ID="{CDB970E4-D6ED-4FD3-A8E7-D926CEFCC58A}" ShortID="225954000">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="ric3" ID="{5301B073-71D3-4E02-A5E8-F5CA97360AB0}">
+																	<PropertyList>
+																		<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>ric3.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="859148162"/>
+																	</MediaIDList>
+																	<ObjectLists>
+																		<ObjectList Name="Markers">
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{C9386688-7DC1-4B8B-A375-E02576FBFC8C}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="RicRevolverRic"/>
+																							<Property Name="Time" Type="Real64" Value="0.0209617196828469"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																		</ObjectList>
+																	</ObjectLists>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="ric3" ID="{5301B073-71D3-4E02-A5E8-F5CA97360AB0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="ric4" ID="{AE328ED7-6740-4270-8D20-FE89FAC58EDE}" ShortID="161746605">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="ric4" ID="{D674DA1D-BF3F-4C04-B8AD-FD81542080E4}">
+																	<PropertyList>
+																		<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+																		<Property Name="VolumeOffset" Type="Real64">
+																			<ValueList>
+																				<Value>-0.6</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>ric4.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="308580245"/>
+																	</MediaIDList>
+																	<ObjectLists>
+																		<ObjectList Name="Markers">
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{75E292D1-905E-4B43-B95D-B8A865BF603C}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="RicRevolverRic"/>
+																							<Property Name="Time" Type="Real64" Value="0.0244597347303369"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																		</ObjectList>
+																	</ObjectLists>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="ric4" ID="{D674DA1D-BF3F-4C04-B8AD-FD81542080E4}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+										</Folder>
+										<Folder Name="SMG" ID="{94584184-8CB0-40EB-B587-378DAA9FC5C9}" ShortID="680820692">
+											<ChildrenList>
+												<RandomSequenceContainer Name="Shot" ID="{FA8AF27E-1B92-4ACE-95F5-FD5C2F9378F7}" ShortID="805278716">
+													<PropertyList>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="SMGShot" ID="{D9B7E81C-F041-48FC-AC6B-CD301775F764}" ShortID="303765338">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SMGShot" ID="{F6646B05-9790-4107-86E6-E9DAA2607FCC}">
+																	<PropertyList>
+																		<Property Name="LoopBegin" Type="Real64" Value="0.0398288522137946"/>
+																		<Property Name="LoopEnd" Type="Real64" Value="0.804428339820925"/>
+																		<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>SMGShot.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="594455599"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SMGShot" ID="{F6646B05-9790-4107-86E6-E9DAA2607FCC}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SMGShotRelease" ID="{DE2975F9-BF63-4A95-A8C0-780AC738B59C}" ShortID="597659266">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="SMGShot - Copie" ID="{003D396B-82FF-4586-B81D-6A61E025A6C1}">
+																	<PropertyList>
+																		<Property Name="LoopBegin" Type="Real64" Value="0.797413793103448"/>
+																		<Property Name="LoopEnd" Type="Real64" Value="1.49997916666667"/>
+																		<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+																		<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																		<Property Name="TrimBegin" Type="Real64" Value="0.790229885057471"/>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>SMGShot - Copie.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="828045881"/>
+																	</MediaIDList>
+																	<ObjectLists>
+																		<ObjectList Name="Markers">
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{D8553954-EDFB-49C2-B791-222260CD5539}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.798850574712644"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{E0AAC27B-810B-4029-B90A-EF37026CCAAB}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="M4 V1 4x Bursts natural"/>
+																							<Property Name="Time" Type="Real64" Value="0.0223125"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{7EF398C9-A11C-45F8-A490-A57CC0A87BA9}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.0803541666666667"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{49F136F4-6284-4292-A4E5-1C937085B7DC}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.160708333333333"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{9F854595-158D-49DF-822D-AB93C6A63E7D}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.236604166666667"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{17A0FB01-D897-4330-A3AC-B2215E3E68E2}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.316958333333333"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{1E12B2E0-9F42-43B5-A7D6-4B3FD2718B22}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.3973125"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{B572D74C-F4AC-436D-BE8F-4E1838A1D64B}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.4776875"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{B9F51AD2-EC8E-487E-AC52-A0AE6F6C4B06}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.558041666666667"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{DFC76976-C866-4469-963E-9A100B575103}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.642854166666667"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{A5DA9F0A-346E-4387-B6F9-2FAEED814435}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.723208333333333"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																			<Reference>
+																				<Local>
+																					<Marker Name="" ID="{506C6901-DA13-4C04-A0B4-5A0C850D62E6}">
+																						<PropertyList>
+																							<Property Name="Label" Type="string" Value="3x Osc"/>
+																							<Property Name="Time" Type="Real64" Value="0.8035625"/>
+																						</PropertyList>
+																					</Marker>
+																				</Local>
+																			</Reference>
+																		</ObjectList>
+																	</ObjectLists>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="SMGShot - Copie" ID="{003D396B-82FF-4586-B81D-6A61E025A6C1}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Effects">
+															<Reference>
+																<Local>
+																	<EffectSlot Name="" ID="{F72D3C20-9F19-4A68-A159-17A5EFC7B1C4}" ShortID="669139610">
+																		<PropertyList>
+																			<Property Name="Render" Type="bool" Value="True"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																				<ObjectRef Name="Boost_3dB_100Hz" ID="{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																			</Reference>
+																		</ReferenceList>
+																	</EffectSlot>
+																</Local>
+															</Reference>
+														</ObjectList>
+														<ObjectList Name="Playlist">
+															<Reference>
+																<ObjectRef Name="SMGShot" ID="{D9B7E81C-F041-48FC-AC6B-CD301775F764}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+															</Reference>
+															<Reference>
+																<ObjectRef Name="SMGShotRelease" ID="{DE2975F9-BF63-4A95-A8C0-780AC738B59C}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</RandomSequenceContainer>
+											</ChildrenList>
+										</Folder>
+										<Folder Name="Brick" ID="{AD0418DC-6543-489A-A24B-BE3B64CAB4BD}" ShortID="474483245">
+											<ChildrenList>
+												<Sound Name="brickThrow" ID="{85ACA6B3-9664-4C7A-B106-27171304A044}" ShortID="324363958">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="brickThrow" ID="{DCE66B11-001D-4F77-B4C3-0C6AEA94F2C2}">
+															<Language>SFX</Language>
+															<AudioFile>brickThrow.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="714707450"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="brickThrow" ID="{DCE66B11-001D-4F77-B4C3-0C6AEA94F2C2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="brickFall" ID="{AF16A930-8540-4104-9F95-C04893A4DE92}" ShortID="719729829">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<Custom>
+																<Attenuation Name="Attenuation (Custom)" ID="{9B9BD478-9169-4D97-B861-7AA850D78907}" ShortID="721506202">
+																	<CurveUsageInfoList>
+																		<VolumeDryUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																				<Curve Name="VolumeDry" ID="{764E6314-5FD7-4E9D-AF1A-423382776BDD}">
+																					<PropertyList>
+																						<Property Name="Flags" Type="int32" Value="3"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>0</YPos>
+																							<Flags>5</Flags>
+																						</Point>
+																						<Point>
+																							<XPos>100</XPos>
+																							<YPos>-200</YPos>
+																							<Flags>37</Flags>
+																						</Point>
+																					</PointList>
+																				</Curve>
+																			</CurveUsageInfo>
+																		</VolumeDryUsage>
+																		<VolumeWetGameUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetGameUsage>
+																		<VolumeWetUserUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+																		</VolumeWetUserUsage>
+																		<LowPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</LowPassFilterUsage>
+																		<HighPassFilterUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</HighPassFilterUsage>
+																		<SpreadUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</SpreadUsage>
+																		<FocusUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+																		</FocusUsage>
+																		<ObstructionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionVolumeUsage>
+																		<ObstructionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionLPFUsage>
+																		<ObstructionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</ObstructionHPFUsage>
+																		<OcclusionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionVolumeUsage>
+																		<OcclusionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionLPFUsage>
+																		<OcclusionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</OcclusionHPFUsage>
+																		<DiffractionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionVolumeUsage>
+																		<DiffractionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionLPFUsage>
+																		<DiffractionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</DiffractionHPFUsage>
+																		<TransmissionVolumeUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionVolumeUsage>
+																		<TransmissionLPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionLPFUsage>
+																		<TransmissionHPFUsage>
+																			<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+																		</TransmissionHPFUsage>
+																	</CurveUsageInfoList>
+																</Attenuation>
+															</Custom>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="brickFall" ID="{8FCE433B-677D-46B9-89AD-9BEDA8BEB759}">
+															<Language>SFX</Language>
+															<AudioFile>brickFall.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="198541901"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="brickFall" ID="{8FCE433B-677D-46B9-89AD-9BEDA8BEB759}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</Folder>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="UI" ID="{01C80FC0-115D-4622-9672-C382333A9540}" ShortID="147760304"/>

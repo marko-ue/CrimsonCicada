@@ -11,6 +11,13 @@
     "StaticLib": "AkSilenceSource"
    },
    {
+    "LibName": "Wwise Parametric EQ",
+    "LibId": "6881283",
+    "Type": "Effect",
+    "DLL": "AkParametricEQ",
+    "StaticLib": "AkParametricEQFX"
+   },
+   {
     "LibName": "Wwise Matrix Reverb",
     "LibId": "7536643",
     "Type": "Effect",
@@ -28,6 +35,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{DC60C136-1C88-9776-B63F-E547A5B7E5D8}"
+  "FileHash": "{489FB3CE-5B87-6B12-179B-BB92408BC984}"
  }
 }

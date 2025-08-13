@@ -4,6 +4,14 @@
 		<WorkUnit Name="Default Work Unit" ID="{CE2FC0FF-6AF0-42F4-8656-1FA8908EAF03}" PersistMode="Standalone">
 			<ChildrenList>
 				<Effect Name="New_Matrix_Reverb" ID="{0EDB217C-26D3-4689-A9B9-54EEBBE6A888}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3"/>
+				<Effect Name="New_Parametric_EQ" ID="{2B2E0EF3-2928-4A84-821E-4376CDA4EA0B}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand1" Type="Real32" Value="113"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="12433"/>
+						<Property Name="GainBand1" Type="Real32" Value="-2.5"/>
+						<Property Name="GainBand3" Type="Real32" Value="-8"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

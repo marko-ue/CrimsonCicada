@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{49134A27-5654-489E-9AFE-B24C256C1364}",
     "Language": "SFX",
-    "Hash": "{45A6D031-72FA-C96D-7B75-48F0349B4592}",
+    "Hash": "{DB743026-FD03-2E20-71EF-B975B9FFBD1D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\CrimsonCicadaSoundbank",
     "ShortName": "CrimsonCicadaSoundbank",
     "Path": "CrimsonCicadaSoundbank.bnk",
     "Media": [
+     {
+      "Id": "48475353",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerLand2.wav",
+      "CachePath": "25/{25847075-5707-CDE1-3895-D52A9239D27F}.wem"
+     },
      {
       "Id": "105437372",
       "Language": "SFX",
@@ -40,12 +48,52 @@
       "CachePath": "49/{49424219-D503-D2CB-4611-FFE6E2AA3B1D}.wem"
      },
      {
+      "Id": "198541901",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "brickFall.wav",
+      "CachePath": "9A/{9A1730C3-7E14-DB79-D75A-1020AE1B2D55}.wem"
+     },
+     {
       "Id": "295780984",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "test.wav",
       "CachePath": "92/{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem"
+     },
+     {
+      "Id": "307381799",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ShotgunGunExplosion.wav",
+      "CachePath": "05/{056F528D-D53B-49A9-3443-D9DEFC4FE4EE}.wem"
+     },
+     {
+      "Id": "308580245",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ric4.wav",
+      "CachePath": "E9/{E94001E8-4EBD-5840-FE59-5EF40E25F2D3}.wem"
+     },
+     {
+      "Id": "338987964",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrcDynamiteExplosion.wav",
+      "CachePath": "C8/{C868F070-8C4D-12BE-50D4-9E64806ABB7D}.wem"
+     },
+     {
+      "Id": "371049051",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ShotgunGunShot.wav",
+      "CachePath": "41/{41F05B15-0871-659B-09AB-A54E24F63119}.wem"
      },
      {
       "Id": "378340662",
@@ -56,6 +104,30 @@
       "CachePath": "94/{945737F9-314D-5468-ECDD-7CAFC26B6D7F}.wem"
      },
      {
+      "Id": "546750646",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerLand1.wav",
+      "CachePath": "CB/{CB67CADE-B0FF-BE86-4B5A-08FA8FC36093}.wem"
+     },
+     {
+      "Id": "594455599",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SMGShot.wav",
+      "CachePath": "EE/{EE507682-8F5B-4A8F-CB0A-A549EAE35758}.wem"
+     },
+     {
+      "Id": "602081711",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DDShot.wav",
+      "CachePath": "15/{1525513F-EE95-7AD0-244F-1980A0403BA9}.wem"
+     },
+     {
       "Id": "631261199",
       "Language": "SFX",
       "Streaming": "false",
@@ -64,12 +136,84 @@
       "CachePath": "84/{84FF4FCB-E593-996D-CDA9-DF46B438E6FE}.wem"
      },
      {
+      "Id": "661929221",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ric2.wav",
+      "CachePath": "E1/{E1AE65BC-88A6-F442-BF49-9202C17F3773}.wem"
+     },
+     {
+      "Id": "689640343",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RicRevolverShot.wav",
+      "CachePath": "34/{344B1E0B-827C-A4C1-2D58-4DFDCB266720}.wem"
+     },
+     {
+      "Id": "694153784",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "WeaponSwitch.wav",
+      "CachePath": "FF/{FF181720-8E25-7A37-E213-2DF77BE62464}.wem"
+     },
+     {
+      "Id": "701067724",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ric1.wav",
+      "CachePath": "48/{485D7952-98AA-EBF5-462E-E7BAEBF3F2A1}.wem"
+     },
+     {
+      "Id": "714707450",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "brickThrow.wav",
+      "CachePath": "ED/{EDA56DCA-FC8A-EEF4-0389-39E1621121E8}.wem"
+     },
+     {
+      "Id": "735924955",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrcDynamiteThrow.wav",
+      "CachePath": "51/{514A9EC5-227C-7504-3D21-F258B9FC5D9B}.wem"
+     },
+     {
       "Id": "778070558",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "FSPlayerStone2.wav",
       "CachePath": "E7/{E767C619-4262-1104-1E77-4261C20600A2}.wem"
+     },
+     {
+      "Id": "828045881",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SMGShot - Copie.wav",
+      "CachePath": "E6/{E6FB64B7-5186-1097-2814-9CBFF53848AB}.wem"
+     },
+     {
+      "Id": "859148162",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ric3.wav",
+      "CachePath": "F3/{F3664EB2-04CF-C1A2-036A-F423942AD2FE}.wem"
+     },
+     {
+      "Id": "870692975",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerJump.wav",
+      "CachePath": "69/{69FCD8D1-F199-2F02-C090-EC96248F43F8}.wem"
      }
     ],
     "Plugins": {
@@ -90,9 +234,69 @@
        "LibName": "Wwise Silence",
        "LibId": "6619138"
       }
+     ],
+     "ShareSets": [
+      {
+       "Id": "2547645744",
+       "Name": "Boost_3dB_100Hz",
+       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Shelving EQ\\Low Shelf\\Boost_3dB_100Hz",
+       "GUID": "{3EA7C9BD-6F9A-4000-A227-F86B5B4328EE}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      }
      ]
     },
     "Events": [
+     {
+      "Id": "102976170",
+      "Name": "Play_brickFall",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\Brick\\Play_brickFall",
+      "GUID": "{E69F80EF-3721-4B18-92E5-08B339687628}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5357083",
+      "DurationMax": "0.5357083",
+      "MediaRefs": [
+       {
+        "Id": "198541901"
+       }
+      ]
+     },
+     {
+      "Id": "4132768507",
+      "Name": "Play_brickThrow",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\Brick\\Play_brickThrow",
+      "GUID": "{92A8DAD5-C80E-4811-AD8E-AF593E9A1444}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9375",
+      "DurationMax": "0.9375",
+      "MediaRefs": [
+       {
+        "Id": "714707450"
+       }
+      ]
+     },
+     {
+      "Id": "3925119546",
+      "Name": "Play_DDShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\DD\\Play_DDShot",
+      "GUID": "{09AD5678-C733-44BA-B08C-9424C5AA379C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1785715",
+      "DurationMax": "1.1785715",
+      "MediaRefs": [
+       {
+        "Id": "602081711"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2547645744"
+        }
+       ]
+      }
+     },
      {
       "Id": "1602358412",
       "Name": "Play_Footstep",
@@ -125,6 +329,203 @@
       ]
      },
      {
+      "Id": "4285282925",
+      "Name": "Play_Land",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\JumpLand\\Play_Land",
+      "GUID": "{B7AD9C45-8078-4E70-A7A4-068F028FBEB0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.282417",
+      "DurationMax": "0.38755766",
+      "MediaRefs": [
+       {
+        "Id": "48475353"
+       },
+       {
+        "Id": "546750646"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "980603520",
+        "Name": "Rev",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Rev",
+        "GUID": "{EF03F319-EFA3-4FEE-8934-DAE89B16AD99}"
+       }
+      ]
+     },
+     {
+      "Id": "3817990921",
+      "Name": "Play_PlayerJump",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\JumpLand\\Play_PlayerJump",
+      "GUID": "{321B2B43-2A6B-4E21-9A24-4AF17FA820FC}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.59835726",
+      "DurationMax": "0.6716334",
+      "MediaRefs": [
+       {
+        "Id": "870692975"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "980603520",
+        "Name": "Rev",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Rev",
+        "GUID": "{EF03F319-EFA3-4FEE-8934-DAE89B16AD99}"
+       }
+      ]
+     },
+     {
+      "Id": "422879207",
+      "Name": "Play_PrcDynamiteExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\PrcDynamite\\Play_PrcDynamiteExplosion",
+      "GUID": "{52F0275A-D484-420F-8C23-A159ACABBDB2}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0357144",
+      "DurationMax": "2.0357144",
+      "MediaRefs": [
+       {
+        "Id": "338987964"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2547645744"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3221496742",
+      "Name": "Play_PrcDynamiteThrow",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\PrcDynamite\\Play_PrcDynamiteThrow",
+      "GUID": "{56646725-0FE0-4647-80EA-FFAAB62AEACE}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.125",
+      "DurationMax": "1.125",
+      "MediaRefs": [
+       {
+        "Id": "735924955"
+       }
+      ]
+     },
+     {
+      "Id": "1503718749",
+      "Name": "Play_RicRevolverRic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\RicRevolver\\Play_RicRevolverRic",
+      "GUID": "{B8003E05-9418-41B2-9413-7F7D2B5E29CC}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "0.3210658",
+      "DurationMax": "0.8089899",
+      "MediaRefs": [
+       {
+        "Id": "308580245"
+       },
+       {
+        "Id": "661929221"
+       },
+       {
+        "Id": "701067724"
+       },
+       {
+        "Id": "859148162"
+       }
+      ]
+     },
+     {
+      "Id": "3708816049",
+      "Name": "Play_RicRevolverShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\RicRevolver\\Play_RicRevolverShot",
+      "GUID": "{6B8FDACA-EBD9-44B8-9B4C-A3DF77C4D4AD}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1785625",
+      "DurationMax": "1.1785625",
+      "MediaRefs": [
+       {
+        "Id": "689640343"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2547645744"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "1126517251",
+      "Name": "Play_ShotgunGunExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\ShotgunGun\\Play_ShotgunGunExplosion",
+      "GUID": "{904C3832-21C4-4934-A5D2-3C8B56142B9B}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "2.4642916",
+      "DurationMax": "2.4642916",
+      "MediaRefs": [
+       {
+        "Id": "307381799"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2547645744"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3086975194",
+      "Name": "Play_ShotgunGunShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\ShotgunGun\\Play_ShotgunGunShot",
+      "GUID": "{44653326-0D30-4E02-9DD8-173106072B38}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3928542",
+      "DurationMax": "1.3928542",
+      "MediaRefs": [
+       {
+        "Id": "371049051"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2547645744"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3385490737",
+      "Name": "Play_SMGShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\SMG\\Play_SMGShot",
+      "GUID": "{ECC1E05D-61F8-49D2-A469-60E1446CED32}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "594455599"
+       }
+      ]
+     },
+     {
+      "Id": "3415310096",
+      "Name": "Play_SMGShotRelease",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\SMG\\Play_SMGShotRelease",
+      "GUID": "{675393FC-4AC3-4FB3-BB9B-72666CB5F97A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.70977014",
+      "DurationMax": "0.70977014",
+      "MediaRefs": [
+       {
+        "Id": "828045881"
+       }
+      ]
+     },
+     {
       "Id": "3187507146",
       "Name": "Play_test",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_test",
@@ -135,6 +536,20 @@
       "MediaRefs": [
        {
         "Id": "295780984"
+       }
+      ]
+     },
+     {
+      "Id": "1765978458",
+      "Name": "Play_WeaponSwitch",
+      "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Player\\Weapons\\Play_WeaponSwitch",
+      "GUID": "{FA2FB975-BF6A-4DD8-BEB9-40068FD86FB0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.26339585",
+      "DurationMax": "0.26339585",
+      "MediaRefs": [
+       {
+        "Id": "694153784"
        }
       ]
      },
@@ -176,6 +591,6 @@
     ]
    }
   ],
-  "FileHash": "{D29D3E58-31F8-CFE1-3E7B-1EF3D1C1F1DB}"
+  "FileHash": "{84BF65C4-162A-D0C2-65BC-93C8EB85E276}"
  }
 }

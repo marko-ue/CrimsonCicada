@@ -17,6 +17,34 @@
 							<ObjectRef Name="Play_Footstep" ID="{E19F522D-DAEE-4000-813B-3D04734C1DFF}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
 							<Position X="1" Y="0"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="PlayerJump" ID="{72F13E11-F315-4EB6-8B20-6CC8E5CFF303}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Land" ID="{4A61737A-82E8-4C17-BD9C-25795A2BCAE2}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_SMGShotRelease" ID="{675393FC-4AC3-4FB3-BB9B-72666CB5F97A}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_DDShot" ID="{09AD5678-C733-44BA-B08C-9424C5AA379C}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="RicRevolverRic" ID="{C16C18C7-9844-4B1C-BB82-8C6FBB068ED1}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_SMGShot" ID="{ECC1E05D-61F8-49D2-A469-60E1446CED32}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="RicRevolverShot" ID="{D8F121E2-2863-4F3E-AB79-25C6D89DD0BB}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+							<Position X="3" Y="2"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>

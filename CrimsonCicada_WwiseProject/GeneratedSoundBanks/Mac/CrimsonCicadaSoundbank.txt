@@ -1,19 +1,54 @@
 Event	ID	Name			Wwise Object Path	Notes
+	102976170	Play_brickFall			\Default Work Unit\Sfx\Player\Weapons\Brick\Play_brickFall	
+	422879207	Play_PrcDynamiteExplosion			\Default Work Unit\Sfx\Player\Weapons\PrcDynamite\Play_PrcDynamiteExplosion	
 	1020223172	Play_Wind			\Default Work Unit\Sfx\Env\Play_Wind	
+	1126517251	Play_ShotgunGunExplosion			\Default Work Unit\Sfx\Player\Weapons\ShotgunGun\Play_ShotgunGunExplosion	
+	1503718749	Play_RicRevolverRic			\Default Work Unit\Sfx\Player\Weapons\RicRevolver\Play_RicRevolverRic	
 	1602358412	Play_Footstep			\Default Work Unit\Sfx\Player\Play_Footstep	
+	1765978458	Play_WeaponSwitch			\Default Work Unit\Sfx\Player\Weapons\Play_WeaponSwitch	
+	3086975194	Play_ShotgunGunShot			\Default Work Unit\Sfx\Player\Weapons\ShotgunGun\Play_ShotgunGunShot	
 	3173136834	Stop_Wind			\Default Work Unit\Sfx\Env\Stop_Wind	
 	3187507146	Play_test			\Default Work Unit\Play_test	
+	3221496742	Play_PrcDynamiteThrow			\Default Work Unit\Sfx\Player\Weapons\PrcDynamite\Play_PrcDynamiteThrow	
+	3385490737	Play_SMGShot			\Default Work Unit\Sfx\Player\Weapons\SMG\Play_SMGShot	
+	3415310096	Play_SMGShotRelease			\Default Work Unit\Sfx\Player\Weapons\SMG\Play_SMGShotRelease	
+	3708816049	Play_RicRevolverShot			\Default Work Unit\Sfx\Player\Weapons\RicRevolver\Play_RicRevolverShot	
+	3817990921	Play_PlayerJump			\Default Work Unit\Sfx\Player\JumpLand\Play_PlayerJump	
+	3925119546	Play_DDShot			\Default Work Unit\Sfx\Player\Weapons\DD\Play_DDShot	
+	4132768507	Play_brickThrow			\Default Work Unit\Sfx\Player\Weapons\Brick\Play_brickThrow	
+	4285282925	Play_Land			\Default Work Unit\Sfx\Player\JumpLand\Play_Land	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2547645744	Boost_3dB_100Hz	Wwise Parametric EQ			
 
 Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	397972852	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\New Silence_01\Silence	
 	977811858	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\New Silence\Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	105437372	AmbWind	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\1B\{1B0C273F-2A36-3014-570A-B7C344934FD3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\AmbWind		2180924
-	157165222	FSPlayerStone4	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\5E\{5E51D405-4DF5-FB78-2B32-A96022EAA19F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone4		50052
-	186863569	FSPlayerStone1	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\49\{49424219-D503-D2CB-4611-FFE6E2AA3B1D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone1		47020
-	295780984	test	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\92\{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		288224
-	378340662	randomwind	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\94\{945737F9-314D-5468-ECDD-7CAFC26B6D7F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\randomwind		1568844
-	631261199	FSPlayerStone3	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\84\{84FF4FCB-E593-996D-CDA9-DF46B438E6FE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone3		42960
-	778070558	FSPlayerStone2	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\E7\{E767C619-4262-1104-1E77-4261C20600A2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone2		46688
+	48475353	PlayerLand2	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\25\{25847075-5707-CDE1-3895-D52A9239D27F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\JumpLand\Land\PlayerLand2		62892
+	105437372	AmbWind	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\1B\{1B0C273F-2A36-3014-570A-B7C344934FD3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\AmbWind		2180924
+	157165222	FSPlayerStone4	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\5E\{5E51D405-4DF5-FB78-2B32-A96022EAA19F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone4		50052
+	186863569	FSPlayerStone1	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\49\{49424219-D503-D2CB-4611-FFE6E2AA3B1D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone1		47020
+	198541901	brickFall	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\9A\{9A1730C3-7E14-DB79-D75A-1020AE1B2D55}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\Brick\brickFall		103432
+	295780984	test	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\92\{92C478E3-CDD2-EE2A-DCC4-0742088AF919}.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		288224
+	307381799	ShotgunGunExplosion	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\05\{056F528D-D53B-49A9-3443-D9DEFC4FE4EE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\ShotgunGun\ShotgunGunExplosion		473560
+	308580245	ric4	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\E9\{E94001E8-4EBD-5840-FE59-5EF40E25F2D3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\RicRevolver\RicRevolverRic\ric4		102616
+	338987964	PrcDynamiteExplosion	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\C8\{C868F070-8C4D-12BE-50D4-9E64806ABB7D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\PrcDynamite\PrcDynamiteExplosion		359404
+	371049051	ShotgunGunShot	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\41\{41F05B15-0871-659B-09AB-A54E24F63119}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\ShotgunGun\ShotgunGunShot		267748
+	378340662	randomwind	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\94\{945737F9-314D-5468-ECDD-7CAFC26B6D7F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Env\Wind\Rdmwind\randomwind		1568844
+	546750646	PlayerLand1	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\CB\{CB67CADE-B0FF-BE86-4B5A-08FA8FC36093}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\JumpLand\Land\PlayerLand1		58604
+	594455599	SMGShot	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\EE\{EE507682-8F5B-4A8F-CB0A-A549EAE35758}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\SMG\Shot\SMGShot		291536
+	602081711	DDShot	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\15\{1525513F-EE95-7AD0-244F-1980A0403BA9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\DD\DDShot		208492
+	631261199	FSPlayerStone3	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\84\{84FF4FCB-E593-996D-CDA9-DF46B438E6FE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone3		42960
+	661929221	ric2	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\E1\{E1AE65BC-88A6-F442-BF49-9202C17F3773}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\RicRevolver\RicRevolverRic\ric2		75840
+	689640343	RicRevolverShot	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\34\{344B1E0B-827C-A4C1-2D58-4DFDCB266720}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\RicRevolver\RicRevolverShot		226604
+	694153784	WeaponSwitch	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\FF\{FF181720-8E25-7A37-E213-2DF77BE62464}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\WeaponSwitch\WeaponSwitch		50828
+	701067724	ric1	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\48\{485D7952-98AA-EBF5-462E-E7BAEBF3F2A1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\RicRevolver\RicRevolverRic\ric1		75840
+	714707450	brickThrow	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\ED\{EDA56DCA-FC8A-EEF4-0389-39E1621121E8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\Brick\brickThrow		180272
+	735924955	PrcDynamiteThrow	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\51\{514A9EC5-227C-7504-3D21-F258B9FC5D9B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\PrcDynamite\PrcDynamiteThrow		216288
+	778070558	FSPlayerStone2	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\E7\{E767C619-4262-1104-1E77-4261C20600A2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Footstep\FSPlayerStone2		46688
+	828045881	SMGShotRelease	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\E6\{E6FB64B7-5186-1097-2814-9CBFF53848AB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\SMG\Shot\SMGShotRelease		139520
+	859148162	ric3	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\F3\{F3664EB2-04CF-C1A2-036A-F423942AD2FE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\RicRevolver\RicRevolverRic\ric3		101828
+	870692975	PlayerJump	A:\Crimson Cicada\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\69\{69FCD8D1-F199-2F02-C090-EC96248F43F8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\JumpLand\Jump\PlayerJump		121956
 
