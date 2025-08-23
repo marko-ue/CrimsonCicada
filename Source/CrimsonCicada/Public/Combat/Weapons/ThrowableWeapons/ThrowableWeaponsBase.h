@@ -29,7 +29,7 @@ public:
 protected:
 	virtual void AddWeaponToInventory(EWeapon WeaponToAdd) override;
 	
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 	bool bShouldCheckForCollisions{ false };
 
 	UPROPERTY(EditAnywhere, Category = "Throw Settings")
@@ -63,4 +63,9 @@ public:
 	FVector StoredVelocity;
 
 	void FreezePhysics(bool bShouldFreeze);
+
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* WeaponThrowSound;
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* WeaponFallSound;
 };

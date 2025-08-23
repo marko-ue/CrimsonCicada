@@ -66,3 +66,4 @@ void ATW_ShotgunGun::OnFired()
 {
 	Destroy();
 }
+

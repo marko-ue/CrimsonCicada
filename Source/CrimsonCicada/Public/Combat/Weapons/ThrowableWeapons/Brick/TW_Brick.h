@@ -27,6 +27,7 @@ protected:
 private:
 	virtual void PlayThrowFlipbook(float RemoveFlipbookDelay) override;
 
-
+	UFUNCTION()
+	void SetShouldCheckForCollisions(bool ShouldCheckForCollisions);
 	
 };

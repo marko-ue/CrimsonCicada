@@ -90,4 +90,5 @@ void AThrowableWeaponsBase::HandleWeaponThrown()
 	InventoryComp->EquippedWeapon = nullptr;
 	WeaponMesh->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
 	bCanBeEquipped = false;
+	UAkGameplayStatics::PostEvent(WeaponThrowSound, this, 0, FOnAkPostEventCallback());
 }

@@ -44,5 +44,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsFiring;
 
+	UPROPERTY(VisibleAnywhere, Category = "Sounds")
+	UAkAudioEvent* SMGShootStopSound;
 	
 };

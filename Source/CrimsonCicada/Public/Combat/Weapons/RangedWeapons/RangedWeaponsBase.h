@@ -81,4 +81,10 @@ protected:
 public:
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsBulletStasisSpellActive{ false };
+
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* WeaponShootSound;
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* WeaponReloadSound;
+	
 };

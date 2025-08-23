@@ -42,6 +42,9 @@ void ATW_PercussionDynamite::PlayThrowFlipbook(float RemoveFlipbookDelay)
 void ATW_PercussionDynamite::Explode()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Exploded"));
+	
+	UAkGameplayStatics::PostEvent(WeaponFallSound, this, 0, FOnAkPostEventCallback());
+	
 	TArray<AActor*> IgnoredActors;
 	
 	UGameplayStatics::ApplyRadialDamage(GetWorld(), ExplosionDamage, WeaponMesh->GetComponentLocation(), DamageRadius,

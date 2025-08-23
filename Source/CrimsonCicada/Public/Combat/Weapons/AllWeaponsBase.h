@@ -12,6 +12,8 @@
 #include "PaperFlipbook.h"
 #include "Camera/CameraComponent.h"
 #include "Interfaces/Damageable.h"
+#include "AkAudioEvent.h"
+#include "AkGameplayStatics.h"
 #include "AllWeaponsBase.generated.h"
 
 UCLASS()
@@ -110,4 +112,9 @@ public:
 	
 	float UnequipTimerDelay{ 0.3f };
 	//
+
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* WeaponEquipSound;
+	UPROPERTY(EditAnywhere, Category="Sounds")
+	UAkAudioEvent* WeaponUnequipSound;
 };

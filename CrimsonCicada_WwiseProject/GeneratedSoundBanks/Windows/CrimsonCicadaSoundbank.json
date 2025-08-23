@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{49134A27-5654-489E-9AFE-B24C256C1364}",
     "Language": "SFX",
-    "Hash": "{DB743026-FD03-2E20-71EF-B975B9FFBD1D}",
+    "Hash": "{86665397-79E5-BC65-72FD-7435F0AA47ED}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\CrimsonCicadaSoundbank",
     "ShortName": "CrimsonCicadaSoundbank",
     "Path": "CrimsonCicadaSoundbank.bnk",
@@ -69,7 +69,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunGunExplosion.wav",
-      "CachePath": "05/{056F528D-D53B-49A9-3443-D9DEFC4FE4EE}.wem"
+      "CachePath": "39/{3922442F-7235-EA42-02CC-4FDB1C00618E}.wem"
      },
      {
       "Id": "308580245",
@@ -77,7 +77,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ric4.wav",
-      "CachePath": "E9/{E94001E8-4EBD-5840-FE59-5EF40E25F2D3}.wem"
+      "CachePath": "C2/{C228BB38-3BA0-B307-8EC8-AEEB7082FFD0}.wem"
      },
      {
       "Id": "338987964",
@@ -93,7 +93,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunGunShot.wav",
-      "CachePath": "41/{41F05B15-0871-659B-09AB-A54E24F63119}.wem"
+      "CachePath": "F7/{F7259F56-EC39-46C0-61FE-F3C4DFBAA9FA}.wem"
      },
      {
       "Id": "378340662",
@@ -117,7 +117,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "SMGShot.wav",
-      "CachePath": "EE/{EE507682-8F5B-4A8F-CB0A-A549EAE35758}.wem"
+      "CachePath": "E0/{E01D57B9-F33D-531F-911F-BCD9C7CC6EC1}.wem"
      },
      {
       "Id": "602081711",
@@ -141,7 +141,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ric2.wav",
-      "CachePath": "E1/{E1AE65BC-88A6-F442-BF49-9202C17F3773}.wem"
+      "CachePath": "62/{62EC3F73-244A-3140-6C77-10153094C7F3}.wem"
      },
      {
       "Id": "689640343",
@@ -149,7 +149,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "RicRevolverShot.wav",
-      "CachePath": "34/{344B1E0B-827C-A4C1-2D58-4DFDCB266720}.wem"
+      "CachePath": "7B/{7B56F60E-CEAA-4108-85AE-535B455EE488}.wem"
      },
      {
       "Id": "694153784",
@@ -165,7 +165,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ric1.wav",
-      "CachePath": "48/{485D7952-98AA-EBF5-462E-E7BAEBF3F2A1}.wem"
+      "CachePath": "84/{84E41F2A-07A8-7D84-B7D2-19ED3EB5D2AB}.wem"
      },
      {
       "Id": "714707450",
@@ -197,7 +197,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "SMGShot - Copie.wav",
-      "CachePath": "E6/{E6FB64B7-5186-1097-2814-9CBFF53848AB}.wem"
+      "CachePath": "4A/{4AF777A3-DD72-0BA5-740A-6A45DD703C30}.wem"
      },
      {
       "Id": "859148162",
@@ -205,7 +205,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ric3.wav",
-      "CachePath": "F3/{F3664EB2-04CF-C1A2-036A-F423942AD2FE}.wem"
+      "CachePath": "3A/{3A3F8657-D70B-3B6C-FD8D-8E5586C9B70F}.wem"
      },
      {
       "Id": "870692975",
@@ -591,6 +591,6 @@
     ]
    }
   ],
-  "FileHash": "{CDDEC649-E9F6-B827-11CF-98C295571D0A}"
+  "FileHash": "{9C7562FF-CAFA-1F64-A692-3BB3EEFF62EB}"
  }
 }

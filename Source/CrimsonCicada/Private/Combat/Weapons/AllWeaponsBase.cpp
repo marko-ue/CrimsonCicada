@@ -2,6 +2,8 @@
 
 
 #include "Combat/Weapons/AllWeaponsBase.h"
+
+#include "AkComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Characters/MainCharacter/CicadaMainCharacter.h"
 #include "GameFramework/Character.h"
@@ -27,6 +29,7 @@ void AAllWeaponsBase::BeginPlay()
 	WeaponFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponFlipbook")));
 	SpellFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("SpellFlipbook")));
 	WeaponDuelWieldFlipbookComp = Cast<UPaperFlipbookComponent>(GetWorld()->GetFirstPlayerController()->GetPawn()->GetDefaultSubobjectByName(TEXT("WeaponDuelWieldFlipbook")));
+	
 }
 
 // Called every frame

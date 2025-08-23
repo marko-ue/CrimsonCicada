@@ -3,6 +3,7 @@
 
 #include "Combat/Weapons/RangedWeapons/RangedWeaponsBase.h"
 
+
 #include "CollisionDebugDrawingPublic.h"
 
 ARangedWeaponsBase::ARangedWeaponsBase()
@@ -86,6 +87,15 @@ void ARangedWeaponsBase::PlayShootFlipbook(float InactivityDelay)
 	{
 		WeaponFlipbookComp->SetFlipbook(ShootFlipbook);
 		WeaponFlipbookComp->PlayFromStart();
+		
+		if (ARangedWeaponsBase* RangedWeapon = Cast<ARangedWeaponsBase>(InventoryComp->EquippedWeapon))
+		{
+			if (RangedWeapon->bIsAutomatic != true)
+			{
+				UAkGameplayStatics::PostEvent(WeaponShootSound, GetWorld()->GetFirstPlayerController()->GetPawn(), 0, FOnAkPostEventCallback());
+			}
+		}
+		
 		// Check if dual wield spell is active
 		if (!bIsDualWieldSpellActive)
 		{

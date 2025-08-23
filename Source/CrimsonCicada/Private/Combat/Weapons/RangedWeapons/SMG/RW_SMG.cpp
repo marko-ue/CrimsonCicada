@@ -56,6 +56,11 @@ void ARW_SMG::PerformPrimaryActionAutomatic()
 			}
 		}
 	}
+
+	if (AmmoInClip <= 0)
+	{
+		StopAutomaticFire();
+	}
 }
 
 void ARW_SMG::PerformPrimaryAction()
@@ -66,11 +71,17 @@ void ARW_SMG::PerformPrimaryAction()
 void ARW_SMG::StartAutomaticFire()
 {
 	// Allows the player to hold down the input and have the weapon shoot automatically through the timer
-	if (!GetWorld()->GetTimerManager().IsTimerActive(AutomaticFireTimerHandle))
+	if (!GetWorld()->GetTimerManager().IsTimerActive(AutomaticFireTimerHandle) && !bIsWeaponActive)
 	{
 		PerformPrimaryActionAutomatic();
 
 		bIsFiring = true;
+
+		if (AmmoInClip >= 1)
+		{
+			UAkGameplayStatics::PostEvent(WeaponShootSound, GetWorld()->GetFirstPlayerController()->GetPawn(), 0, FOnAkPostEventCallback());
+		}
+		
 		
 		GetWorld()->GetTimerManager().SetTimer(
 			AutomaticFireTimerHandle,
@@ -87,6 +98,7 @@ void ARW_SMG::StopAutomaticFire()
 	// Stops the looping timer for shooting when input released
 	GetWorld()->GetTimerManager().ClearTimer(AutomaticFireTimerHandle);
 	bIsWeaponActive = false;
+	UAkGameplayStatics::StopActor(GetWorld()->GetFirstPlayerController()->GetPawn());
 }
 
 void ARW_SMG::Reload(float InactivityDelay)
