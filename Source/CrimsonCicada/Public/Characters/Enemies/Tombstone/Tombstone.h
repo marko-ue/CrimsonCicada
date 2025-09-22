@@ -25,6 +25,8 @@ public:
 	virtual UBehaviorTree* GetBehaviorTree() const override;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tombstone")
 	UAnimMontage* SwingMontage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tombstone")
+	UAnimMontage* PushMontage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tombstone")
 	float SwingRange;
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadWrite, Category = "Tombstone")
@@ -34,6 +36,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Tombstone")
 	bool bTargetTooClose = false;
 	void StartAttack();
+	void PushTargetAway(AActor* Target);
+	UPROPERTY(EditAnywhere)
+	float AttackRange = 600.0f;
+	UPROPERTY(EditAnywhere)
+	float MaxAttackRange = 600.0f;
+	UPROPERTY(EditAnywhere)
+	float MinimumAttackRange = 450.0f;
+
 private:
 	virtual void DealDamage(float DamageAmount) override;
 };
