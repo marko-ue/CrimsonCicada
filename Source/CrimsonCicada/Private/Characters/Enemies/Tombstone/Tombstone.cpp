@@ -7,7 +7,6 @@
 #include "AI/Tombstone/TombstoneAIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "Perception/AISenseConfig_Sight.h"
 #include "Engine/DamageEvents.h"
 
 ATombstone::ATombstone()
@@ -19,6 +18,8 @@ ATombstone::ATombstone()
 		CustomBehaviorTree = BT_TombstoneObj.Object;
 	}
 	GetCharacterMovement()->MaxWalkSpeed = 150.0f;
+	
+	
 }
 
 void ATombstone::BeginPlay()
@@ -37,7 +38,13 @@ void ATombstone::Tick(float DeltaTime)
 	if (Target)
 	{
 		float Distance = GetDistanceTo(Target);
-		bool bInAttackRange = Distance <= 250.0f;
+		bool bInAttackRange = Distance >= MinimumAttackRange && Distance <= MaxAttackRange;
+		if (Distance < MinimumAttackRange)
+		{
+			PushTargetAway(Target);
+			return; 
+		}
+		
 		if (bInAttackRange)
 		{
 			
@@ -64,14 +71,14 @@ UBehaviorTree* ATombstone::GetBehaviorTree() const
 
 void ATombstone::StartAttack()
 {
+	
 	ATombstoneAIController* TombstoneAiController = Cast<ATombstoneAIController>(GetController());
 	if (!TombstoneAiController) return;
 
 	AActor* Target = TombstoneAiController->CurrentTarget;
-	if (Target && GetDistanceTo(Target) <= 250.0f)
+	if (Target && GetDistanceTo(Target) <= MinimumAttackRange)
 	{
 		bIsAttacking = true;
-
 		if (SwingMontage && GetMesh() && GetMesh()->GetAnimInstance())
 		{
 			
@@ -84,6 +91,32 @@ void ATombstone::StartAttack()
 	else
 	{
 		bIsAttacking = false;
+	}
+}
+
+void ATombstone::PushTargetAway(AActor* Target)
+{
+	FVector Direction = (Target->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+	FVector PushLocation = GetActorLocation() + Direction * MaxAttackRange;
+	ACharacter* TargetCharacter = Cast<ACharacter>(GetController());
+	ATombstoneAIController* TombstoneController = Cast<ATombstoneAIController>(GetController());
+	UBlackboardComponent* Blackboard = TombstoneController->GetBlackboardComponent();
+	float Distance = GetDistanceTo(Target);
+	if (TargetCharacter && Distance <= AttackRange)
+	{
+		Blackboard->SetValueAsBool(TEXT("IsTooClose"), true);
+		FVector PushForce = Direction * 60.0f + FVector(100.0f, 0.0f ,0.0f);
+		TargetCharacter->LaunchCharacter(PushForce, true ,true);
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		AnimInstance->Montage_Stop(0.1f);
+		AnimInstance->Montage_Play(PushMontage , 1.0f);
+		
+	}
+	else
+	{
+		Blackboard->SetValueAsBool(TEXT("IsTooClose"), false);
+		Target->SetActorLocation(PushLocation);
+		
 	}
 }
 
