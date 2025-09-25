@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{49134A27-5654-489E-9AFE-B24C256C1364}",
     "Language": "SFX",
-    "Hash": "{86665397-79E5-BC65-72FD-7435F0AA47ED}",
+    "Hash": "{CD79F576-8754-8A41-D385-098DCEA2611C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\CrimsonCicadaSoundbank",
     "ShortName": "CrimsonCicadaSoundbank",
     "Path": "CrimsonCicadaSoundbank.bnk",
@@ -214,6 +214,14 @@
       "Location": "Memory",
       "ShortName": "PlayerJump.wav",
       "CachePath": "69/{69FCD8D1-F199-2F02-C090-EC96248F43F8}.wem"
+     },
+     {
+      "Id": "953048464",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "techno cicadaa.wav",
+      "CachePath": "70/{70564D64-BCB6-07D2-A7F4-296B21295731}.wem"
      }
     ],
     "Plugins": {
@@ -526,6 +534,18 @@
       ]
      },
      {
+      "Id": "39513904",
+      "Name": "Play_techno_cicadaa",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_techno_cicadaa",
+      "GUID": "{6364B201-0D1C-411C-BAF3-32A74FCC447F}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "953048464"
+       }
+      ]
+     },
+     {
       "Id": "3187507146",
       "Name": "Play_test",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_test",
@@ -579,6 +599,16 @@
       }
      },
      {
+      "Id": "2033488246",
+      "Name": "Stop_techno_cicadaa",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Stop_techno_cicadaa",
+      "GUID": "{9E33C09E-FD14-4FE9-B253-6C7FEF009385}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "3173136834",
       "Name": "Stop_Wind",
       "ObjectPath": "\\Events\\Default Work Unit\\Sfx\\Env\\Stop_Wind",
@@ -591,6 +621,6 @@
     ]
    }
   ],
-  "FileHash": "{9C7562FF-CAFA-1F64-A692-3BB3EEFF62EB}"
+  "FileHash": "{A8EA073B-CDFC-A143-DA8C-8C188D61B0CC}"
  }
 }

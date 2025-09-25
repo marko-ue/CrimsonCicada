@@ -96,7 +96,7 @@ void ATombstone::StartAttack()
 
 void ATombstone::PushTargetAway(AActor* Target)
 {
-	FVector Direction = (Target->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+	/*FVector Direction = (Target->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 	FVector PushLocation = GetActorLocation() + Direction * MaxAttackRange;
 	ACharacter* TargetCharacter = Cast<ACharacter>(GetController());
 	ATombstoneAIController* TombstoneController = Cast<ATombstoneAIController>(GetController());
@@ -117,7 +117,7 @@ void ATombstone::PushTargetAway(AActor* Target)
 		Blackboard->SetValueAsBool(TEXT("IsTooClose"), false);
 		Target->SetActorLocation(PushLocation);
 		
-	}
+	}*/
 }
 
 

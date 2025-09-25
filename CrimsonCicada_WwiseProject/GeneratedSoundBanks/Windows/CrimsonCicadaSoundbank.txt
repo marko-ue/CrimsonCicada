@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	39513904	Play_techno_cicadaa			\Default Work Unit\Music\Play_techno_cicadaa	
 	102976170	Play_brickFall			\Default Work Unit\Sfx\Player\Weapons\Brick\Play_brickFall	
 	422879207	Play_PrcDynamiteExplosion			\Default Work Unit\Sfx\Player\Weapons\PrcDynamite\Play_PrcDynamiteExplosion	
 	1020223172	Play_Wind			\Default Work Unit\Sfx\Env\Play_Wind	
@@ -6,6 +7,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1503718749	Play_RicRevolverRic			\Default Work Unit\Sfx\Player\Weapons\RicRevolver\Play_RicRevolverRic	
 	1602358412	Play_Footstep			\Default Work Unit\Sfx\Player\Play_Footstep	
 	1765978458	Play_WeaponSwitch			\Default Work Unit\Sfx\Player\Weapons\Play_WeaponSwitch	
+	2033488246	Stop_techno_cicadaa			\Default Work Unit\Music\Stop_techno_cicadaa	
 	3086975194	Play_ShotgunGunShot			\Default Work Unit\Sfx\Player\Weapons\ShotgunGun\Play_ShotgunGunShot	
 	3173136834	Stop_Wind			\Default Work Unit\Sfx\Env\Stop_Wind	
 	3187507146	Play_test			\Default Work Unit\Play_test	
@@ -51,4 +53,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	828045881	SMGShotRelease	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\4A\{4AF777A3-DD72-0BA5-740A-6A45DD703C30}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\SMG\Shot\SMGShotRelease		139520
 	859148162	ric3	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\3A\{3A3F8657-D70B-3B6C-FD8D-8E5586C9B70F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\Weapons\RicRevolver\RicRevolverRic\ric3		101828
 	870692975	PlayerJump	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\69\{69FCD8D1-F199-2F02-C090-EC96248F43F8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sfx\Player\JumpLand\Jump\PlayerJump		121956
+	953048464	techno cicadaa	E:\UnrealProjects\CrimsonCicada\CrimsonCicada_WwiseProject\.cache\70\{70564D64-BCB6-07D2-A7F4-296B21295731}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\techno cicadaa		10603768
 
