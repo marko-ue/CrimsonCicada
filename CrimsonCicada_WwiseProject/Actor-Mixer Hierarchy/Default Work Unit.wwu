@@ -1738,7 +1738,44 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Music" ID="{81A4945B-5DDC-49F5-8176-216F841043A3}" ShortID="449851407"/>
+				<Folder Name="Music" ID="{81A4945B-5DDC-49F5-8176-216F841043A3}" ShortID="449851407">
+					<ChildrenList>
+						<Sound Name="techno cicadaa" ID="{FABF73EA-4C5F-4224-A243-A0B3A69A36DC}" ShortID="1071939145">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{7F930EFF-6841-474E-86CF-6DC24821AFF2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CA686307-0F58-4CAC-AF99-D2B136746769}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="techno cicadaa" ID="{CCC9959A-CF2B-4471-A3B6-30BA6084C144}">
+									<PropertyList>
+										<Property Name="LoopEnd" Type="Real64" Value="55.0819375"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>techno cicadaa.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="953048464"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="techno cicadaa" ID="{CCC9959A-CF2B-4471-A3B6-30BA6084C144}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

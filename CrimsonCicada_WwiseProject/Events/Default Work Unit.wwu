@@ -14,7 +14,35 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Folder Name="Music" ID="{B427CDAF-D5FC-41A1-9226-FDB771DBBA6C}" ShortID="527593056"/>
+				<Folder Name="Music" ID="{B427CDAF-D5FC-41A1-9226-FDB771DBBA6C}" ShortID="527593056">
+					<ChildrenList>
+						<Event Name="Play_techno_cicadaa" ID="{6364B201-0D1C-411C-BAF3-32A74FCC447F}">
+							<ChildrenList>
+								<Action Name="" ID="{811D400E-CF63-4C3B-9437-084DE22712F0}" ShortID="1007101326">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="techno cicadaa" ID="{FABF73EA-4C5F-4224-A243-A0B3A69A36DC}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_techno_cicadaa" ID="{9E33C09E-FD14-4FE9-B253-6C7FEF009385}">
+							<ChildrenList>
+								<Action Name="" ID="{6656ECB0-8405-47A7-8CB5-78D3F7DD0A63}" ShortID="1003717584">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="techno cicadaa" ID="{FABF73EA-4C5F-4224-A243-A0B3A69A36DC}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 				<Folder Name="Sfx" ID="{33A08ED6-8CED-41F0-8FCE-6A315FB893CF}" ShortID="948553250">
 					<ChildrenList>
 						<Folder Name="Sfx" ID="{8866508B-91D0-481B-A3A9-40EB9D069D5D}" ShortID="1032120712"/>

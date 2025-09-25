@@ -42,8 +42,16 @@
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_techno_cicadaa" ID="{6364B201-0D1C-411C-BAF3-32A74FCC447F}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="RicRevolverShot" ID="{D8F121E2-2863-4F3E-AB79-25C6D89DD0BB}" WorkUnitID="{4C1B75AB-7CB9-4C00-82FB-0D1261BBFECA}"/>
 							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_techno_cicadaa" ID="{9E33C09E-FD14-4FE9-B253-6C7FEF009385}" WorkUnitID="{5CAEB8C8-5971-4C76-BCCD-A7266F3F887E}"/>
+							<Position X="4" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
