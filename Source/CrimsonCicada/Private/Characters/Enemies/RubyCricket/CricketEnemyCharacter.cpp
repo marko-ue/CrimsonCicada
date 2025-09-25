@@ -14,7 +14,7 @@ ACricketEnemyCharacter::ACricketEnemyCharacter()
 	GetCharacterMovement()->bUseControllerDesiredRotation = false;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BT_CricketObj(TEXT("/Game/AI/BT_Cricket.BT_Cricket"));
+	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BT_CricketObj(TEXT("/Game/AI/Cricket/BT_Cricket.BT_Cricket"));
 	if (BT_CricketObj.Succeeded())
 	{
 		CustomBehaviorTree = BT_CricketObj.Object;

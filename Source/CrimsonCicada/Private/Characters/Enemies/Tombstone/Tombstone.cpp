@@ -12,7 +12,7 @@
 ATombstone::ATombstone()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BT_TombstoneObj(TEXT("/Game/AI/BT/Tombstone.BT_Tombstone"));
+	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BT_TombstoneObj(TEXT("/Game/AI/Tombstone/BT_Tombstone.BT_Tombstone"));
 	if (BT_TombstoneObj.Succeeded())
 	{
 		CustomBehaviorTree = BT_TombstoneObj.Object;
